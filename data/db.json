@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": {
-        "default": "Table 1",
+        "th": "Table 1",
         "en": "Table 1"
       },
       "defaultSize": 4
@@ -11,7 +11,7 @@
     {
       "id": "2",
       "name": {
-        "default": "Table 2",
+        "th": "Table 2",
         "en": "Table 2"
       },
       "defaultSize": 2
@@ -19,7 +19,7 @@
     {
       "id": "3",
       "name": {
-        "default": "Table 3",
+        "th": "Table 3",
         "en": "Table 3"
       },
       "defaultSize": 6
@@ -29,14 +29,14 @@
     {
       "id": "1",
       "name": {
-        "default": "Category 1",
+        "th": "Category 1",
         "en": "Category 1"
       }
     },
     {
       "id": "2",
       "name": {
-        "default": "Category 2",
+        "th": "Category 2",
         "en": "Category 2"
       }
     }
@@ -45,7 +45,7 @@
     {
       "id": "1",
       "name": {
-        "default": "Item 1",
+        "th": "Item 1",
         "en": "Item 1"
       },
       "price": 10,
@@ -55,7 +55,7 @@
     {
       "id": "2",
       "name": {
-        "default": "Item 2",
+        "th": "Item 2",
         "en": "Item 2"
       },
       "price": 20,
@@ -65,7 +65,7 @@
     {
       "id": "3",
       "name": {
-        "default": "Item 3",
+        "th": "Item 3",
         "en": "Item 3"
       },
       "price": 30,
@@ -75,7 +75,7 @@
     {
       "id": "4",
       "name": {
-        "default": "Item 4",
+        "th": "Item 4",
         "en": "Item 4"
       },
       "price": 40,
@@ -110,6 +110,18 @@
         }
       ],
       "totalPrice": 40,
+      "status": "closed"
+    }
+  ],
+  "service-calls": [
+    {
+      "id": "1",
+      "tableId": "1",
+      "status": "open"
+    },
+    {
+      "id": "2",
+      "tableId": "2",
       "status": "closed"
     }
   ]
