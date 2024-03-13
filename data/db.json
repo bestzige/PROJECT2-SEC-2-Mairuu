@@ -31,14 +31,16 @@
       "name": {
         "th": "Category 1",
         "en": "Category 1"
-      }
+      },
+      "image": "https://www.google.com"
     },
     {
       "id": "2",
       "name": {
         "th": "Category 2",
         "en": "Category 2"
-      }
+      },
+      "image": "https://www.google.com"
     }
   ],
   "items": [
@@ -50,7 +52,8 @@
       },
       "price": 10,
       "stock": 10,
-      "categoryId": "1"
+      "categoryId": "1",
+      "image": "https://www.google.com"
     },
     {
       "id": "2",
@@ -60,7 +63,8 @@
       },
       "price": 20,
       "stock": 10,
-      "categoryId": "1"
+      "categoryId": "1",
+      "image": "https://www.google.com"
     },
     {
       "id": "3",
@@ -70,7 +74,8 @@
       },
       "price": 30,
       "stock": 10,
-      "categoryId": "2"
+      "categoryId": "2",
+      "image": "https://www.google.com"
     },
     {
       "id": "4",
@@ -80,7 +85,8 @@
       },
       "price": 40,
       "stock": -1,
-      "categoryId": "1"
+      "categoryId": "1",
+      "image": "https://www.google.com"
     }
   ],
   "orders": [
