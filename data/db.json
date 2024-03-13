@@ -1,89 +1,47 @@
 {
-    "tables": [
+  "tables": [
+    {
+      "id": "1",
+      "zone": 1,
+      "size": 4
+    }
+  ],
+  "menus": [
+    {
+        "id":"1",
+        "name":"food 1",
+        "price":20,
+        "category":"baMee"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "tableId": "1",
+      "items": [
         {
-            "id": "1",
-            "name": "Table 1",
-            "defaultSize": 4
+          "itemId": "1",
+          "quantity": 2
         },
         {
-            "id": "2",
-            "name": "Table 2",
-            "defaultSize": 2
-        },
-        {
-            "id": "3",
-            "name": "Table 3",
-            "defaultSize": 6
+          "itemId": "2",
+          "quantity": 1
         }
-    ],
-    "categories": [
+      ],
+      "totalPrice": 40,
+      "status": "open"
+    },
+    {
+      "id": "2",
+      "tableId": "2",
+      "items": [
         {
-            "id": "1",
-            "name": "Category 1"
-        },
-        {
-            "id": "2",
-            "name": "Category 2"
+          "itemId": "3",
+          "quantity": 1
         }
-    ],
-    "items": [
-        {
-            "id": "1",
-            "name": "Item 1",
-            "price": 10,
-            "stock": 10,
-            "categoryId": "1"
-        },
-        {
-            "id": "2",
-            "name": "Item 2",
-            "price": 20,
-            "stock": 10,
-            "categoryId": "1"
-        },
-        {
-            "id": "3",
-            "name": "Item 3",
-            "price": 30,
-            "stock": 10,
-            "categoryId": "2"
-        },
-        {
-            "id": "4",
-            "name": "Item 4",
-            "price": 40,
-            "stock": -1,
-            "categoryId": "1"
-        }
-    ],
-    "orders": [
-        {
-            "id": "1",
-            "tableId": "1",
-            "items": [
-                {
-                    "itemId": "1",
-                    "quantity": 2
-                },
-                {
-                    "itemId": "2",
-                    "quantity": 1
-                }
-            ],
-            "totalPrice": 40,
-            "status": "open"
-        },
-        {
-            "id": "2",
-            "tableId": "2",
-            "items": [
-                {
-                    "itemId": "3",
-                    "quantity": 1
-                }
-            ],
-            "totalPrice": 40,
-            "status": "closed"
-        }
-    ]
-  }
+      ],
+      "totalPrice": 40,
+      "status": "closed"
+    }
+  ]
+}
