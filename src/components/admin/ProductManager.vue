@@ -2,6 +2,7 @@
 import BaseCard from './BaseCard.vue'
 import { ref, onMounted } from 'vue'
 import { getItems } from '../../utils/fetch'
+import { API_ENDPOINT } from '@/utils/constants';
 
 const items = ref([])
 
@@ -15,7 +16,7 @@ const deleteItem = (itemId) => {
 
 onMounted(async () => {
   try {
-    const response = await getItems(`http://localhost:5001/items`)
+    const response = await getItems(`${API_ENDPOINT}/items`)
     items.value = response
   } catch (error) {
     console.error('Error fetching items:', error)

@@ -1,25 +1,28 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { getItems } from '@/utils/fetch'
-const tables = ref()
-getItems(`http://localhost:5001/tables`).then((result) => {
-  tables.value = result
-  console.log(result)
-})
+import { API_ENDPOINT } from '@/utils/constants'
+const tables = ref(async () => {})
 const orders = ref()
 const choosenTable = ref(0)
 const choosenTool = ref()
-watch(choosenTable, async () => {
-  getItems(`http://localhost:5001/orders/${choosenTable.value}?_embed=`).then((result) => {
-    orders.value = result
-    console.log(result)
+getItems(`${API_ENDPOINT}/tables`)
+  .then((result) => {
+    tables.value = result
   })
+  .catch((err) => console.log(err))
+watch(choosenTable, async () => {
+  getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
+    .then((result) => {
+      orders.value = result
+    })
+    .catch((err) => console.log(err))
 })
 </script>
 
 <template>
   <div>
-    <div class="flex flex-row">
+    <div class="flex flex-row flex-wrap">
       <div class="w-7/12 bg-blue-200">
         <div class="w-full h-auto text-5xl text-center bg-blue-500">TABLES</div>
         <div class="flex flex-row gap-3 flex-wrap justify-around py-2">
@@ -37,11 +40,12 @@ watch(choosenTable, async () => {
       <div class="w-5/12 bg-red-200 flex flex-col">
         <div class="w-full h-auto text-5xl text-center bg-red-500">MANAGER</div>
         <div class="h-5/6 bg-slate-500">
-          <div v-if="choosenTool=='order'">
-            <div v-for="(order, index) in orders" :key="index" class="flex">
+          <div v-if="choosenTool == 'order'">
+            <div v-for="(order, index) in orders.items" :key="index" class="flex">
               {{ order }}
             </div>
           </div>
+          <div v-else-if="choosenTool == 'bill'">{{ orders.totalPrice }}</div>
         </div>
         <div class="flex flex-row">
           <button
@@ -56,6 +60,7 @@ watch(choosenTable, async () => {
             class="w-1/3 text-center border"
             :class="choosenTool == 'bill' ? 'bg-green-400' : ''"
             @click="choosenTool = 'bill'"
+            :disabled="choosenTable <= 0"
           >
             BILL
           </div>
@@ -63,6 +68,7 @@ watch(choosenTable, async () => {
             class="w-1/3 text-center border"
             :class="choosenTool == 'clear' ? 'bg-green-400' : ''"
             @click="choosenTool = 'clear'"
+            :disabled="choosenTable <= 0"
           >
             CLEAR
           </div>
