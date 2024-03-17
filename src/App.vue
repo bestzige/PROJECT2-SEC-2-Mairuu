@@ -8,7 +8,7 @@ import ProductManager from './components/admin/ProductManager.vue'
     <TableManager></TableManager>
   </div>
   <div>
-    <!-- <ProductManager></ProductManager> -->
+    <ProductManager></ProductManager>
   </div>
 </template>
 
