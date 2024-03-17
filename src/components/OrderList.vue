@@ -1,5 +1,5 @@
 <script setup>
-import TableManager from './components/TableManager.vue';
+// import MenuCard from './Menucard.vue'
 </script>
  
 <template>

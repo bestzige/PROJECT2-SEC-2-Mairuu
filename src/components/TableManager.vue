@@ -1,5 +1,5 @@
 <script setup>
-import TableManager from './components/TableManager.vue';
+// import OrderList from './OrderList.vue';
 </script>
  
 <template>
