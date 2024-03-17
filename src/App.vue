@@ -4,7 +4,7 @@ import TableManager from './components/employee/TableManager.vue';
  
 <template>
 <div>
-
+    <TableManager></TableManager>
 </div>
 </template>
  
