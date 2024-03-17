@@ -29,6 +29,7 @@ const saveChanges = () => {
   emit('edit', editingItem)
   closeModal()
 }
+
 const loadItems = async () => {
   try {
     const items = await getItems(`http://localhost:5001/items`)
@@ -42,27 +43,51 @@ loadItems()
 </script>
 
 <template>
-  <div>
-    <div>ID: {{ item.id }}</div>
-    <div>Name: {{ item.name }}</div>
-    <div>Price: {{ item.price }}</div>
-    <div>Stock: {{ item.stock }}</div>
-    <div>Category ID: {{ item.categoryId }}</div>
-
+  <div class="bg-red-300 p-4 mb-4">
     <div>
-      <button @click="edit" class="text-sm text-purple-600 hover:text-purple-400">Edit</button>
-      <button @click="deleteItem" class="text-sm text-red-600 hover:text-red-400">Delete</button>
-    </div>
+      <div class="text-lg font-semibold">ID: {{ item.id }}</div>
+      <div class="text-lg">Name: {{ item.name }}</div>
+      <div class="text-lg">Price: {{ item.price }}</div>
+      <div class="text-lg">Stock: {{ item.stock }}</div>
+      <div class="text-lg">Category ID: {{ item.categoryId }}</div>
 
-    <div v-if="editingItem" class="modal">
-      <div class="modal-content">
-        <span @click="closeModal" class="close">&times;</span>
+      <div class="mt-4">
+        <button @click="edit" class="text-sm text-purple-600 hover:text-purple-400 mr-2">
+          Edit
+        </button>
+        <button @click="deleteItem" class="text-sm text-red-600 hover:text-red-400">Delete</button>
+      </div>
 
-        <input v-model="editingItem.name" type="text" placeholder="Name" />
-        <input v-model="editingItem.price" type="number" placeholder="Price" />
-        <input v-model="editingItem.stock" type="number" placeholder="Stock" />
+      <div v-if="editingItem" class="modal">
+        <div class="modal-content">
+          <span @click="closeModal" class="close">&times;</span>
 
-        <button @click="saveChanges" class="btn-save">Save</button>
+          <input
+            v-model="editingItem.name"
+            type="text"
+            placeholder="Name"
+            class="border border-gray-300 p-2 mb-2"
+          />
+          <input
+            v-model="editingItem.price"
+            type="number"
+            placeholder="Price"
+            class="border border-gray-300 p-2 mb-2"
+          />
+          <input
+            v-model="editingItem.stock"
+            type="number"
+            placeholder="Stock"
+            class="border border-gray-300 p-2 mb-2"
+          />
+
+          <button
+            @click="saveChanges"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   </div>
