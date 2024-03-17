@@ -23,6 +23,38 @@
         "en": "Table 3"
       },
       "defaultSize": 6
+    },
+    {
+      "id": "4",
+      "name": {
+        "th": "Table 4",
+        "en": "Table 4"
+      },
+      "defaultSize": 6
+    },
+    {
+      "id": "5",
+      "name": {
+        "th": "Table 5",
+        "en": "Table 5"
+      },
+      "defaultSize": 6
+    },
+    {
+      "id": "6",
+      "name": {
+        "th": "Table 6",
+        "en": "Table 6"
+      },
+      "defaultSize": 6
+    },
+    {
+      "id": "7",
+      "name": {
+        "th": "Table 7",
+        "en": "Table 7"
+      },
+      "defaultSize": 6
     }
   ],
   "categories": [
