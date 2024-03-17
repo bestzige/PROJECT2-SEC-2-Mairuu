@@ -1,5 +1,5 @@
 <script setup>
-import TableManager from './components/TableManager.vue';
+import TableManager from './components/employee/TableManager.vue';
 </script>
  
 <template>
