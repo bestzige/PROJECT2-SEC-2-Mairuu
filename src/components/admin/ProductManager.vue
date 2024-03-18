@@ -1,6 +1,6 @@
 <script setup>
 import BaseCard from './BaseCard.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { getItems } from '../../utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants';
 
@@ -22,26 +22,25 @@ onMounted(async () => {
     console.error('Error fetching items:', error)
   }
 })
+
+const categorizedItems = computed(() => {
+  const categorized = {}
+  items.value.forEach(item => {
+    if (!categorized[item.categoryId]) {
+      categorized[item.categoryId] = []
+    }
+    categorized[item.categoryId].push(item)
+  })
+  return categorized
+})
 </script>
 
 <template>
-  <div class="w-full">
-    <div>
-      <div class="flex justify-end"></div>
+  <div>
+    <div v-for="(categoryItems, categoryId) in categorizedItems" :key="categoryId" class="bg-gray-200 p-4">
       <div>
-        <div class="text-3xl font-semibold tracking-wide">Steamed Dim Sum</div>
-        <div v-for="(item, index) in items" :key="index">
-          <BaseCard :item="item" @edit="editItem" @delete="deleteItem" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="w-full">
-    <div>
-      <div class="flex justify-end"></div>
-      <div>
-        <div class="text-3xl font-semibold tracking-wide">Steamed Dim Sum</div>
-        <div v-for="(item, index) in items" :key="index">
+        <div class="text-3xl font-semibold tracking-wide">Category ID: {{ categoryId }}</div>
+        <div v-for="(item, index) in categoryItems" :key="index">
           <BaseCard :item="item" @edit="editItem" @delete="deleteItem" />
         </div>
       </div>
