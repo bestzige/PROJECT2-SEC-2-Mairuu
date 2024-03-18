@@ -1,16 +1,18 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { getItems } from '@/utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
-const tables = ref(async () => {})
-const orders = ref()
+const tables = ref()
+const orders = ref({})
 const choosenTable = ref(0)
 const choosenTool = ref()
+
 getItems(`${API_ENDPOINT}/tables`)
   .then((result) => {
     tables.value = result
   })
   .catch((err) => console.log(err))
+
 watch(choosenTable, () => {
   choosenTool.value = ''
 
@@ -63,22 +65,22 @@ watch(choosenTool, () => {
           >
             ORDER
           </button>
-          <div
+          <button
             class="w-1/3 text-center border"
             :class="choosenTool == 'bill' ? 'bg-green-400' : ''"
             @click="choosenTool = 'bill'"
             :disabled="choosenTable <= 0"
           >
             BILL
-          </div>
-          <div
+          </button>
+          <button
             class="w-1/3 text-center border"
             :class="choosenTool == 'clear' ? 'bg-green-400' : ''"
             @click="choosenTool = 'clear'"
             :disabled="choosenTable <= 0"
           >
             CLEAR
-          </div>
+          </button>
         </div>
       </div>
     </div>
