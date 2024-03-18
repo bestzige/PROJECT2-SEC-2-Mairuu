@@ -1,6 +1,5 @@
 <script setup>
-import { getItems } from '../../utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants'
+import { defineProps, defineEmits, ref } from 'vue'
 
 const props = defineProps({
   item: {
@@ -10,11 +9,10 @@ const props = defineProps({
 })
 
 const { emit } = defineEmits(['edit', 'delete'])
-
-let editingItem = null
+const editingItem = ref(null)
 
 const edit = () => {
-  editingItem = { ...props.item }
+  editingItem.value = { ...props.item }
 }
 
 const deleteItem = () => {
@@ -22,28 +20,17 @@ const deleteItem = () => {
 }
 
 const closeModal = () => {
-  editingItem = null
+  editingItem.value = null
 }
 
 const saveChanges = () => {
-  emit('edit', editingItem)
+  emit('edit', editingItem.value)
   closeModal()
 }
-
-const loadItems = async () => {
-  try {
-    const items = await getItems(`${API_ENDPOINT}/items`)
-    console.log(items)
-  } catch (error) {
-    console.error('Error:', error)
-  }
-}
-
-loadItems()
 </script>
 
 <template>
-  <div class="bg-red-300 p-4 mb-4">
+  <div class="bg-red-300 p-4 m-10">
     <div>
       <div class="text-lg font-semibold">ID: {{ item.id }}</div>
       <div class="text-lg">Name: {{ item.name }}</div>
@@ -58,28 +45,58 @@ loadItems()
         <button @click="deleteItem" class="text-sm text-red-600 hover:text-red-400">Delete</button>
       </div>
 
-      <div v-if="editingItem" class="modal">
-        <div class="modal-content">
-          <span @click="closeModal" class="close">&times;</span>
+      <div
+        v-if="editingItem !== null"
+        class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50"
+      >
+        <div class="bg-white p-8 rounded shadow-md relative w-1/3">
+          <button @click="closeModal" class="absolute top-0 right-0 p-2 cursor-pointer text-black">
+            &times;
+          </button>
 
-          <input
-            v-model="editingItem.name"
-            type="text"
-            placeholder="Name"
-            class="border border-gray-300 p-2 mb-2"
-          />
-          <input
-            v-model="editingItem.price"
-            type="number"
-            placeholder="Price"
-            class="border border-gray-300 p-2 mb-2"
-          />
-          <input
-            v-model="editingItem.stock"
-            type="number"
-            placeholder="Stock"
-            class="border border-gray-300 p-2 mb-2"
-          />
+          <div class="mb-4">
+            <label for="name" class="text-sm font-semibold">Name:</label>
+            <input
+              v-model="editingItem.name.th"
+              id="name"
+              type="text"
+              placeholder="Name"
+              class="border border-gray-300 p-2 w-full"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="price" class="text-sm font-semibold">Price:</label>
+            <input
+              v-model="editingItem.price"
+              id="price"
+              type="int"
+              placeholder="Price"
+              class="border border-gray-300 p-2 w-full"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="stock" class="text-sm font-semibold">Stock:</label>
+            <input
+              v-model="editingItem.stock"
+              id="stock"
+              type="int"
+              placeholder="Stock"
+              class="border border-gray-300 p-2 w-full"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="categoryId" class="text-sm font-semibold">Category ID:</label>
+            <input
+              v-model="editingItem.categoryId"
+              id="categoryId"
+              type="int"
+              placeholder="Category ID"
+              class="border border-gray-300 p-2 w-full"
+            />
+          </div>
 
           <button
             @click="saveChanges"

@@ -1,31 +1,35 @@
 <script setup>
+import { ref, computed } from 'vue'
 import BaseCard from './BaseCard.vue'
-import { ref, onMounted, computed } from 'vue'
+
 import { getItems } from '../../utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants';
+import { API_ENDPOINT } from '@/utils/constants'
 
 const items = ref([])
+const showEditModal = ref(false)
+const selectedItem = ref(null)
 
-const editItem = (item) => {
-  console.log('Edit item:', item)
+const openEditModal = (item) => {
+  selectedItem.value = item
+  showEditModal.value = true
 }
 
 const deleteItem = (itemId) => {
-  console.log('Delete item with ID:', itemId)
+  console.log('Deleting item with ID:', itemId)
 }
 
-onMounted(async () => {
+const loadItems = async () => {
   try {
     const response = await getItems(`${API_ENDPOINT}/items`)
     items.value = response
   } catch (error) {
     console.error('Error fetching items:', error)
   }
-})
+}
 
 const categorizedItems = computed(() => {
   const categorized = {}
-  items.value.forEach(item => {
+  items.value.forEach((item) => {
     if (!categorized[item.categoryId]) {
       categorized[item.categoryId] = []
     }
@@ -33,15 +37,31 @@ const categorizedItems = computed(() => {
   })
   return categorized
 })
+
+loadItems()
 </script>
 
 <template>
   <div>
-    <div v-for="(categoryItems, categoryId) in categorizedItems" :key="categoryId" class="bg-gray-200 p-4">
-      <div>
-        <div class="text-3xl font-semibold tracking-wide">Category ID: {{ categoryId }}</div>
-        <div v-for="(item, index) in categoryItems" :key="index">
-          <BaseCard :item="item" @edit="editItem" @delete="deleteItem" />
+    <div class="bg-gray-200 p-4">
+      <div class="flex justify-center">
+        <div class="bg-red-700 text-white w-3/4 p-20 m-10 text-center">
+          <h1 class="text-7xl font-bold">Product Management</h1>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <div
+          v-for="(categoryItems, categoryId) in categorizedItems"
+          :key="categoryId"
+          class="bg-gray-200"
+        >
+          <div class="text-3xl font-semibold tracking-wide">Category ID: {{ categoryId }}</div>
+          <hr class="border-gray-400 my-2" />
+          <div class="flex flex-wrap">
+            <div v-for="(item, index) in categoryItems" :key="index" class="w-1/4">
+              <BaseCard :item="item" @edit="openEditModal(item)" @delete="deleteItem" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
