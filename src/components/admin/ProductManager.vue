@@ -2,7 +2,7 @@
 import BaseCard from './BaseCard.vue'
 import { ref, onMounted, computed } from 'vue'
 import { getItems } from '../../utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants';
+import { API_ENDPOINT } from '@/utils/constants'
 
 const items = ref([])
 
@@ -25,7 +25,7 @@ onMounted(async () => {
 
 const categorizedItems = computed(() => {
   const categorized = {}
-  items.value.forEach(item => {
+  items.value.forEach((item) => {
     if (!categorized[item.categoryId]) {
       categorized[item.categoryId] = []
     }
@@ -36,16 +36,30 @@ const categorizedItems = computed(() => {
 </script>
 
 <template>
-  <div>
-    <div v-for="(categoryItems, categoryId) in categorizedItems" :key="categoryId" class="bg-gray-200 p-4">
-      <div>
+  <div class="bg-gray-200 p-4">
+    <div class="flex justify-center">
+      <div class="bg-red-700 text-white w-3/4 p-20 m-10 text-center">
+        <h1 class="text-7xl font-bold">Product Management</h1>
+        
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <div
+        v-for="(categoryItems, categoryId) in categorizedItems"
+        :key="categoryId"
+        class="bg-gray-200"
+      >
         <div class="text-3xl font-semibold tracking-wide">Category ID: {{ categoryId }}</div>
-        <div v-for="(item, index) in categoryItems" :key="index">
-          <BaseCard :item="item" @edit="editItem" @delete="deleteItem" />
+        <hr class="border-gray-400 my-2">
+        <div class="flex flex-wrap">
+          <div v-for="(item, index) in categoryItems" :key="index" class="w-1/4">
+            <BaseCard :item="item" @edit="editItem" @delete="deleteItem" />
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <style scoped></style>

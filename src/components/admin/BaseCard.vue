@@ -43,7 +43,7 @@ loadItems()
 </script>
 
 <template>
-  <div class="bg-red-300 p-4 mb-4">
+  <div class="bg-red-300 p-4 m-10">
     <div>
       <div class="text-lg font-semibold">ID: {{ item.id }}</div>
       <div class="text-lg">Name: {{ item.name }}</div>
