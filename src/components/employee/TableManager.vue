@@ -11,12 +11,19 @@ getItems(`${API_ENDPOINT}/tables`)
     tables.value = result
   })
   .catch((err) => console.log(err))
-watch(choosenTable, async () => {
+watch(choosenTable, () => {
+  choosenTool.value = ''
+
   getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
     .then((result) => {
       orders.value = result
     })
     .catch((err) => console.log(err))
+})
+watch(choosenTool, () => {
+  if (orders.value == undefined) {
+    choosenTool.value = ''
+  }
 })
 </script>
 

@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
 import { getItems } from '../../utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
 
@@ -32,7 +31,7 @@ const saveChanges = () => {
 }
 const loadItems = async () => {
   try {
-    const items = await getItems(`${API_ENDPOINT}items`)
+    const items = await getItems(`${API_ENDPOINT}/items`)
     console.log(items)
   } catch (error) {
     console.error('Error:', error)
