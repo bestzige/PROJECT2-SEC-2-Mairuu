@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import GoToOrderForm from '@/components/home/GoToOrderForm.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <GoToOrderForm />
   </main>
 </template>
