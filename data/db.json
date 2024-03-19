@@ -6,7 +6,8 @@
         "th": "Table 1",
         "en": "Table 1"
       },
-      "defaultSize": 4
+      "defaultSize": 4,
+      "status": "unAvailable"
     },
     {
       "id": "2",
@@ -14,7 +15,8 @@
         "th": "Table 2",
         "en": "Table 2"
       },
-      "defaultSize": 2
+      "defaultSize": 2,
+      "status": "unAvailable"
     },
     {
       "id": "3",
@@ -22,7 +24,44 @@
         "th": "Table 3",
         "en": "Table 3"
       },
-      "defaultSize": 6
+      "defaultSize": 6,
+      "status": "available"
+    },
+    {
+      "id": "4",
+      "name": {
+        "th": "Table 4",
+        "en": "Table 4"
+      },
+      "defaultSize": 2,
+      "status": "available"
+    },
+    {
+      "id": "5",
+      "name": {
+        "th": "Table 5",
+        "en": "Table 5"
+      },
+      "defaultSize": 6,
+      "status": "available"
+    },
+    {
+      "id": "6",
+      "name": {
+        "th": "Table 6",
+        "en": "Table 6"
+      },
+      "defaultSize": 4,
+      "status": "available"
+    },
+    {
+      "id": "7",
+      "name": {
+        "th": "Table 7",
+        "en": "Table 7"
+      },
+      "defaultSize": 4,
+      "status": "available"
     }
   ],
   "categories": [

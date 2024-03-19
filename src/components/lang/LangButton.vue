@@ -19,7 +19,7 @@ defineEmits(['setLang'])
       'bg-orange-400': active,
       'bg-orange-200': !active
     }"
-    class="flex items-center gap-2 p-2 rounded-lg w-full"
+class="flex items-center gap-2 p-2 rounded-lg w-full"
   >
     <img :src="`/flags/${lang.value}.svg`" alt="flag" class="w-6 h-6 mr-2 rounded-md" />
     <p class="text-sm">{{ lang.name }}</p>
