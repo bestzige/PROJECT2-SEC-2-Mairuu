@@ -18,6 +18,7 @@ const category = ref(null)
 const items = ref([])
 
 const refetchItems = async (categoryId) => {
+  if (!categoryId) return
   items.value = await itemStore.getPublishedItems(categoryId)
   category.value = await categoryStore.getCategory(categoryId)
 }
