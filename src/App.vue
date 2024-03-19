@@ -1,15 +1,7 @@
 <script setup>
-import TableManager from './components/employee/TableManager.vue'
-import ProductManager from './components/admin/ProductManager.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div>
-    <TableManager></TableManager>
-  </div>
-  <div>
-    <ProductManager></ProductManager>
-  </div>
+  <RouterView />
 </template>
-
-<style scoped></style>

@@ -11,9 +11,9 @@ export const getItems = async (url) => {
   }
 }
 
-export const getItem = async (url, id) => {
+export const getItem = async (url, id, query = '') => {
   try {
-    return await fetch(`${url}/${id}`)
+    return await fetch(`${url}/${id}${query}`)
   } catch (error) {
     console.error('Error:', error)
   }
