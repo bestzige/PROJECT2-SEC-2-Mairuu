@@ -1,8 +1,5 @@
 <script setup>
-import { useLangStore } from '@/stores/lang'
 import DefaultLayout from './DefaultLayout.vue'
-
-const langStore = useLangStore()
 </script>
 
 <template>

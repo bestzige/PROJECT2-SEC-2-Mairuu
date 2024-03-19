@@ -142,6 +142,12 @@
       "tableId": "2",
       "status": "closed",
       "orderDate": "2020-01-01T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "tableId": "2",
+      "status": "open",
+      "orderDate": "2020-01-01T00:00:00Z"
     }
   ],
   "order-items": [
@@ -360,6 +366,22 @@
       "quantity": 1,
       "orderDate": "2024-03-19T14:34:34.393Z",
       "status": "completed"
+    },
+    {
+      "id": "b068",
+      "orderId": "1",
+      "itemId": "2",
+      "quantity": 2,
+      "orderDate": "2024-03-19T16:23:00.837Z",
+      "status": "pending"
+    },
+    {
+      "id": "6cb8",
+      "orderId": "1",
+      "itemId": "3",
+      "quantity": 1,
+      "orderDate": "2024-03-19T16:24:13.027Z",
+      "status": "pending"
     }
   ],
   "service-calls": [
@@ -368,6 +390,12 @@
       "orderId": "1",
       "status": "pending",
       "callDate": "2024-03-19T15:56:26.904Z"
+    },
+    {
+      "id": "b017",
+      "orderId": "1",
+      "status": "pending",
+      "callDate": "2024-03-19T16:22:56.303Z"
     }
   ]
 }
