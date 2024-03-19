@@ -1,32 +1,38 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { getItems } from '@/utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
 const tables = ref()
 const orders = ref({})
 const choosenTable = ref(0)
 const choosenTool = ref()
-
-getItems(`${API_ENDPOINT}/tables`)
-  .then((result) => {
+const loadTables = async () => {
+  try {
+    const result = await getItems(`${API_ENDPOINT}/tables`)
     tables.value = result
-  })
-  .catch((err) => console.log(err))
-
-watch(choosenTable, () => {
-  choosenTool.value = ''
-
-  getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
-    .then((result) => {
-      orders.value = result
-    })
-    .catch((err) => console.log(err))
-})
-watch(choosenTool, () => {
-  if (orders.value == undefined) {
-    choosenTool.value = ''
+  } catch (err) {
+    console.log(err)
   }
-})
+}
+const loadOrdersOfTable = async () => {
+  try {
+    const result = await getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
+    orders.value = result
+  } catch (err) {
+    console.log(err)
+  }
+}
+loadTables()
+const clickTable = (tableId) => {
+  choosenTable.value = tableId
+  loadOrdersOfTable()
+}
+const clearTable = () => {
+  choosenTable.value = 0
+  choosenTool.value = ''
+  orders.value = {}
+}
+
 </script>
 
 <template>
@@ -40,7 +46,7 @@ watch(choosenTool, () => {
             :key="index"
             class="text-2xl border-2 w-44 h-36 flex justify-center"
             :class="choosenTable == table.id ? 'border-green-400' : ''"
-            @click="choosenTable = table.id"
+            @click="clickTable(table.id)"
             :disabled="table.status == 'available'"
           >
             {{ table.name.en }}
@@ -77,7 +83,7 @@ watch(choosenTool, () => {
           <button
             class="w-1/3 text-center border"
             :class="choosenTool == 'clear' ? 'bg-green-400' : ''"
-            @click="choosenTool = 'clear'"
+            @click="clearTable"
             :disabled="choosenTable <= 0"
           >
             CLEAR
