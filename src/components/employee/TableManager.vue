@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { getItems } from '@/utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
 const tables = ref()
 const orders = ref({})
 const choosenTable = ref(0)
 const choosenTool = ref()
-const loadTables = async () => {
+onMounted(async () => {
   try {
     const result = await getItems(`${API_ENDPOINT}/tables`)
     tables.value = result
   } catch (err) {
     console.log(err)
   }
-}
+})
 const loadOrdersOfTable = async () => {
   try {
     const result = await getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
@@ -22,7 +22,6 @@ const loadOrdersOfTable = async () => {
     console.log(err)
   }
 }
-loadTables()
 const clickTable = (tableId) => {
   choosenTable.value = tableId
   loadOrdersOfTable()
@@ -32,7 +31,6 @@ const clearTable = () => {
   choosenTool.value = ''
   orders.value = {}
 }
-
 </script>
 
 <template>
