@@ -20,7 +20,6 @@ defineProps({
           v-for="(table, index) in tables"
           :key="index"
           class="text-2xl w-44 h-36 flex justify-center bg-yellow-500 border-2 border-black"
-          @click="console.log(table.id)"
           :to="`/employee/table-detail/${table.id}`"
         >
           {{ table.name.en }}
