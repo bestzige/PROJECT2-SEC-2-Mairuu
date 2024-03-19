@@ -54,4 +54,3 @@ export const deleteItem = async (url, id) => {
     console.error('Error:', error)
   }
 }
-
