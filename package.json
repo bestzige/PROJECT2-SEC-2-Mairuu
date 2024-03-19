@@ -12,7 +12,7 @@
     "backend": "json-server --watch ./data/db.json --port 5002"
   },
   "dependencies": {
-    "json-server": "1.0.0-alpha.23",
+    "json-server": "^1.0.0-alpha.23",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
