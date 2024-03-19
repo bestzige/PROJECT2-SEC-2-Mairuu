@@ -1,10 +1,11 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { getItems } from '@/utils/fetch'
+import { getItem, getItems } from '@/utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
 const tables = ref()
 const orders = ref({})
 const choosenTable = ref(0)
+const tableStatus = ref('available')
 const choosenTool = ref()
 onMounted(async () => {
   try {
@@ -22,9 +23,21 @@ const loadOrdersOfTable = async () => {
     console.log(err)
   }
 }
-const clickTable = (tableId) => {
-  choosenTable.value = tableId
-  loadOrdersOfTable()
+const clickTable = async (tableId) => {
+  try {
+    choosenTool.value = ''
+    choosenTable.value = tableId
+    const result = await getItem(`${API_ENDPOINT}/tables`, tableId)
+    tableStatus.value = result.status
+  } catch (err) {
+    console.log(err)
+  }
+}
+const clickTool = (tool) => {
+  choosenTool.value = tool
+  if (tool === 'order') {
+    loadOrdersOfTable()
+  }
 }
 const clearTable = () => {
   choosenTable.value = 0
@@ -45,7 +58,6 @@ const clearTable = () => {
             class="text-2xl border-2 w-44 h-36 flex justify-center"
             :class="choosenTable == table.id ? 'border-green-400' : ''"
             @click="clickTable(table.id)"
-            :disabled="table.status == 'available'"
           >
             {{ table.name.en }}
           </button>
@@ -65,16 +77,16 @@ const clearTable = () => {
           <button
             class="w-1/3 text-center border"
             :class="choosenTool == 'order' ? 'bg-green-400' : ''"
-            @click="choosenTool = 'order'"
-            :disabled="choosenTable <= 0"
+            @click="clickTool('order')"
+            :disabled="tableStatus == 'available' || choosenTable <= 0"
           >
             ORDER
           </button>
           <button
             class="w-1/3 text-center border"
             :class="choosenTool == 'bill' ? 'bg-green-400' : ''"
-            @click="choosenTool = 'bill'"
-            :disabled="choosenTable <= 0"
+            @click="clickTool('bill')"
+            :disabled="tableStatus == 'available' || choosenTable <= 0"
           >
             BILL
           </button>
@@ -82,7 +94,6 @@ const clearTable = () => {
             class="w-1/3 text-center border"
             :class="choosenTool == 'clear' ? 'bg-green-400' : ''"
             @click="clearTable"
-            :disabled="choosenTable <= 0"
           >
             CLEAR
           </button>
