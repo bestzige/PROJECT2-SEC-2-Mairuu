@@ -2,11 +2,10 @@
 import { onMounted, ref } from 'vue'
 import { getItem, getItems } from '@/utils/fetch'
 import { API_ENDPOINT } from '@/utils/constants'
+import TableList from './TableList.vue'
 const tables = ref()
 const orders = ref({})
 const choosenTable = ref(0)
-const tableStatus = ref('available')
-const choosenTool = ref()
 onMounted(async () => {
   try {
     const result = await getItems(`${API_ENDPOINT}/tables`)
@@ -23,47 +22,14 @@ const loadOrdersOfTable = async () => {
     console.log(err)
   }
 }
-const clickTable = async (tableId) => {
-  try {
-    choosenTool.value = ''
-    choosenTable.value = tableId
-    const result = await getItem(`${API_ENDPOINT}/tables`, tableId)
-    tableStatus.value = result.status
-  } catch (err) {
-    console.log(err)
-  }
-}
-const clickTool = (tool) => {
-  choosenTool.value = tool
-  if (tool === 'order') {
-    loadOrdersOfTable()
-  }
-}
-const clearTable = () => {
-  choosenTable.value = 0
-  choosenTool.value = ''
-  orders.value = {}
-}
 </script>
 
 <template>
   <div>
     <div class="flex flex-row flex-wrap">
-      <div class="w-7/12 bg-blue-200">
-        <div class="w-full h-auto text-5xl text-center bg-blue-500">TABLES</div>
-        <div class="flex flex-row gap-3 flex-wrap justify-around py-2">
-          <button
-            v-for="(table, index) in tables"
-            :key="index"
-            class="text-2xl border-2 w-44 h-36 flex justify-center"
-            :class="choosenTable == table.id ? 'border-green-400' : ''"
-            @click="clickTable(table.id)"
-          >
-            {{ table.name.en }}
-          </button>
-        </div>
-      </div>
-      <div class="w-5/12 bg-red-200 flex flex-col">
+      <TableList :tables="tables" />
+
+      <!-- <div class="w-5/12 bg-red-200 flex flex-col">
         <div class="w-full h-auto text-5xl text-center bg-red-500">MANAGER</div>
         <div class="h-5/6 bg-slate-500 text-2xl">
           <div v-if="choosenTool == 'order'">
@@ -98,7 +64,7 @@ const clearTable = () => {
             CLEAR
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
