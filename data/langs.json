@@ -56,15 +56,27 @@
     },
     "history": {
       "button": {
+        "th": "ประวัติการสั่ง",
+        "en": "Order history"
+      },
+      "total": {
+        "th": "ทั้งหมด",
+        "en": "Total"
+      },
+      "title": {
         "th": "ประวัติการสั่งอาหาร",
         "en": "Order history"
+      },
+      "empty": {
+        "th": "ไม่มีประวัติการสั่งอาหาร",
+        "en": "No order history"
       }
     }
   },
   "service-call": {
     "button": {
-      "th": "เรียกพนักงาน",
-      "en": "Call for service"
+      "th": "เรียก/ชำระเงิน",
+      "en": "Service/Payment"
     }
   },
   "how-to-use": {
@@ -87,6 +99,22 @@
     "button": {
       "th": "ถัดไป",
       "en": "Next"
+    }
+  },
+  "status": {
+    "history": {
+      "pending": {
+        "th": "กำลังจัดเตรียม",
+        "en": "Preparing"
+      },
+      "completed": {
+        "th": "เสริฟแล้ว",
+        "en": "Served"
+      },
+      "cancelled": {
+        "th": "ยกเลิก",
+        "en": "Canceled"
+      }
     }
   }
 }

@@ -1,5 +1,8 @@
 <script setup>
-import OrderHistoryTable from '@/components/order/OrderHistoryTable.vue'
+import OrderHistoryList from '@/components/order/OrderHistoryList.vue'
+import ServiceCallButton from '@/components/service-call/ServiceCallButton.vue'
+import AppBar from '@/components/ui/AppBar.vue'
+import BackButton from '@/components/ui/BackButton.vue'
 import { useOrderStore } from '@/stores/order'
 
 import { onMounted, ref } from 'vue'
@@ -28,6 +31,13 @@ onMounted(async () => {
 
 <template>
   <div>
-    <OrderHistoryTable :orderItems="orderItems" :totalPrice="totalPrice" />
+    <OrderHistoryList :orderItems="orderItems?.reverse()" :totalPrice="totalPrice" />
+
+    <AppBar>
+      <div class="flex justify-between items-center gap-4">
+        <ServiceCallButton />
+        <BackButton :to="`/order/${$route.params.orderId}`" />
+      </div>
+    </AppBar>
   </div>
 </template>

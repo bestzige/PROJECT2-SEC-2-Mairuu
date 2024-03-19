@@ -5,7 +5,10 @@ const serviceCallStore = useServiceCallStore()
 </script>
 
 <template>
-  <div v-if="serviceCallStore.isCalled" class="fixed -top-1 left-0 right-0 flex justify-center p-4">
+  <div
+    v-if="serviceCallStore.isCalled"
+    class="fixed -top-1 left-0 right-0 flex justify-center p-4 z-50"
+  >
     <!-- <div
     v-if="serviceCallStore.isCalled"
     class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center p-4"
