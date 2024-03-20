@@ -41,12 +41,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="h-full max-h-96 bg-orange-600 overflow-auto">
     <!-- <div class="text-3xl"># {{ order.id }}</div>
     <div>{{ orderItems }}</div> -->
-    <TableCard :order="order" :orderItems="orderItems" :totalPrice="totalPrice" />
+    <TableCard :order="order" :orderItems="orderItems" />
+  </div>
+  <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
+  <div>
+    <button class="bottom-0 right-0 bg-red-500 text-white p-2 rounded-lg">Clear Order</button>
   </div>
 </template>
 
 <style scoped></style>
-./TableCard.vue
