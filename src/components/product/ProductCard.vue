@@ -1,8 +1,10 @@
 <script setup>
-import {  defineProps } from 'vue'
-
 const props = defineProps({
   item: {
+    type: Object,
+    required: true
+  },
+  name: {
     type: Object,
     required: true
   }
@@ -11,25 +13,26 @@ const props = defineProps({
 const emit = defineEmits(['edit', 'delete'])
 
 const editItem = () => {
-  emit('edit', { ...props.item })
+  emit('edit', { ...props.item, name: { ...props.name } })
 }
 
 const deleteItem = () => {
   emit('delete', props.item.id)
 }
+
 </script>
 
 <template>
   <div class="bg-red-300 p-4 m-10">
     <div>
       <!-- <div class="text-lg font-semibold">ID: {{ item.id }}</div> -->
-      <div class="text-lg"><img :src="item.image" alt="">  </div>
-      <div class="text-lg">Name TH : {{ item.name.th }}</div>
-      <div class="text-lg">Name ENG : {{ item.name.en }}</div>
-      <div class="text-lg">Price: {{ item.price }}</div>
+      <div class="text-lg"><img :src="item.image" alt="" /></div>
+      <div class="text-lg">Name TH : {{ name.th }}</div>
+      <div class="text-lg">Name ENG : {{ name.en }}</div>
+      <!-- <div class="text-lg">Price: {{ item.price }}</div>
       <div class="text-lg">Published: {{ item.published }}</div>
       <div class="text-lg">Stock: {{ item.stock }}</div>
-      <div class="text-lg">Category ID: {{ item.categoryId }}</div>
+      <div class="text-lg">Category ID: {{ item.categoryId }}</div> -->
 
       <div class="mt-4">
         <button @click="editItem" class="text-sm text-purple-600 hover:text-purple-400 mr-2">
