@@ -6,9 +6,9 @@ import OrderHistory from '@/views/OrderHistory.vue'
 import OrderMenuView from '../views/OrderMenuView.vue'
 import OrderCart from '@/views/OrderCart.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
-import TableManager from '@/components/employee/table/TableManager.vue'
+import TableManager from '@/components/table/TableManager.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
-import TableDetail from '@/components/employee/table/TableDetail.vue'
+import TableDetail from '@/components/table/TableDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
