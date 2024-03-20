@@ -54,6 +54,18 @@
         "en": "Order food"
       }
     },
+    "order-close": {
+      "button": {
+        "th": "บิลนี้ถูกสำเร็จแล้ว",
+        "en": "This bill is completed"
+      }
+    },
+    "order-not-found": {
+      "button": {
+        "th": "ไม่พบเลขออร์เดอร์",
+        "en": "Order not found"
+      }
+    },
     "history": {
       "button": {
         "th": "ประวัติการสั่ง",
