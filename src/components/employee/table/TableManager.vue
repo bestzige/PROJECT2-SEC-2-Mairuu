@@ -1,13 +1,12 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import { getItems } from '@/utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants'
+import { onMounted, ref } from 'vue'
 import TableList from './TableList.vue'
 const tables = ref([])
 
 onMounted(async () => {
   try {
-    const result = await getItems(`${API_ENDPOINT}/tables`)
+    const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
     tables.value = result
   } catch (err) {
     console.log(err)
