@@ -1,12 +1,12 @@
 <script setup>
+import ServiceCalledBell from '@/components/service-call/ServiceCalledBell.vue'
+import NavBar from '@/components/ui/NavBar.vue'
+import XLoading from '@/components/ui/XLoading.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useLangStore } from '@/stores/lang'
 import { useOrderStore } from '@/stores/order'
 import { onMounted, onUnmounted, ref } from 'vue'
-import XLoading from '@/components/ui/XLoading.vue'
-import NavBar from '@/components/ui/NavBar.vue'
-import { useLangStore } from '@/stores/lang'
-import ServiceCalledBell from '@/components/service-call/ServiceCalledBell.vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()

@@ -5,7 +5,7 @@ import AppBar from '@/components/ui/AppBar.vue'
 import BackButton from '@/components/ui/BackButton.vue'
 import { useOrderStore } from '@/stores/order'
 
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -13,9 +13,11 @@ const orderStore = useOrderStore()
 
 const orderItems = ref([])
 const totalPrice = ref(0)
+const invtervalId = ref(null)
 
 const refetchOrderItems = async () => {
   orderItems.value = await orderStore.getOrderItems(route.params.orderId)
+  orderItems.value = orderItems.value.reverse()
   totalPrice.value = orderItems.value.reduce(
     (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
     0
@@ -23,15 +25,20 @@ const refetchOrderItems = async () => {
 }
 
 onMounted(async () => {
-  await refetchOrderItems().then(() => {
-    setInterval(refetchOrderItems, 1000)
-  })
+  await refetchOrderItems()
+  invtervalId.value = setInterval(async () => {
+    await refetchOrderItems()
+  }, 1000)
+})
+
+onUnmounted(() => {
+  clearInterval(invtervalId.value)
 })
 </script>
 
 <template>
   <div>
-    <OrderHistoryList :orderItems="orderItems?.reverse()" :totalPrice="totalPrice" />
+    <OrderHistoryList :orderItems="orderItems" :totalPrice="totalPrice" />
 
     <AppBar>
       <div class="flex justify-between items-center gap-4">
