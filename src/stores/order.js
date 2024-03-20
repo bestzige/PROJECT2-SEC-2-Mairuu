@@ -1,4 +1,3 @@
-import { API_ENDPOINT } from '@/utils/constants'
 import * as fetch from '@/utils/fetch'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
@@ -9,7 +8,7 @@ export const useOrderStore = defineStore('order', () => {
 
   const getOrder = async (orderId, setOrder = true) => {
     const data = await fetch.getItems(
-      `${API_ENDPOINT}/orders/${orderId}?_embed=table&_embed=order-items&_embed=service-calls`
+      `${import.meta.env.VITE_API_ENDPOINT}/orders/${orderId}?_embed=table&_embed=order-items&_embed=service-calls`
     )
     if (setOrder) currentOrder.value = data
     return data
@@ -63,7 +62,7 @@ export const useOrderStore = defineStore('order', () => {
 
   const itemOrdered = async (orderId) => {
     const orderItemPromises = cartItems.value.map(async (cartItem) => {
-      const ordered = await fetch.postItem(`${API_ENDPOINT}/order-items`, {
+      const ordered = await fetch.postItem(`${import.meta.env.VITE_API_ENDPOINT}/order-items`, {
         orderId,
         itemId: cartItem.item.id,
         quantity: cartItem.quantity,
@@ -77,7 +76,9 @@ export const useOrderStore = defineStore('order', () => {
   }
 
   const getOrderItems = async (orderId) => {
-    return await fetch.getItems(`${API_ENDPOINT}/order-items?orderId=${orderId}&_embed=item`)
+    return await fetch.getItems(
+      `${import.meta.env.VITE_API_ENDPOINT}/order-items?orderId=${orderId}&_embed=item&_sort=-orderDate`
+    )
   }
   //get open order from table id
   const getOpenOrderByTableId = async (tableId) => {

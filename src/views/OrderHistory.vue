@@ -17,7 +17,6 @@ const invtervalId = ref(null)
 
 const refetchOrderItems = async () => {
   orderItems.value = await orderStore.getOrderItems(route.params.orderId)
-  orderItems.value = orderItems.value.reverse()
   totalPrice.value = orderItems.value.reduce(
     (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
     0
