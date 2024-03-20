@@ -1,5 +1,4 @@
 import TableDetail from '@/components/table/TableDetail.vue'
-import TableManager from '@/components/manager/TableManager.vue'
 import Tables from '@/components/table/Tables.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
@@ -14,6 +13,8 @@ import OrderMenuView from '../views/OrderMenuView.vue'
 import AdminLayout from '@/layouts/AdminLayout.vue'
 import SelectTask from '@/components/admin/SelectTask.vue'
 import ProductManager from '@/components/manager/ProductManager.vue'
+import OrderManager from '@/components/manager/OrderManager.vue'
+import TableManager from '@/components/manager/TableManager.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -98,6 +99,11 @@ const router = createRouter({
           path: 'product-manager',
           name: 'product-manager',
           component: ProductManager
+        },
+        {
+          path: 'order-manager',
+          name: 'order-manager',
+          component: OrderManager
         }
       ]
     },
