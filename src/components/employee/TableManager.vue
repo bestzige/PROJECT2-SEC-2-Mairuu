@@ -1,7 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import { getItem, getItems } from '@/utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants'
+import { onMounted, ref } from 'vue'
 const tables = ref()
 const orders = ref({})
 const choosenTable = ref(0)
@@ -9,7 +8,7 @@ const tableStatus = ref('available')
 const choosenTool = ref()
 onMounted(async () => {
   try {
-    const result = await getItems(`${API_ENDPOINT}/tables`)
+    const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
     tables.value = result
   } catch (err) {
     console.log(err)
@@ -17,7 +16,9 @@ onMounted(async () => {
 })
 const loadOrdersOfTable = async () => {
   try {
-    const result = await getItems(`${API_ENDPOINT}/orders/${choosenTable.value}?_embed=`)
+    const result = await getItems(
+      `${import.meta.env.VITE_API_ENDPOINT}/orders/${choosenTable.value}?_embed=`
+    )
     orders.value = result
   } catch (err) {
     console.log(err)
@@ -27,7 +28,7 @@ const clickTable = async (tableId) => {
   try {
     choosenTool.value = ''
     choosenTable.value = tableId
-    const result = await getItem(`${API_ENDPOINT}/tables`, tableId)
+    const result = await getItem(`${import.meta.env.VITE_API_ENDPOINT}/tables`, tableId)
     tableStatus.value = result.status
   } catch (err) {
     console.log(err)

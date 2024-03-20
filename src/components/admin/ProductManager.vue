@@ -1,9 +1,8 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import BaseCard from './BaseCard.vue'
 
 import { getItems } from '../../utils/fetch'
-import { API_ENDPOINT } from '@/utils/constants'
 
 const items = ref([])
 const showEditModal = ref(false)
@@ -20,7 +19,7 @@ const deleteItem = (itemId) => {
 
 const loadItems = async () => {
   try {
-    const response = await getItems(`${API_ENDPOINT}/items`)
+    const response = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/items`)
     items.value = response
   } catch (error) {
     console.error('Error fetching items:', error)
