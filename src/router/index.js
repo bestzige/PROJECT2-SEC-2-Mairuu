@@ -9,6 +9,8 @@ import StoreLayout from '@/layouts/StoreLayout.vue'
 import TableManager from '@/components/employee/table/TableManager.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import TableDetail from '@/components/employee/table/TableDetail.vue'
+import ProductManager from '@/components/admin/ProductManager.vue'
+import AdminLayout from '@/layouts/AdminLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,6 +73,18 @@ const router = createRouter({
           path: 'table-detail/:tableId',
           name: 'table-detail',
           component: TableDetail
+        }
+      ]
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: AdminLayout,
+      children:[
+        {
+          path: '',
+          name: 'products',
+          component: ProductManager
         }
       ]
     },
