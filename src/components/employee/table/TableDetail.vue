@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
-import ItemCard from './ItemCard.vue'
+import TableCard from './TableCard.vue'
 const route = useRoute()
 const router = useRouter()
 console.log(route.params.tableId)
@@ -44,8 +44,9 @@ onUnmounted(() => {
   <div>
     <!-- <div class="text-3xl"># {{ order.id }}</div>
     <div>{{ orderItems }}</div> -->
-    <ItemCard :order="order" :orderItems="orderItems" :totalPrice="totalPrice" />
+    <TableCard :order="order" :orderItems="orderItems" :totalPrice="totalPrice" />
   </div>
 </template>
 
 <style scoped></style>
+./TableCard.vue

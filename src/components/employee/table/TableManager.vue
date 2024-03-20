@@ -5,12 +5,8 @@ import TableList from './TableList.vue'
 const tables = ref([])
 
 onMounted(async () => {
-  try {
-    const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
-    tables.value = result
-  } catch (err) {
-    console.log(err)
-  }
+  const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
+  tables.value = result
 })
 </script>
 
