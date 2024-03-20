@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import BaseCard from '../admin/BaseCard.vue';
+import ProductCard from '../product/ProductCard.vue'
 
 import { getItems, putItem } from '../../utils/fetch'
 
@@ -10,7 +10,6 @@ const showEditModal = ref(false)
 const tempEditedItem = ref(null)
 
 const openEditModal = (item) => {
-  
   tempEditedItem.value = { ...item }
   showEditModal.value = true
 }
@@ -86,7 +85,7 @@ loadItems()
           <hr class="border-gray-400 my-2" />
           <div class="flex flex-wrap">
             <div v-for="(item, index) in categoryItems" :key="index" class="w-1/4">
-              <BaseCard :item="item" @edit="openEditModal(item)" @delete="deleteItem(item.id)" />
+              <ProductCard :item="item" @edit="openEditModal(item)" @delete="deleteItem(item.id)" />
             </div>
           </div>
         </div>
