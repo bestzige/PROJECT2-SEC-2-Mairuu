@@ -6,13 +6,11 @@ const uiStore = useUiStore()
 </script>
 
 <template>
-  <div class="fixed bottom-4 right-4 z-[100] flex flex-col items-end gap-4">
-    <XToast
-      v-for="toast in uiStore.toasts"
-      :key="toast.id"
-      :id="toast.id"
-      :message="toast.message"
-      :type="toast.type"
-    />
-  </div>
+  <XToast
+    v-for="toast in uiStore.toasts.slice(0, 1)"
+    :key="toast.id"
+    :id="toast.id"
+    :message="toast.message"
+    :type="toast.type"
+  />
 </template>

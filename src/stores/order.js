@@ -1,10 +1,13 @@
 import * as fetch from '@/utils/fetch'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { useUiStore } from './ui'
 
 export const useOrderStore = defineStore('order', () => {
   const currentOrder = ref(null)
   const cartItems = ref([])
+
+  const uiStore = useUiStore()
 
   const getOrder = async (orderId, setOrder = true) => {
     const data = await fetch.getItems(
@@ -72,7 +75,11 @@ export const useOrderStore = defineStore('order', () => {
       if (ordered) removeFromCart(cartItem.id)
       return ordered
     })
-    return await Promise.all(orderItemPromises)
+    const orderItems = await Promise.all(orderItemPromises)
+    if (orderItems.length > 0) {
+      uiStore.addToast({ message: 'Order placed', type: 'success' })
+    }
+    return orderItems
   }
 
   const getOrderItems = async (orderId) => {
