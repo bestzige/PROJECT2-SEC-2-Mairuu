@@ -17,10 +17,10 @@ const { id, message, type } = defineProps({
 })
 
 const typeClasses = {
-  info: 'bg-blue-100 text-blue-500',
-  success: 'bg-green-100 text-green-500',
-  warning: 'bg-orange-100 text-orange-500',
-  error: 'bg-red-100 text-red-500'
+  info: 'bg-blue-500 text-white',
+  success: 'bg-green-500 text-white',
+  warning: 'bg-orange-500 text-white',
+  error: 'bg-red-500 text-white'
 }
 
 const closeToast = () => {
@@ -31,31 +31,17 @@ const closeToast = () => {
 <template>
   <div
     :id="`toast-${type}-${id}`"
-    class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg z-[999]"
+    class="flex items-center w-full p-4 text-gray-500 shadow-lg z-[999] animate-fade-in duration-300 transform translate-y-0"
+    :class="typeClasses[type]"
     @mouseenter="uiStore.pauseToastTimer(id)"
     @mouseleave="uiStore.resumeToastTimer(id)"
   >
-    <div
-      class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg"
-      :class="typeClasses[type]"
-    >
-      <svg
-        class="w-5 h-5"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <circle cx="10" cy="10" r="8" stroke="currentColor" />
-      </svg>
-      <span class="sr-only"> Circle icon </span>
-    </div>
     <div class="ms-3 text-sm font-normal">
       {{ message }}
     </div>
     <button
       type="button"
-      class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white"
+      class="ms-auto -mx-1.5 -my-1.5 text-gray-200 hover:text-gray-900 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8"
       aria-label="Close"
       @click="closeToast"
     >

@@ -8,7 +8,7 @@ const langStore = useLangStore()
   <img
     :src="`/flags/${langStore.nextLang.value}.svg`"
     :alt="langStore.nextLang.value"
-    class="w-6 h-6 rounded-md"
+    class="w-6 h-6 rounded-md cursor-pointer"
     @click="langStore.toggleLang"
   />
 </template>

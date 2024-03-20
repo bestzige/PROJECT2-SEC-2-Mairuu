@@ -1,10 +1,7 @@
-<script setup>
-import XToasts from '@/components/ui/XToasts.vue'
-</script>
+<script setup></script>
 
 <template>
   <div class="flex flex-col min-h-screen bg-gray-200 pt-16 pb-32">
-    <XToasts />
     <slot />
   </div>
 </template>

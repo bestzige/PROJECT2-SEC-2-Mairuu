@@ -7,7 +7,7 @@
         "en": "Table 1"
       },
       "defaultSize": 4,
-      "status": "unAvailable"
+      "status": "unavailable"
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
         "en": "Table 2"
       },
       "defaultSize": 2,
-      "status": "unAvailable"
+      "status": "unavailable"
     },
     {
       "id": "3",
@@ -146,264 +146,50 @@
   ],
   "order-items": [
     {
-      "id": "8fb5",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 10,
-      "orderDate": "2024-03-16T09:41:52.896Z",
-      "status": "pending"
-    },
-    {
-      "id": "541c",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 1,
-      "orderDate": "2024-03-16T11:19:32.757Z",
-      "status": "pending"
-    },
-    {
-      "id": "482a",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 1,
-      "orderDate": "2024-03-16T11:19:32.759Z",
-      "status": "pending"
-    },
-    {
-      "id": "b38b",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 2,
-      "orderDate": "2024-03-16T11:19:32.760Z",
-      "status": "pending"
-    },
-    {
-      "id": "8f32",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 10,
-      "orderDate": "2024-03-16T11:21:18.191Z",
-      "status": "pending"
-    },
-    {
-      "id": "ec51",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 10,
-      "orderDate": "2024-03-16T11:21:18.193Z",
-      "status": "pending"
-    },
-    {
-      "id": "b473",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 11,
-      "orderDate": "2024-03-16T11:21:18.194Z",
-      "status": "pending"
-    },
-    {
-      "id": "e4c1",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 5,
-      "orderDate": "2024-03-16T11:43:49.801Z",
-      "status": "pending"
-    },
-    {
-      "id": "43db",
-      "orderId": "qwdqwd",
-      "itemId": "3",
-      "quantity": 1,
-      "orderDate": "2024-03-19T06:56:55.604Z",
-      "status": "pending"
-    },
-    {
-      "id": "a9d3",
+      "id": "30b7",
       "orderId": "1",
       "itemId": "3",
-      "quantity": 6,
-      "orderDate": "2024-03-19T07:29:48.766Z",
-      "status": "pending"
-    },
-    {
-      "id": "8bcb",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 7,
-      "orderDate": "2024-03-19T11:56:23.890Z",
-      "status": "pending"
-    },
-    {
-      "id": "3f5b",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 4,
-      "orderDate": "2024-03-19T11:58:20.378Z",
-      "status": "pending"
-    },
-    {
-      "id": "f418",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 4,
-      "orderDate": "2024-03-19T13:48:55.080Z",
-      "status": "pending"
-    },
-    {
-      "id": "843c",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 2,
-      "orderDate": "2024-03-19T13:48:55.081Z",
-      "status": "pending"
-    },
-    {
-      "id": "3522",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 2,
-      "orderDate": "2024-03-19T13:49:30.554Z",
-      "status": "pending"
-    },
-    {
-      "id": "0bd2",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 2,
-      "orderDate": "2024-03-19T13:49:30.554Z",
-      "status": "pending"
-    },
-    {
-      "id": "49db",
-      "orderId": "1",
-      "itemId": "4",
       "quantity": 1,
-      "orderDate": "2024-03-19T13:49:30.555Z",
-      "status": "pending"
-    },
-    {
-      "id": "daa5",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 1,
-      "orderDate": "2024-03-19T13:49:45.584Z",
-      "status": "pending"
-    },
-    {
-      "id": "0dea",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 2,
-      "orderDate": "2024-03-19T13:49:45.584Z",
-      "status": "pending"
-    },
-    {
-      "id": "4d22",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-19T13:49:45.585Z",
-      "status": "pending"
-    },
-    {
-      "id": "5f86",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 18,
-      "orderDate": "2024-03-19T13:57:03.015Z",
-      "status": "pending"
-    },
-    {
-      "id": "3fa8",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 22,
-      "orderDate": "2024-03-19T13:57:03.015Z",
-      "status": "pending"
-    },
-    {
-      "id": "65df",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 34,
-      "orderDate": "2024-03-19T13:57:03.015Z",
-      "status": "pending"
-    },
-    {
-      "id": "d3de",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 3,
-      "orderDate": "2024-03-19T14:34:34.391Z",
-      "status": "pending"
-    },
-    {
-      "id": "4e15",
-      "orderId": "1",
-      "itemId": "1",
-      "quantity": 4,
-      "orderDate": "2024-03-19T14:34:34.392Z",
-      "status": "pending"
-    },
-    {
-      "id": "1073",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 3,
-      "orderDate": "2024-03-19T14:34:34.392Z",
+      "orderDate": "2024-03-20T03:41:11.444Z",
       "status": "cancelled"
     },
     {
-      "id": "bde6",
+      "id": "0bb5",
       "orderId": "1",
       "itemId": "4",
+      "quantity": 5,
+      "orderDate": "2024-03-20T03:41:11.446Z",
+      "status": "cancelled"
+    },
+    {
+      "id": "209a",
+      "orderId": "1",
+      "itemId": "2",
       "quantity": 1,
-      "orderDate": "2024-03-19T14:34:34.393Z",
+      "orderDate": "2024-03-20T03:41:11.446Z",
       "status": "completed"
     },
     {
-      "id": "3597",
+      "id": "ac96",
       "orderId": "1",
-      "itemId": "3",
-      "quantity": 4,
-      "orderDate": "2024-03-20T01:40:29.170Z",
-      "status": "pending"
-    },
-    {
-      "id": "2ea1",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 3,
-      "orderDate": "2024-03-20T01:56:53.554Z",
-      "status": "pending"
-    },
-    {
-      "id": "cb82",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 9,
-      "orderDate": "2024-03-20T03:05:11.903Z",
-      "status": "pending"
+      "itemId": "1",
+      "quantity": 1,
+      "orderDate": "2024-03-20T03:41:11.445Z",
+      "status": "completed"
     }
   ],
   "service-calls": [
     {
-      "id": "7698",
+      "id": "778f",
       "orderId": "1",
       "status": "pending",
-      "callDate": "2024-03-19T15:56:26.904Z"
+      "callDate": "2024-03-20T03:42:09.617Z"
     },
     {
-      "id": "a2ee",
+      "id": "c0e2",
       "orderId": "1",
       "status": "pending",
-      "callDate": "2024-03-20T02:05:24.709Z"
-    },
-    {
-      "id": "fdea",
-      "orderId": "1",
-      "status": "pending",
-      "callDate": "2024-03-20T03:02:20.500Z"
+      "callDate": "2024-03-20T04:55:00.423Z"
     }
   ]
 }
