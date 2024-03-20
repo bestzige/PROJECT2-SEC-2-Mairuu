@@ -14,7 +14,7 @@ const tempNewItem = ref({
   stock: 0,
   categoryId: 0,
   image: '',
-  id: 0 // Add ID field to tempNewItem
+  id: 0 
 })
 
 const openAddModal = () => {
