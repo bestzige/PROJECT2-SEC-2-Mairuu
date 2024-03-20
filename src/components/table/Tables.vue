@@ -13,7 +13,7 @@ onMounted(async () => {
 <template>
   <div>
     <div class="flex flex-row flex-wrap">
-      <TableList :tables="tables" :admin="true" />
+      <TableList :tables="tables" />
     </div>
   </div>
 </template>
