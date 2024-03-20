@@ -1,5 +1,5 @@
-import TableDetail from '@/components/employee/table/TableDetail.vue'
-import TableManager from '@/components/employee/table/TableManager.vue'
+import TableDetail from '@/components/table/TableDetail.vue'
+import TableManager from '@/components/table/TableManager.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
