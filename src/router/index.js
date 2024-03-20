@@ -1,14 +1,15 @@
+import TableDetail from '@/components/employee/table/TableDetail.vue'
+import TableManager from '@/components/employee/table/TableManager.vue'
+import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
+import OrderLayout from '@/layouts/OrderLayout.vue'
+import StoreLayout from '@/layouts/StoreLayout.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
+import OrderCart from '@/views/OrderCart.vue'
+import OrderHistory from '@/views/OrderHistory.vue'
+import OrderView from '@/views/OrderView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import OrderLayout from '@/layouts/OrderLayout.vue'
-import OrderView from '@/views/OrderView.vue'
-import OrderHistory from '@/views/OrderHistory.vue'
 import OrderMenuView from '../views/OrderMenuView.vue'
-import OrderCart from '@/views/OrderCart.vue'
-import StoreLayout from '@/layouts/StoreLayout.vue'
-import TableManager from '@/components/table/TableManager.vue'
-import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
-import TableDetail from '@/components/table/TableDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,7 +78,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: () => import('../views/NotFoundView.vue')
+      component: NotFoundView
     }
   ]
 })
