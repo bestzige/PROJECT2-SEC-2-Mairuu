@@ -298,18 +298,5 @@
       "status": "pending"
     }
   ],
-  "service-calls": [
-    {
-      "id": "778f",
-      "orderId": "1",
-      "status": "pending",
-      "callDate": "2024-03-20T03:42:09.617Z"
-    },
-    {
-      "id": "c0e2",
-      "orderId": "1",
-      "status": "pending",
-      "callDate": "2024-03-20T04:55:00.423Z"
-    }
-  ]
+  "service-calls": []
 }
