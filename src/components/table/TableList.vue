@@ -1,6 +1,4 @@
 <script setup>
-import { useTableStore } from '@/stores/table'
-const tableStore = useTableStore()
 defineProps({
   tables: {
     type: Array,
@@ -23,7 +21,6 @@ defineProps({
           :key="index"
           class="text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-black"
           :to="`/employee/table-detail/${table.id}`"
-          @click="tableStore.setTable(table)"
         >
           {{ table.name.en }}
         </router-link>

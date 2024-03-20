@@ -3,10 +3,12 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
 import TableCard from './TableCard.vue'
+import { useTableStore } from '@/stores/table'
+import { useUiStore } from '@/stores/ui'
 const route = useRoute()
 const router = useRouter()
-console.log(route.params.tableId)
-
+const tableStore = useTableStore()
+const uiStore = useUiStore()
 const orderStore = useOrderStore()
 const order = ref({})
 const orderItems = ref([])
@@ -21,12 +23,13 @@ const refetchOrderItems = async () => {
       clearInterval(invtervalId.value)
     }
     await router.push('/employee')
+    uiStore.addToast({ message: 'No open order found', type: 'error' })
   } else {
+    tableStore.setCurrentTable(order.value.table)
     orderItems.value = await orderStore.getOrderItems(order.value.id)
-    totalPrice.value = orderItems.value.reduce(
-      (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
-      0
-    )
+    totalPrice.value = orderItems.value
+      .filter((item) => item.status === 'completed')
+      .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
   }
 }
 
@@ -41,14 +44,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-full max-h-96 bg-orange-600 overflow-auto">
+  <div class="h-full max-h-96 overflow-auto">
     <!-- <div class="text-3xl"># {{ order.id }}</div>
     <div>{{ orderItems }}</div> -->
     <TableCard :order="order" :orderItems="orderItems" />
   </div>
   <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
   <div>
-    <button class="bottom-0 right-0 bg-red-500 text-white p-2 rounded-lg">Clear Order</button>
+    <button class="bottom-0 right-0 bg-red-500 text-white p-2 rounded-lg">Submit Order</button>
   </div>
 </template>
 
