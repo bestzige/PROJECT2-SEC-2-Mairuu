@@ -17,10 +17,9 @@ const invtervalId = ref(null)
 
 const refetchOrderItems = async () => {
   orderItems.value = await orderStore.getOrderItems(route.params.orderId)
-  totalPrice.value = orderItems.value.reduce(
-    (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
-    0
-  )
+  totalPrice.value = orderItems.value
+    .filter((item) => item.status === 'completed')
+    .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
 }
 
 onMounted(async () => {
