@@ -11,10 +11,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import OrderMenuView from '../views/OrderMenuView.vue'
 import AdminLayout from '@/layouts/AdminLayout.vue'
-import SelectTask from '@/components/admin/SelectTask.vue'
 import ProductManager from '@/components/manager/ProductManager.vue'
 import OrderManager from '@/components/manager/OrderManager.vue'
 import TableManager from '@/components/manager/TableManager.vue'
+import EmployeeTask from '@/components/employee/EmployeeTask.vue'
+import AdminTask from '@/components/admin/AdminTask.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -70,13 +71,23 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'table-home',
+          name: 'employee-home',
+          component: EmployeeTask
+        },
+        {
+          path: 'tables',
+          name: 'tables',
           component: Tables
         },
         {
           path: 'table-detail/:tableId',
           name: 'table-detail',
           component: TableDetail
+        },
+        {
+          path: 'order-manager',
+          name: 'order-manager',
+          component: OrderManager
         }
       ]
     },
@@ -88,7 +99,7 @@ const router = createRouter({
         {
           path: '',
           name: 'admin-home',
-          component: SelectTask
+          component: AdminTask
         },
         {
           path: 'table-manager',
@@ -99,11 +110,6 @@ const router = createRouter({
           path: 'product-manager',
           name: 'product-manager',
           component: ProductManager
-        },
-        {
-          path: 'order-manager',
-          name: 'order-manager',
-          component: OrderManager
         }
       ]
     },
