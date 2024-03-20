@@ -80,6 +80,13 @@ export const useOrderStore = defineStore('order', () => {
       `${import.meta.env.VITE_API_ENDPOINT}/order-items?orderId=${orderId}&_embed=item&_sort=-orderDate`
     )
   }
+  //get open order from table id
+  const getOpenOrderByTableId = async (tableId) => {
+    const data = await fetch.getItems(
+      `${API_ENDPOINT}/orders?tableId=${tableId}&status=open&_embed=table`
+    )
+    return data[0]
+  }
 
   return {
     currentOrder,
@@ -92,6 +99,7 @@ export const useOrderStore = defineStore('order', () => {
     addQuantity,
     subQuantity,
     itemOrdered,
-    getOrderItems
+    getOrderItems,
+    getOpenOrderByTableId
   }
 })

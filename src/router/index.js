@@ -6,6 +6,9 @@ import OrderHistory from '@/views/OrderHistory.vue'
 import OrderMenuView from '../views/OrderMenuView.vue'
 import OrderCart from '@/views/OrderCart.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
+import TableManager from '@/components/employee/table/TableManager.vue'
+import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
+import TableDetail from '@/components/employee/table/TableDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,7 +33,7 @@ const router = createRouter({
         {
           path: '',
           name: 'order-home',
-          component: OrderView,
+          component: OrderView
         },
         {
           path: 'history',
@@ -51,6 +54,23 @@ const router = createRouter({
           path: 'menu/:categoryId',
           name: 'order-menu-category',
           component: OrderMenuView
+        }
+      ]
+    },
+    {
+      path: '/employee',
+      name: 'employee',
+      component: EmployeeLayout,
+      children: [
+        {
+          path: '',
+          name: 'employee-home',
+          component: TableManager
+        },
+        {
+          path: 'table-detail/:tableId',
+          name: 'table-detail',
+          component: TableDetail
         }
       ]
     },
