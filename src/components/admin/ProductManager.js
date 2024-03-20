@@ -42,6 +42,7 @@ export const putItem = async (url, id, item) => {
     })
   } catch (error) {
     console.error('Error:', error)
+    return null;
   }
 }
 
