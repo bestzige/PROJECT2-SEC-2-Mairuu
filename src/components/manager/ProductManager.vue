@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import BaseCard from './BaseCard.vue'
+import BaseCard from '../admin/BaseCard.vue';
 
 import { getItems, putItem } from '../../utils/fetch'
 

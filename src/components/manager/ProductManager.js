@@ -1,6 +1,5 @@
 import { fetch } from '../../utils/fetch'
 
-
 export const getItems = async (url) => {
   try {
     return await fetch(url)
@@ -42,7 +41,7 @@ export const putItem = async (url, id, item) => {
     })
   } catch (error) {
     console.error('Error:', error)
-    return null;
+    return null
   }
 }
 
