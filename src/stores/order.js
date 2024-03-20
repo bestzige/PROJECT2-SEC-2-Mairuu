@@ -84,6 +84,9 @@ export const useOrderStore = defineStore('order', () => {
     const data = await fetch.getItems(
       `${API_ENDPOINT}/orders?tableId=${tableId}&status=open&_embed=table`
     )
+    if (data.length === 0) {
+      return null
+    }
     return data[0]
   }
 

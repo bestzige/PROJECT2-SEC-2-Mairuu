@@ -35,7 +35,7 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  clearInterval(invtervalId)
+  clearInterval(invtervalId.value)
 })
 </script>
 

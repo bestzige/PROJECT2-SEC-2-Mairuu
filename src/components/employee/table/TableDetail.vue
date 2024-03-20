@@ -1,9 +1,10 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
 import ItemCard from './ItemCard.vue'
 const route = useRoute()
+const router = useRouter()
 console.log(route.params.tableId)
 
 const orderStore = useOrderStore()
@@ -11,18 +12,31 @@ const order = ref({})
 const orderItems = ref([])
 const totalPrice = ref(0)
 
+const invtervalId = ref(null)
+
 const refetchOrderItems = async () => {
   order.value = await orderStore.getOpenOrderByTableId(route.params.tableId)
-  orderItems.value = await orderStore.getOrderItems(order.value.id)
-  totalPrice.value = orderItems.value.reduce(
-    (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
-    0
-  )
+  if (!order.value) {
+    if (invtervalId.value) {
+      clearInterval(invtervalId.value)
+    }
+    await router.push('/employee')
+  } else {
+    orderItems.value = await orderStore.getOrderItems(order.value.id)
+    totalPrice.value = orderItems.value.reduce(
+      (acc, orderItem) => acc + orderItem.item.price * orderItem.quantity,
+      0
+    )
+  }
 }
+
 onMounted(async () => {
   await refetchOrderItems().then(() => {
-    setInterval(refetchOrderItems, 1000)
+    invtervalId.value = setInterval(refetchOrderItems, 1000)
   })
+})
+onUnmounted(() => {
+  clearInterval(invtervalId.value)
 })
 </script>
 

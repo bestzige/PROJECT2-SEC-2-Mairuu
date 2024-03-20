@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <div class="w-full bg-slate-200 border-2 border-black">
       <div
         class="w-full h-auto text-5xl text-white text-center bg-yellow-500 border-b-2 border-black"

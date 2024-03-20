@@ -1,8 +1,7 @@
 <script setup>
 defineProps({
   order: {
-    type: Object,
-    required: true
+    type: Object
   },
   orderItems: {
     type: Array,
@@ -16,7 +15,7 @@ defineProps({
 </script>
 
 <template>
-  <div>
+  <div v-if="order">
     <div class="text-3xl">Order # {{ order.id }}</div>
     <div class="flex flex-row flex-wrap gap-3">
       <div class="w-2/3">
