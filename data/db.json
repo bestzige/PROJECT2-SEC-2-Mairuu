@@ -88,12 +88,11 @@
     {
       "id": "1",
       "name": {
-        "th": "fgh",
-        "en": "4132112"
+        "th": "Item 1",
+        "en": "Item 1"
       },
       "price": 10,
       "published": "true",
-      "stock": 10,
       "categoryId": "1",
       "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
     },
@@ -105,7 +104,6 @@
       },
       "price": 20,
       "published": "true",
-      "stock": 10,
       "categoryId": "1",
       "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
     },
@@ -117,7 +115,6 @@
       },
       "price": 30,
       "published": "true",
-      "stock": 10,
       "categoryId": "2",
       "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
     },
@@ -129,7 +126,6 @@
       },
       "price": 40,
       "published": "true",
-      "stock": 10,
       "categoryId": "1",
       "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
     }
@@ -176,153 +172,17 @@
     {
       "id": "ac96",
       "orderId": "1",
-      "itemId": null,
+      "itemId": "1",
       "quantity": 1,
       "orderDate": "2024-03-20T03:41:11.445Z",
       "status": "completed"
     },
     {
-      "id": "9a64",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 23,
-      "orderDate": "2024-03-20T05:21:40.266Z",
-      "status": "pending"
-    },
-    {
-      "id": "83c9",
+      "id": "0216",
       "orderId": "1",
       "itemId": "3",
       "quantity": 3,
-      "orderDate": "2024-03-20T05:21:47.001Z",
-      "status": "pending"
-    },
-    {
-      "id": "4955",
-      "orderId": "1",
-      "itemId": null,
-      "quantity": 2,
-      "orderDate": "2024-03-20T05:22:06.417Z",
-      "status": "pending"
-    },
-    {
-      "id": "f464",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 2,
-      "orderDate": "2024-03-20T05:22:06.418Z",
-      "status": "pending"
-    },
-    {
-      "id": "8f93",
-      "orderId": "1",
-      "itemId": "3",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:06.418Z",
-      "status": "pending"
-    },
-    {
-      "id": "76c3",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 2,
-      "orderDate": "2024-03-20T05:22:06.418Z",
-      "status": "pending"
-    },
-    {
-      "id": "3958",
-      "orderId": "1",
-      "itemId": null,
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:33.434Z",
-      "status": "pending"
-    },
-    {
-      "id": "b555",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:33.435Z",
-      "status": "pending"
-    },
-    {
-      "id": "8010",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:33.435Z",
-      "status": "pending"
-    },
-    {
-      "id": "2d93",
-      "orderId": "1",
-      "itemId": null,
-      "quantity": 2,
-      "orderDate": "2024-03-20T05:22:40.031Z",
-      "status": "pending"
-    },
-    {
-      "id": "d2e5",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 2,
-      "orderDate": "2024-03-20T05:22:40.032Z",
-      "status": "pending"
-    },
-    {
-      "id": "22ef",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:40.032Z",
-      "status": "pending"
-    },
-    {
-      "id": "2193",
-      "orderId": "1",
-      "itemId": null,
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:45.596Z",
-      "status": "pending"
-    },
-    {
-      "id": "d2a0",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:45.597Z",
-      "status": "pending"
-    },
-    {
-      "id": "1280",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-20T05:22:45.597Z",
-      "status": "pending"
-    },
-    {
-      "id": "096f",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-20T08:50:33.280Z",
-      "status": "pending"
-    },
-    {
-      "id": "a82f",
-      "orderId": "1",
-      "itemId": "2",
-      "quantity": 2,
-      "orderDate": "2024-03-21T03:05:01.649Z",
-      "status": "pending"
-    },
-    {
-      "id": "08e0",
-      "orderId": "1",
-      "itemId": "4",
-      "quantity": 1,
-      "orderDate": "2024-03-21T03:05:01.650Z",
+      "orderDate": "2024-03-21T03:06:15.433Z",
       "status": "pending"
     }
   ],

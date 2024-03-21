@@ -91,7 +91,7 @@ export const useOrderStore = defineStore('order', () => {
   //get open order from table id
   const getOpenOrderByTableId = async (tableId) => {
     const data = await fetch.getItems(
-      `${import.meta.env.VITE_API_ENDPOINT}/orders?tableId=${tableId}&status=open&_embed=table&_embed=order-items`
+      `${import.meta.env.VITE_API_ENDPOINT}/orders?tableId=${tableId}&status=open&_embed=table`
     )
     if (data.length === 0) {
       return null
