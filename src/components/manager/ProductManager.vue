@@ -13,8 +13,7 @@ const tempNewItem = ref({
   price: 0,
   stock: 0,
   categoryId: 0,
-  image: '',
-  id: 0 
+  image: ''
 })
 
 const openAddModal = () => {
@@ -49,9 +48,6 @@ const categorizedItems = computed(() => {
 
 const addProduct = async () => {
   try {
-    const latestItemId = items.value.reduce((maxId, item) => Math.max(maxId, parseInt(item.id)), 0)
-    tempNewItem.value.id = String(latestItemId + 1)
-
     const newItem = await postItem(`${import.meta.env.VITE_API_ENDPOINT}/items`, tempNewItem.value)
     if (newItem) {
       items.value.push(newItem)
@@ -145,7 +141,7 @@ loadItems()
                 :item="item"
                 :name="item.name"
                 @edit="openEditModal"
-                @delete="() => deleteItem(item.id)"
+                @delete="deleteItem"
               />
             </div>
           </div>
