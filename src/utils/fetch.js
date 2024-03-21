@@ -47,6 +47,20 @@ export const putItem = async (url, id, item) => {
   }
 }
 
+export const patchItem = async (url, id, item) => {
+  try {
+    return await fetch(`${url}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
+    })
+  } catch (error) {
+    console.error('Error:', error)
+  }
+}
+
 export const deleteItem = async (url, id) => {
   try {
     return await fetch(`${url}/${id}`, {

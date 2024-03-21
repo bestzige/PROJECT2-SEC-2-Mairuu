@@ -1,29 +1,29 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
 import TableCard from './TableCard.vue'
 import { useTableStore } from '@/stores/table'
-import { useUiStore } from '@/stores/ui'
+
 const route = useRoute()
 const router = useRouter()
 const tableStore = useTableStore()
-const uiStore = useUiStore()
+
 const orderStore = useOrderStore()
 const order = ref({})
 const orderItems = ref([])
 const totalPrice = ref(0)
 
 const invtervalId = ref(null)
+const tableId = ref(route.params.tableId)
 
 const refetchOrderItems = async () => {
-  order.value = await orderStore.getOpenOrderByTableId(route.params.tableId)
+  order.value = await orderStore.getOpenOrderByTableId(tableId.value)
   if (!order.value) {
     if (invtervalId.value) {
       clearInterval(invtervalId.value)
     }
     await router.push('/employee/tables')
-    uiStore.addToast({ message: 'No open order found', type: 'error' })
   } else {
     tableStore.setCurrentTable(order.value.table)
     orderItems.value = await orderStore.getOrderItems(order.value.id)
@@ -41,6 +41,14 @@ onMounted(async () => {
 onUnmounted(() => {
   clearInterval(invtervalId.value)
 })
+
+watch(
+  () => route.params.tableId,
+  async (newTableId) => {
+    tableId.value = newTableId
+    await refetchOrderItems()
+  }
+)
 </script>
 
 <template>
@@ -49,9 +57,20 @@ onUnmounted(() => {
     <div>{{ orderItems }}</div> -->
     <TableCard :order="order" :orderItems="orderItems" />
   </div>
-  <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
-  <div>
-    <button class="bottom-0 right-0 bg-red-500 text-white p-2 rounded-lg">Submit Order</button>
+
+  <div class="flex justify-around my-10 h-20 items-center">
+    <router-link
+      to="/employee/tables"
+      class="bg-red-500 text-white p-2 rounded-lg items-center justify-center flex h-12 w-32"
+      >Go Back</router-link
+    >
+
+    <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
+    <button
+      class="bottom-0 right-0 bg-green-500 text-white p-2 rounded-lg items-center flex justify-center h-12 w-32"
+    >
+      Submit Order
+    </button>
   </div>
 </template>
 

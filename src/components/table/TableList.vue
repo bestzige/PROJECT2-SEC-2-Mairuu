@@ -1,4 +1,34 @@
 <script setup>
+import { ref } from 'vue'
+import ConfirmModal from '../ui/ConfirmModal.vue'
+import { useRouter } from 'vue-router'
+import { useOrderStore } from '@/stores/order'
+import { useTableStore } from '@/stores/table'
+const router = useRouter()
+const orderStore = useOrderStore()
+const tableStore = useTableStore()
+const toggleModal = ref(false)
+const selectedTable = ref(null)
+
+const tableSelect = async (tableId) => {
+  selectedTable.value = tableId
+  const openOrder = await orderStore.getOpenOrderByTableId(selectedTable.value)
+  if (openOrder) {
+    await router.push(`/employee/table-detail/${selectedTable.value}`)
+  } else {
+    tableStore.setCurrentTable(selectedTable.value)
+    toggleModal.value = true
+    
+  }
+}
+const closeModal = () => {
+  toggleModal.value = false
+  selectedTable.value = null
+}
+const openTable = () => {
+  closeModal()
+}
+
 defineProps({
   tables: {
     type: Array,
@@ -28,16 +58,24 @@ defineProps({
         >
           +
         </button>
-        <router-link
+        <button
           v-for="(table, index) in tables"
           :key="index"
           class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-black"
-          :to="`/employee/table-detail/${table.id}`"
+          @click="tableSelect(table.id)"
         >
           {{ table.name.en }}
-        </router-link>
+        </button>
       </div>
     </div>
+
+    <ConfirmModal
+      v-if="toggleModal"
+      class="absolute"
+      :tableId="selectedTable.value"
+      @cancle="closeModal"
+      @confirm="openTable"
+    />
   </div>
 </template>
 

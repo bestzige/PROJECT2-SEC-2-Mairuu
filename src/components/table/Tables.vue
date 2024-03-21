@@ -2,6 +2,7 @@
 import { getItems } from '@/utils/fetch'
 import { onMounted, ref } from 'vue'
 import TableList from '../table/TableList.vue'
+
 const tables = ref([])
 
 onMounted(async () => {
