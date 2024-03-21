@@ -1,4 +1,4 @@
-import TableDetail from '@/components/table/TableDetail.vue'
+import TableOrdersDetail from '@/components/table/TableOrdersDetail.vue'
 import Tables from '@/components/table/Tables.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
@@ -82,7 +82,7 @@ const router = createRouter({
         {
           path: 'table-detail/:tableId',
           name: 'table-detail',
-          component: TableDetail
+          component: TableOrdersDetail
         },
         {
           path: 'order-manager',

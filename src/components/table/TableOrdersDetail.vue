@@ -22,7 +22,7 @@ const refetchOrderItems = async () => {
     if (invtervalId.value) {
       clearInterval(invtervalId.value)
     }
-    await router.push('/employee')
+    await router.push('/employee/tables')
     uiStore.addToast({ message: 'No open order found', type: 'error' })
   } else {
     tableStore.setCurrentTable(order.value.table)
@@ -30,6 +30,7 @@ const refetchOrderItems = async () => {
     totalPrice.value = orderItems.value
       .filter((item) => item.status === 'completed')
       .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
+    // .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
   }
 }
 

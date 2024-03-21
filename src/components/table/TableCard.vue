@@ -24,7 +24,7 @@ defineProps({
             <div class="w-1/5">Status</div>
           </div>
           <div v-for="(orderItem, index) in orderItems" :key="index" class="flex flex-row">
-            <div class="w-1/5">{{ orderItem.item.name.en }}</div>
+            <!-- <div class="w-1/5">{{ orderItem.item.name.en }}</div> -->
             <div class="w-1/5">{{ orderItem.quantity }}</div>
             <div class="w-1/5">{{ orderItem.item.price }}</div>
             <div class="w-1/5">{{ orderItem.quantity * orderItem.item.price }}</div>
