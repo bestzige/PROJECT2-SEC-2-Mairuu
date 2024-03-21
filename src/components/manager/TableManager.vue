@@ -20,6 +20,11 @@ onMounted(async () => {
 
 <template>
   <div>
+    <div class="flex justify-center">
+      <div class="bg-theme-500 text-white w-3/4 p-20 m-10 text-center">
+        <h1 class="text-7xl font-bold">Table Management</h1>
+      </div>
+    </div>
     <div v-for="(table, index) in tables" :key="index">
       <TableDetail
         :table="table"
