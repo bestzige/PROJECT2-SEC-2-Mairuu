@@ -4,8 +4,10 @@ import { onMounted, ref } from 'vue'
 import XModal from '../ui/XModal.vue'
 import { useTableStore } from '@/stores/table'
 import { useRouter } from 'vue-router'
+import { useUiStore } from '@/stores/ui'
 const router = useRouter()
 const tableStore = useTableStore()
+const uiStore = useUiStore()
 const props = defineProps({
   order: {
     type: Object
@@ -16,7 +18,7 @@ const props = defineProps({
   }
 })
 
-const selectedTable = ref(null)
+const selectedTable = ref(props.order.tableId)
 const availableTables = ref([])
 const tableSelectModal = ref(false)
 
@@ -27,6 +29,11 @@ const changeTable = async (tableId) => {
 
   await router.push(`/employee/table-detail/${tableId}`)
   tableSelectModal.value = false
+  availableTables.value = await tableStore.getAvailableTables()
+  uiStore.addToast({
+    message: `sucuessfully changed to Table ${tableId}`,
+    type: 'success'
+  })
 }
 
 onMounted(async () => {
@@ -50,7 +57,7 @@ onMounted(async () => {
           placeholder="Select table"
           class="w-full text-black"
         >
-          <option value="10" disabled selected class="text-black">
+          <option disabled selected class="text-black">
             {{ order.tableId }}
           </option>
           <option v-for="table in availableTables" :key="table.id" :value="table.id">

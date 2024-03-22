@@ -6,62 +6,111 @@
         "th": "โต๊ะ 1",
         "en": "Table 1"
       },
-      "defaultSize": 4,
-      "status": "unavailable"
+      "defaultSize": 4
     },
     {
       "id": "2",
       "name": {
-        "th": "Table 2",
+        "th": "โต๊ะ 2",
         "en": "Table 2"
       },
-      "defaultSize": 2,
-      "status": "unavailable"
+      "defaultSize": 2
     },
     {
       "id": "3",
       "name": {
-        "th": "Table 3",
+        "th": "โต๊ะ 3",
         "en": "Table 3"
       },
-      "defaultSize": 6,
-      "status": "available"
+      "defaultSize": 6
     },
     {
       "id": "4",
       "name": {
-        "th": "Table 4",
+        "th": "โต๊ะ 4",
         "en": "Table 4"
       },
-      "defaultSize": 2,
-      "status": "available"
+      "defaultSize": 6
     },
     {
       "id": "5",
       "name": {
-        "th": "Table 5",
+        "th": "โต๊ะ 5",
         "en": "Table 5"
       },
-      "defaultSize": 6,
-      "status": "available"
+      "defaultSize": 4
     },
     {
       "id": "6",
       "name": {
-        "th": "Table 6",
+        "th": "โต๊ะ 6",
         "en": "Table 6"
       },
-      "defaultSize": 4,
-      "status": "available"
+      "defaultSize": 8
     },
     {
       "id": "7",
       "name": {
-        "th": "Table 7",
+        "th": "โต๊ะ 7",
         "en": "Table 7"
       },
-      "defaultSize": 4,
-      "status": "available"
+      "defaultSize": 2
+    },
+    {
+      "id": "8",
+      "name": {
+        "th": "โต๊ะ 8",
+        "en": "Table 8"
+      },
+      "defaultSize": 4
+    },
+    {
+      "id": "9",
+      "name": {
+        "th": "โต๊ะ 9",
+        "en": "Table 9"
+      },
+      "defaultSize": 6
+    },
+    {
+      "id": "10",
+      "name": {
+        "th": "โต๊ะ 10",
+        "en": "Table 10"
+      },
+      "defaultSize": 8
+    },
+    {
+      "id": "11",
+      "name": {
+        "th": "โต๊ะ 11",
+        "en": "Table 11"
+      },
+      "defaultSize": 6
+    },
+    {
+      "id": "12",
+      "name": {
+        "th": "โต๊ะ 12",
+        "en": "Table 12"
+      },
+      "defaultSize": 4
+    },
+    {
+      "id": "13",
+      "name": {
+        "th": "โต๊ะ 13",
+        "en": "Table 13"
+      },
+      "defaultSize": 2
+    },
+    {
+      "id": "14",
+      "name": {
+        "th": "โต๊ะ 14",
+        "en": "Table 14"
+      },
+      "defaultSize": 8
     }
   ],
   "categories": [
@@ -133,7 +182,7 @@
   "orders": [
     {
       "id": "1",
-      "tableId": "2",
+      "tableId": "4",
       "status": "open",
       "orderDate": "2020-01-01T00:00:00Z"
     },
@@ -154,6 +203,54 @@
       "tableId": "6",
       "status": "open",
       "orderDate": "1711001088750"
+    },
+    {
+      "id": "a608",
+      "tableId": "3",
+      "status": "closed",
+      "orderDate": "1711075216741"
+    },
+    {
+      "id": "82aa",
+      "tableId": "7",
+      "status": "closed",
+      "orderDate": "1711075332270"
+    },
+    {
+      "id": "5641",
+      "tableId": "7",
+      "status": "closed",
+      "orderDate": "1711075386470"
+    },
+    {
+      "id": "6624",
+      "tableId": "4",
+      "status": "closed",
+      "orderDate": "1711075511128"
+    },
+    {
+      "id": "83a2",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "1711075811729"
+    },
+    {
+      "id": "cb5f",
+      "tableId": "7",
+      "status": "closed",
+      "orderDate": "1711076452699"
+    },
+    {
+      "id": "9d74",
+      "tableId": "7",
+      "status": "open",
+      "orderDate": "1711076503988"
+    },
+    {
+      "id": "4826",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "1711077220787"
     }
   ],
   "order-items": [
@@ -195,6 +292,38 @@
       "itemId": "3",
       "quantity": 3,
       "orderDate": "2024-03-21T03:06:15.433Z",
+      "status": "pending"
+    },
+    {
+      "id": "c49b",
+      "orderId": "9d74",
+      "itemId": "3",
+      "quantity": 4,
+      "orderDate": "2024-03-22T03:03:56.416Z",
+      "status": "pending"
+    },
+    {
+      "id": "fb3b",
+      "orderId": "9d74",
+      "itemId": "1",
+      "quantity": 1,
+      "orderDate": "2024-03-22T03:03:56.417Z",
+      "status": "pending"
+    },
+    {
+      "id": "459b",
+      "orderId": "9d74",
+      "itemId": "2",
+      "quantity": 1,
+      "orderDate": "2024-03-22T03:03:56.417Z",
+      "status": "pending"
+    },
+    {
+      "id": "e0a9",
+      "orderId": "9d74",
+      "itemId": "2",
+      "quantity": 1,
+      "orderDate": "2024-03-22T03:04:23.049Z",
       "status": "pending"
     }
   ],

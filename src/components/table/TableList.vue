@@ -61,7 +61,7 @@ defineProps({
         <button
           v-for="(table, index) in tables"
           :key="index"
-          class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-black"
+          class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-black rounded-lg"
           @click="tableSelect(table.id)"
         >
           {{ table.name.en }}

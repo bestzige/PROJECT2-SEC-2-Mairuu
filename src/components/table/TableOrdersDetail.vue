@@ -6,9 +6,11 @@ import TableCard from './TableCard.vue'
 import { useTableStore } from '@/stores/table'
 import { patchItem } from '@/utils/fetch'
 import XModal from '../ui/XModal.vue'
+import { useUiStore } from '@/stores/ui'
 const route = useRoute()
 const router = useRouter()
 const tableStore = useTableStore()
+const uiStore = useUiStore()
 
 const orderStore = useOrderStore()
 const order = ref({})
@@ -34,9 +36,22 @@ const refetchOrderItems = async () => {
   }
 }
 const closeOrder = async () => {
-  await patchItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, order.value.id, {
-    status: 'closed'
-  })
+  const unCompletedOrder = orderItems.value.some((item) => item.status == 'pending')
+  if (!unCompletedOrder) {
+    await patchItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, order.value.id, {
+      status: 'closed'
+    })
+    uiStore.addToast({
+      message: `Table ${order.value.tableId} was closed`,
+      type: 'success'
+    })
+  } else {
+    uiStore.addToast({
+      message: `Table ${order.value.tableId} can't close because there are some pending order`,
+      type: 'error'
+    })
+  }
+  isModalOpen.value = false
 }
 
 onMounted(async () => {
