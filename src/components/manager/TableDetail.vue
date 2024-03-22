@@ -1,5 +1,6 @@
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
+import { putItem } from '../../utils/fetch'
 
 const props = defineProps({
   table: {
@@ -8,20 +9,37 @@ const props = defineProps({
   }
 })
 
+const isEditing = ref(false)
+const editedTable = ref({})
 const isDetailsOpen = ref(false)
 
-const toggleDetails = () => {
-  isDetailsOpen.value = !isDetailsOpen.value
+const toggleEditing = () => {
+  isEditing.value = !isEditing.value
 }
 
-const emit = defineEmits(['edit', 'delete'])
+const emit = defineEmits(['edit', 'save', 'delete'])
 
 const editItem = () => {
-  emit('edit', props.table)
+  editedTable.value = { ...props.table }
+  toggleEditing()
+}
+
+const saveItem = async () => {
+  try {
+    await putItem(`${import.meta.env.VITE_API_ENDPOINT}/tables`, editedTable.value)
+    emit('save', editedTable.value)
+    toggleEditing()
+  } catch (error) {
+    console.error('Error:', error)
+  }
 }
 
 const deleteItem = () => {
   emit('delete', props.table.id)
+}
+
+const toggleDetails = () => {
+  isDetailsOpen.value = !isDetailsOpen.value
 }
 </script>
 
@@ -54,7 +72,7 @@ const deleteItem = () => {
           </div>
         </div>
       </button>
-      <div v-if="isDetailsOpen" class="ml-auto mr-auto flex justify-center items-center">
+      <div v-show="isDetailsOpen" class="ml-auto mr-auto flex justify-center items-center">
         <div
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
@@ -62,52 +80,72 @@ const deleteItem = () => {
             <div class="text-gray-700 block mb-3 text-xl font-bold capitalize border-b-2">
               DETAILS OF TABLE {{ table.id }}
             </div>
-            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
-              <label for="name_th" class="flex">Name TH :</label>
-              <input
-                :value="table.name.th"
-                id="name_th"
-                type="text"
-                placeholder="Name (Thai)"
-                class="border border-gray-300 px-2 py-1 w-full text-lg"
-              />
+            <div v-if="!isEditing">
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                Name TH : {{ table.name.th }}
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                Name ENG : {{ table.name.en }}
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                Size : {{ table.defaultSize }}
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                Status : {{ table.status }}
+              </div>
             </div>
-            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
-              <label for="name_en" class="flex">Name ENG :</label>
-              <input
-                :value="table.name.en"
-                id="name_en"
-                type="text"
-                placeholder="Name (English)"
-                class="border border-gray-300 px-2 py-1 w-full text-lg"
-              />
-            </div>
-            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
-              <label for="size" class="flex">Size :</label>
-              <input
-                :value="table.defaultSize"
-                id="size"
-                type="text"
-                placeholder="Size"
-                class="border border-gray-300 px-2 py-1 w-full text-lg"
-              />
-            </div>
-            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
-              <label for="status" class="flex">Status :</label>
-              <input
-                :value="table.status"
-                id="status"
-                type="text"
-                placeholder="Status"
-                class="border border-gray-300 px-2 py-1 w-full text-lg"
-              />
+            <div v-else>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                <label for="name_th">Name TH :</label>
+                <input
+                  v-model="editedTable.name.th"
+                  id="name_th"
+                  type="text"
+                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                />
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                <label for="name_en">Name ENG :</label>
+                <input
+                  v-model="editedTable.name.en"
+                  id="name_en"
+                  type="text"
+                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                />
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                <label for="size">Size :</label>
+                <input
+                  v-model="editedTable.defaultSize"
+                  id="size"
+                  type="text"
+                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                />
+              </div>
+              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+                <label for="status">Status :</label>
+                <input
+                  v-model="editedTable.status"
+                  id="status"
+                  type="text"
+                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                />
+              </div>
             </div>
             <div class="flex justify-end mt-8">
               <button
+                v-if="!isEditing"
                 @click="editItem"
                 class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 w-32"
               >
                 Edit
+              </button>
+              <button
+                v-else
+                @click="saveItem"
+                class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mr-2 w-32"
+              >
+                Save
               </button>
               <button
                 @click="deleteItem"
@@ -123,6 +161,4 @@ const deleteItem = () => {
   </div>
 </template>
 
-<style scoped>
-/* Add your scoped styles here */
-</style>
+<style scoped></style>

@@ -1,7 +1,7 @@
 <script setup>
-import TableDetail from './TableDetail.vue'
 import { ref, onMounted } from 'vue'
-import { getItems } from '../../utils/fetch'
+import { getItems, postItem, putItem, deleteItem } from '../../utils/fetch'
+import TableDetail from './TableDetail.vue'
 
 const tables = ref([])
 
@@ -9,13 +9,31 @@ onMounted(async () => {
   tables.value = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
 })
 
-// const editItemHandler = (table) => {
-//
-// }
+const editItemHandler = (table) => {
+  table.isEditing = true
+}
 
-// const deleteItemHandler = (id) => {
-//
-// }
+const saveItemHandler = async (table) => {
+  try {
+    if (table.id) {
+      await putItem(`${import.meta.env.VITE_API_ENDPOINT}/tables`, table.id, table) // ส่ง URL, ID และข้อมูลไปยัง putItem
+    } else {
+      await postItem(`${import.meta.env.VITE_API_ENDPOINT}/tables`, table)
+    }
+
+    tables.value = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
+  } catch (error) {
+    console.error('Error:', error)
+  }
+
+  table.isEditing = false
+}
+
+const deleteItemHandler = async (id) => {
+  await deleteItem(`${import.meta.env.VITE_API_ENDPOINT}/tables`, id) // ส่ง URL และ ID ไปยัง deleteItem
+
+  tables.value = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
+}
 </script>
 
 <template>
@@ -29,6 +47,7 @@ onMounted(async () => {
       <TableDetail
         :table="table"
         @edit="() => editItemHandler(table)"
+        @save="() => saveItemHandler(table)"
         @delete="() => deleteItemHandler(table.id)"
       />
     </div>
