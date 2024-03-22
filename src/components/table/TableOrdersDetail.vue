@@ -43,12 +43,14 @@ const closeOrder = async () => {
     })
     uiStore.addToast({
       message: `Table ${order.value.tableId} was closed`,
-      type: 'success'
+      type: 'success',
+      timeout: 2000
     })
   } else {
     uiStore.addToast({
       message: `Table ${order.value.tableId} can't close because there are some pending order`,
-      type: 'error'
+      type: 'error',
+      timeout: 2000
     })
   }
   isModalOpen.value = false
@@ -74,34 +76,32 @@ watch(
 
 <template>
   <div class="h-full max-h-96 overflow-auto">
-    <!-- <div class="text-3xl"># {{ order.id }}</div>
-    <div>{{ orderItems }}</div> -->
     <TableCard :order="order" :orderItems="orderItems" />
   </div>
 
   <div class="flex justify-around my-10 h-20 items-center">
     <router-link
       to="/employee/tables"
-      class="bg-red-500 text-white p-2 rounded-lg items-center justify-center flex h-12 w-32"
+      class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg items-center justify-center flex h-12 w-32 transition duration-300"
       >Go Back</router-link
     >
 
-    <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
+    <div class="text-2xl font-bold text-theme-500">Total Price: {{ totalPrice }} baht</div>
     <button
-      class="bottom-0 right-0 bg-green-500 text-white p-2 rounded-lg items-center flex justify-center h-12 w-32"
+      class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-lg items-center flex justify-center h-12 w-32 transition duration-300"
       @click="isModalOpen = true"
     >
       Submit Order
     </button>
     <XModal
-      title="Are your sure to close this order?"
+      title="Are you sure you want to close this order?"
       :show="isModalOpen"
       @close="isModalOpen = false"
       class="flex justify-center items-center"
     >
       <button
         @click="closeOrder"
-        class="bottom-0 right-0 bg-green-500 text-white p-2 rounded-lg items-center flex justify-center h-12 w-full"
+        class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-lg items-center flex justify-center h-12 w-full transition duration-300"
       >
         Yes, close this order now
       </button>

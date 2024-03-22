@@ -4,18 +4,21 @@ import { postItem } from '@/utils/fetch'
 import { useUiStore } from '@/stores/ui'
 const uiStore = useUiStore()
 const tableStore = useTableStore()
-const emit = defineEmits(['cancle', 'confirm'])
+const emit = defineEmits(['cancel', 'confirm'])
 defineProps(['tableId'])
 const clickBtn = async (btn) => {
   if (btn === 'confirm') {
+    const currentDate = new Date()
+    const isoDate = currentDate.toISOString().split('.')[0] + 'Z'
     await postItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, {
       tableId: `${tableStore.getCurrentTable()}`,
       status: 'open',
-      orderDate: `${Date.now()}`
+      orderDate: `${isoDate}`
     })
     uiStore.addToast({
       message: `Table ${tableStore.getCurrentTable()} was opened`,
-      type: 'success'
+      type: 'success',
+      timeout: 2000
     })
   }
   tableStore.setCurrentTable(null)
@@ -80,7 +83,7 @@ const clickBtn = async (btn) => {
           </button>
           <button
             type="button"
-            @click="clickBtn('cancle')"
+            @click="clickBtn('cancel')"
             class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Cancel

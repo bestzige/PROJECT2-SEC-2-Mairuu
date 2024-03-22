@@ -18,7 +18,6 @@ const tableSelect = async (tableId) => {
   } else {
     tableStore.setCurrentTable(selectedTable.value)
     toggleModal.value = true
-    
   }
 }
 const closeModal = () => {
@@ -43,9 +42,9 @@ defineProps({
 
 <template>
   <div class="w-full">
-    <div class="w-full bg-slate-200 border-2 border-black">
+    <div class="w-full bg-gray-200 border-2 border-theme-500 rounded-lg">
       <div
-        class="w-full h-auto text-5xl text-white text-center bg-theme-100 border-b-2 border-black"
+        class="w-full h-auto text-5xl text-white text-center bg-theme-100 border-b-2 border-theme-500 rounded-t-lg py-4"
       >
         TABLES
       </div>
@@ -54,14 +53,14 @@ defineProps({
       >
         <button
           v-if="admin"
-          class="mx-auto text-2xl w-44 h-36 flex justify-center items-center bg-theme-300 border-2 border-black"
+          class="mx-auto text-2xl w-44 h-36 flex justify-center items-center bg-theme-300 border-2 border-theme-500 rounded-lg hover:bg-theme-400 transition duration-300"
         >
-          +
+          <span class="text-4xl">+</span>
         </button>
         <button
           v-for="(table, index) in tables"
           :key="index"
-          class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-black rounded-lg"
+          class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-theme-500 rounded-lg hover:bg-theme-400 transition duration-300"
           @click="tableSelect(table.id)"
         >
           {{ table.name.en }}
@@ -73,7 +72,7 @@ defineProps({
       v-if="toggleModal"
       class="absolute"
       :tableId="selectedTable.value"
-      @cancle="closeModal"
+      @cancel="closeModal"
       @confirm="openTable"
     />
   </div>

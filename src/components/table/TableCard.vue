@@ -32,7 +32,8 @@ const changeTable = async (tableId) => {
   availableTables.value = await tableStore.getAvailableTables()
   uiStore.addToast({
     message: `sucuessfully changed to Table ${tableId}`,
-    type: 'success'
+    type: 'success',
+    timeout: 2000
   })
 }
 
@@ -43,8 +44,10 @@ onMounted(async () => {
 
 <template>
   <div v-if="order">
-    <div class="flex justify-between py-2 px-4">
-      <div class="text-3xl">Order # {{ order.id }} (Table {{ order.tableId }})</div>
+    <div
+      class="flex justify-between py-4 px-6 bg-gradient-to-r from-theme-300 to-theme-200 rounded-t-lg"
+    >
+      <div class="text-4xl text-white">Order # {{ order.id }} (Table {{ order.tableId }})</div>
       <XModal
         :show="tableSelectModal"
         title="Change table for customer"
@@ -55,7 +58,7 @@ onMounted(async () => {
           v-model="selectedTable"
           @change="changeTable(selectedTable)"
           placeholder="Select table"
-          class="w-full text-black"
+          class="w-full text-black rounded-lg p-2"
         >
           <option disabled selected class="text-black">
             {{ order.tableId }}
@@ -66,30 +69,37 @@ onMounted(async () => {
         </select>
       </XModal>
       <button
-        class="bottom-0 right-0 bg-theme-400 text-white p-2 rounded-lg items-center flex justify-center"
+        class="bg-theme-500 hover:bg-theme-400 text-white p-2 rounded-lg items-center flex justify-center transition duration-300"
         @click="tableSelectModal = true"
       >
         Change table for customer
       </button>
     </div>
-    <div class="flex flex-row flex-wrap gap-3">
-      <div class="w-full">
-        <div class="flex flex-col gap-3 p-2">
-          <div class="flex flex-row text-2xl">
-            <div class="w-1/5">Item</div>
-            <div class="w-1/5">Quantity</div>
-            <div class="w-1/5">Price/EA</div>
-            <div class="w-1/5">Total Price</div>
-            <div class="w-1/5">Status</div>
-          </div>
-          <div v-for="(orderItem, index) in orderItems" :key="index" class="flex flex-row">
-            <div class="w-1/5">{{ orderItem.item.name.en }}</div>
-            <div class="w-1/5">{{ orderItem.quantity }}</div>
-            <div class="w-1/5">{{ orderItem.item.price }}</div>
-            <div class="w-1/5">{{ orderItem.quantity * orderItem.item.price }}</div>
-            <div class="w-1/5">{{ orderItem.status }}</div>
-          </div>
-        </div>
+    <div class="flex flex-col gap-4 p-4">
+      <div class="bg-theme-100 text-theme-500 font-bold text-xl py-2 px-4 rounded-lg">
+        Order Details
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto">
+          <thead>
+            <tr>
+              <th class="text-left">Item</th>
+              <th class="text-left">Quantity</th>
+              <th class="text-left">Price/EA</th>
+              <th class="text-left">Total Price</th>
+              <th class="text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(orderItem, index) in orderItems" :key="index">
+              <td>{{ orderItem.item.name.en }}</td>
+              <td>{{ orderItem.quantity }}</td>
+              <td>{{ orderItem.item.price }}</td>
+              <td>{{ orderItem.quantity * orderItem.item.price }}</td>
+              <td>{{ orderItem.status }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

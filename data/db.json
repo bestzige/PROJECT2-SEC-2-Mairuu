@@ -182,7 +182,7 @@
   "orders": [
     {
       "id": "1",
-      "tableId": "4",
+      "tableId": "1",
       "status": "open",
       "orderDate": "2020-01-01T00:00:00Z"
     },
@@ -191,66 +191,6 @@
       "tableId": "2",
       "status": "closed",
       "orderDate": "2020-01-01T00:00:00Z"
-    },
-    {
-      "id": "2452",
-      "tableId": "4",
-      "status": "closed",
-      "orderDate": "1711001042117"
-    },
-    {
-      "id": "4de6",
-      "tableId": "6",
-      "status": "open",
-      "orderDate": "1711001088750"
-    },
-    {
-      "id": "a608",
-      "tableId": "3",
-      "status": "closed",
-      "orderDate": "1711075216741"
-    },
-    {
-      "id": "82aa",
-      "tableId": "7",
-      "status": "closed",
-      "orderDate": "1711075332270"
-    },
-    {
-      "id": "5641",
-      "tableId": "7",
-      "status": "closed",
-      "orderDate": "1711075386470"
-    },
-    {
-      "id": "6624",
-      "tableId": "4",
-      "status": "closed",
-      "orderDate": "1711075511128"
-    },
-    {
-      "id": "83a2",
-      "tableId": "1",
-      "status": "closed",
-      "orderDate": "1711075811729"
-    },
-    {
-      "id": "cb5f",
-      "tableId": "7",
-      "status": "closed",
-      "orderDate": "1711076452699"
-    },
-    {
-      "id": "9d74",
-      "tableId": "7",
-      "status": "open",
-      "orderDate": "1711076503988"
-    },
-    {
-      "id": "4826",
-      "tableId": "1",
-      "status": "closed",
-      "orderDate": "1711077220787"
     }
   ],
   "order-items": [
