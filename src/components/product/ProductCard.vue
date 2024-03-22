@@ -35,22 +35,22 @@ const cancelDelete = () => {
 </script>
 
 <template>
-  <div class="bg-red-300 p-4 m-10">
+  <div class="bg-theme-300 p-4 m-10">
     <div>
       <div class="text-lg"><img :src="item.image" alt="" /></div>
-      <div class="text-lg">Name TH : {{ name.th }}</div>
-      <div class="text-lg">Name ENG : {{ name.en }}</div>
+      <div class="text-lg font-bold mt-3">Name TH &nbsp; &nbsp; : &nbsp; {{ name.th }}</div>
+      <div class="text-lg font-bold">Name ENG &nbsp; : &nbsp; {{ name.en }}</div>
 
-      <div class="mt-4">
+      <div class="mt-4 ms-44">
         <button
           @click="editItem"
-          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 w-20"
         >
           Edit
         </button>
         <button
           @click="confirmDelete"
-          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-20"
         >
           Delete
         </button>

@@ -35,11 +35,10 @@ const deleteItem = () => {
         <div
           class="py-4 px-4 bg-theme-500 text-center text-2xl flex items-center justify-between text-white"
         >
-          <div class="items-center justify-start">Table {{ table.id }} Details</div>
-
-          <div class="items-center justify-end">
+          <div class="flex items-center justify-start">Table {{ table.id }}</div>
+          <div class="flex items-center justify-end">
             <svg
-              class="w-4 h-4 inline-block"
+              class="w-6 h-6 inline-block"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -48,7 +47,7 @@ const deleteItem = () => {
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="7"
+                stroke-width="2"
                 d="M19 9l-7 7-7-7"
               ></path>
             </svg>
@@ -59,63 +58,61 @@ const deleteItem = () => {
         <div
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
-          <div class="py-2 px-4">
-            <div class="text-gray-700 block mb-4 mt-4 text-2xl capitalize">ID: {{ table.id }}</div>
-            <div class="text-gray-700 block mb-4 text-2xl capitalize">
-              <div class="flex">
-                Name TH:
-                <input
-                  :value="table.name.th"
-                  id="name_th"
-                  type="text"
-                  placeholder="Name (Thai)"
-                  class="border border-gray-300 px-1 w-auto"
-                />
-              </div>
+          <div class="py-2 px-4 m-2">
+            <div class="text-gray-700 block mb-3 text-xl font-bold capitalize border-b-2">
+              DETAILS OF TABLE {{ table.id }}
             </div>
-
-            <div class="text-gray-700 block mb-4 text-2xl capitalize">
-              <div class="flex">
-                Name ENG:
-                <input
-                  :value="table.name.en"
-                  id="name_th"
-                  type="text"
-                  placeholder="Name (Thai)"
-                  class="border border-gray-300 px-1 w-auto"
-                />
-              </div>
+            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <label for="name_th" class="flex">Name TH :</label>
+              <input
+                :value="table.name.th"
+                id="name_th"
+                type="text"
+                placeholder="Name (Thai)"
+                class="border border-gray-300 px-2 py-1 w-full text-lg"
+              />
             </div>
-            <div class="text-gray-700 block mb-4 text-2xl capitalize">
-              <div class="flex">
-                Size :
-                <input
-                  :value="table.defaultSize"
-                  id="name_th"
-                  type="text"
-                  placeholder="Name (Thai)"
-                  class="border border-gray-300 px-1 w-auto"
-                />
-              </div>
+            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <label for="name_en" class="flex">Name ENG :</label>
+              <input
+                :value="table.name.en"
+                id="name_en"
+                type="text"
+                placeholder="Name (English)"
+                class="border border-gray-300 px-2 py-1 w-full text-lg"
+              />
             </div>
-            <div class="text-gray-700 block mb-4 text-2xl capitalize">
-              <div class="flex">
-                Status:
-                <input
-                  :value="table.status"
-                  id="name_th"
-                  type="text"
-                  placeholder="Name (Thai)"
-                  class="border border-gray-300 px-1 w-auto"
-                />
-              </div>
+            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <label for="size" class="flex">Size :</label>
+              <input
+                :value="table.defaultSize"
+                id="size"
+                type="text"
+                placeholder="Size"
+                class="border border-gray-300 px-2 py-1 w-full text-lg"
+              />
             </div>
-
-            <div class="flex justify-end mt-2">
-              <button @click="editItem" class="text-3xl text-purple-600 hover:text-purple-400 mr-2">
+            <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <label for="status" class="flex">Status :</label>
+              <input
+                :value="table.status"
+                id="status"
+                type="text"
+                placeholder="Status"
+                class="border border-gray-300 px-2 py-1 w-full text-lg"
+              />
+            </div>
+            <div class="flex justify-end mt-8">
+              <button
+                @click="editItem"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 w-32"
+              >
                 Edit
               </button>
-              <button @click="deleteItem" class="text-3xl text-red-600 hover:text-red-400">
+              <button
+                @click="deleteItem"
+                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-32"
+              >
                 Delete
               </button>
             </div>
