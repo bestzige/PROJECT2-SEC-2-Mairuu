@@ -1,5 +1,5 @@
 import TableOrdersDetail from '@/components/table/TableOrdersDetail.vue'
-import Tables from '@/components/table/Tables.vue'
+import Table from '@/components/table/Table.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
@@ -77,7 +77,7 @@ const router = createRouter({
         {
           path: 'tables',
           name: 'tables',
-          component: Tables
+          component: Table
         },
         {
           path: 'table-detail/:tableId',

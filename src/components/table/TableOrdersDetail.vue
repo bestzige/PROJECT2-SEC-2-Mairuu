@@ -4,7 +4,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
 import TableCard from './TableCard.vue'
 import { useTableStore } from '@/stores/table'
-
+import { patchItem } from '@/utils/fetch'
+import XModal from '../ui/XModal.vue'
 const route = useRoute()
 const router = useRouter()
 const tableStore = useTableStore()
@@ -16,7 +17,7 @@ const totalPrice = ref(0)
 
 const invtervalId = ref(null)
 const tableId = ref(route.params.tableId)
-
+const isModalOpen = ref(false)
 const refetchOrderItems = async () => {
   order.value = await orderStore.getOpenOrderByTableId(tableId.value)
   if (!order.value) {
@@ -31,6 +32,11 @@ const refetchOrderItems = async () => {
       .filter((item) => item.status === 'completed')
       .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
   }
+}
+const closeOrder = async () => {
+  await patchItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, order.value.id, {
+    status: 'closed'
+  })
 }
 
 onMounted(async () => {
@@ -68,9 +74,23 @@ watch(
     <div class="text-2xl">Total Price: {{ totalPrice }} baht</div>
     <button
       class="bottom-0 right-0 bg-green-500 text-white p-2 rounded-lg items-center flex justify-center h-12 w-32"
+      @click="isModalOpen = true"
     >
       Submit Order
     </button>
+    <XModal
+      title="Are your sure to close this order?"
+      :show="isModalOpen"
+      @close="isModalOpen = false"
+      class="flex justify-center items-center"
+    >
+      <button
+        @click="closeOrder"
+        class="bottom-0 right-0 bg-green-500 text-white p-2 rounded-lg items-center flex justify-center h-12 w-full"
+      >
+        Yes, close this order now
+      </button>
+    </XModal>
   </div>
 </template>
 
