@@ -61,7 +61,7 @@ const toggleDetails = () => {
         class="text-sm text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 w-full"
       >
         <div
-          class="py-4 px-4 bg-theme-500 text-center text-2xl flex items-center justify-between text-white"
+          class="py-4 px-4 bg-theme-500 text-center text-3xl flex items-center justify-between text-white"
         >
           <div class="flex items-center justify-start">Table {{ table.id }}</div>
           <div class="flex items-center justify-end">
@@ -87,60 +87,60 @@ const toggleDetails = () => {
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
           <div class="py-2 px-4 m-2">
-            <div class="text-gray-700 block mb-3 text-xl font-bold capitalize border-b-2">
+            <div class="text-gray-700 block mb-3 text-2xl font-bold capitalize border-b-2">
               DETAILS OF TABLE {{ table.id }}
             </div>
             <div v-if="!isEditing">
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Name TH : {{ table.name.th }}
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Name ENG : {{ table.name.en }}
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Size : {{ table.defaultSize }}
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <!-- <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Status : {{ table.status }}
-              </div>
+              </div> -->
             </div>
             <div v-else>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="name_th">Name TH :</label>
                 <input
                   v-model="editedTable.name.th"
                   id="name_th"
                   type="text"
-                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                  class="border border-gray-300 px-2 py-1 w-full text-xl"
                 />
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="name_en">Name ENG :</label>
                 <input
                   v-model="editedTable.name.en"
                   id="name_en"
                   type="text"
-                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                  class="border border-gray-300 px-2 py-1 w-full text-xl"
                 />
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="size">Size :</label>
                 <input
                   v-model="editedTable.defaultSize"
                   id="size"
                   type="text"
-                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                  class="border border-gray-300 px-2 py-1 w-full text-xl"
                 />
               </div>
-              <div class="text-gray-700 block mb-2 text-lg font-bold capitalize">
+              <!-- <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="status">Status :</label>
                 <input
                   v-model="editedTable.status"
                   id="status"
                   type="text"
-                  class="border border-gray-300 px-2 py-1 w-full text-lg"
+                  class="border border-gray-300 px-2 py-1 w-full text-xl"
                 />
-              </div>
+              </div> -->
             </div>
             <div class="flex justify-end mt-8">
               <button
