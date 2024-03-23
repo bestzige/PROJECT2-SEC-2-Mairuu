@@ -17,8 +17,7 @@ const props = defineProps({
     required: true
   }
 })
-
-const selectedTable = ref(props.order.tableId)
+const selectedTable = ref(props.order.tableId) //ถ้ากำหนดค่าไปเลยจะทำให้สามารถมองเห็นค่าทโต๊ะปัจจุบบันตอนเลือกโต๊ะใหม่
 const availableTables = ref([])
 const tableSelectModal = ref(false)
 
@@ -60,7 +59,7 @@ onMounted(async () => {
           placeholder="Select table"
           class="w-full text-black rounded-lg p-2"
         >
-          <option disabled selected class="text-black">
+          <option disabled class="text-black" :value="order.tableId">
             {{ order.tableId }}
           </option>
           <option v-for="table in availableTables" :key="table.id" :value="table.id">
