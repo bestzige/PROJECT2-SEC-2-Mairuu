@@ -61,7 +61,7 @@ const toggleDetails = () => {
         class="text-sm text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 w-full"
       >
         <div
-          class="py-4 px-4 bg-theme-500 text-center text-3xl flex items-center justify-between text-white"
+          class="py-4 px-4 bg-theme-500 text-center text-4xl font-semibold flex items-center justify-between text-white"
         >
           <div class="flex items-center justify-start">Table {{ table.id }}</div>
           <div class="flex items-center justify-end">
@@ -87,17 +87,17 @@ const toggleDetails = () => {
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
           <div class="py-2 px-4 m-2">
-            <div class="text-gray-700 block mb-3 text-2xl font-bold capitalize border-b-2">
+            <div class="text-gray-700 block mb-3 text-3xl font-semibold capitalize border-b-2">
               DETAILS OF TABLE {{ table.id }}
             </div>
             <div v-if="!isEditing">
-              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
                 Name TH : {{ table.name.th }}
               </div>
-              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
                 Name ENG : {{ table.name.en }}
               </div>
-              <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
+              <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
                 Size : {{ table.defaultSize }}
               </div>
               <!-- <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
@@ -128,7 +128,7 @@ const toggleDetails = () => {
                 <input
                   v-model="editedTable.defaultSize"
                   id="size"
-                  type="text"
+                  type="number"
                   class="border border-gray-300 px-2 py-1 w-full text-xl"
                 />
               </div>
