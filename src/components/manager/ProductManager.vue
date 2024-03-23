@@ -5,7 +5,8 @@ import { getItems, postItem, putItem } from '../../utils/fetch'
 
 const items = ref([])
 const showEditModal = ref(false)
-const tempEditedItem = ref(null)
+const tempEditedItem = ref({ categoryId: null })
+const categoryIds = ref([])
 
 const showAddModal = ref(false)
 const tempNewItem = ref({
@@ -98,6 +99,17 @@ const saveChanges = async () => {
     closeModal()
   }
 }
+
+const loadCategoryIds = async () => {
+  try {
+    const items = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/items`)
+    const uniqueCategoryIds = new Set(items.map((item) => item.categoryId))
+    categoryIds.value = Array.from(uniqueCategoryIds)
+  } catch (error) {
+    console.error('Error fetching category IDs:', error)
+  }
+}
+loadCategoryIds()
 
 const loadItems = async () => {
   try {
@@ -216,16 +228,41 @@ loadItems()
             class="border border-gray-300 p-2 w-full"
           />
         </div>
-        <div class="mb-4">
-          <label for="categoryId" class="text-sm font-semibold">Category ID:</label>
-          <input
-            v-model="tempNewItem.categoryId"
+        <div class="flex">
+          <div class="mb-4">
+            <label class="text-sm font-semibold" for="published">Published:</label>
+            <select
+              v-model="tempEditedItem.published"
+              id="published"
+              class="border border-gray-300 p-2 ml-5"
+            >
+              <option value="true">Published</option>
+              <option value="false">Unpublished</option>
+            </select>
+          </div>
+
+          <div class="mb-4 ml-6">
+            <label for="categoryId" class="text-sm font-semibold">Category ID:</label>
+            <select
+              v-model="tempEditedItem.categoryId"
+              id="categoryId"
+              class="border border-gray-300 p-2 ml-5"
+            >
+              <option v-for="categoryId in categoryIds" :key="categoryId" :value="categoryId">
+                {{ categoryId }}
+              </option>
+            </select>
+
+            <!-- <input
+            v-model="tempEditedItem.categoryId"
             id="categoryId"
             type="number"
             placeholder="Category ID"
             class="border border-gray-300 p-2 w-full"
-          />
+          /> -->
+          </div>
         </div>
+
         <div class="mb-4">
           <label for="image" class="text-sm font-semibold">Image URL:</label>
           <input
@@ -313,16 +350,42 @@ loadItems()
             class="border border-gray-300 p-2 w-full"
           />
         </div>
-        <div class="mb-4">
-          <label for="categoryId" class="text-sm font-semibold">Category ID:</label>
-          <input
+
+        <div class="flex">
+          <div class="mb-4">
+            <label class="text-sm font-semibold" for="published">Published:</label>
+            <select
+              v-model="tempEditedItem.published"
+              id="published"
+              class="border border-gray-300 p-2 ml-5"
+            >
+              <option value="true">Published</option>
+              <option value="false">Unpublished</option>
+            </select>
+          </div>
+
+          <div class="mb-4 ml-6">
+            <label for="categoryId" class="text-sm font-semibold">Category ID:</label>
+            <select
+              v-model="tempEditedItem.categoryId"
+              id="categoryId"
+              class="border border-gray-300 p-2 ml-5"
+            >
+              <option v-for="categoryId in categoryIds" :key="categoryId" :value="categoryId">
+                {{ categoryId }}
+              </option>
+            </select>
+
+            <!-- <input
             v-model="tempEditedItem.categoryId"
             id="categoryId"
             type="number"
             placeholder="Category ID"
             class="border border-gray-300 p-2 w-full"
-          />
+          /> -->
+          </div>
         </div>
+
         <div class="mb-4">
           <label for="image" class="text-sm font-semibold">Image URL:</label>
           <input
@@ -333,6 +396,7 @@ loadItems()
             class="border border-gray-300 p-2 w-full"
           />
         </div>
+
         <button
           @click="saveChanges"
           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"

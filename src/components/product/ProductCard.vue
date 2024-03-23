@@ -3,15 +3,13 @@ import { ref } from 'vue'
 
 const props = defineProps({
   item: {
-    type: Object,
-    required: true
+    type: Object
   },
   name: {
-    type: Object,
-    required: true
+    type: Object
   }
 })
-
+const showDeleteModal = ref(false)
 const emit = defineEmits(['edit', 'delete'])
 
 const editItem = () => {
@@ -22,8 +20,6 @@ const deleteConfirmed = () => {
   emit('delete', props.item.id)
   showDeleteModal.value = false
 }
-
-const showDeleteModal = ref(false)
 
 const confirmDelete = () => {
   showDeleteModal.value = true
