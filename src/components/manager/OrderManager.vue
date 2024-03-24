@@ -53,24 +53,12 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <XModal
-      :title="`You want to ${currStatus} this order?`"
-      :show="isModalOpen"
-      @close="isModalOpen = false"
-      class="flex justify-center items-center"
-    >
-      <button
-        @click="changeStatus"
-        class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-lg items-center flex justify-center h-12 w-full transition duration-300"
-      >
-        Yes, {{ currStatus }} this order now
-      </button>
-    </XModal>
     <div class="flex justify-center">
       <div class="bg-theme-500 text-white w-4/5 p-2 text-center rounded-3xl">
         <h1 class="text-4xl font-bold">Order Management</h1>
       </div>
     </div>
+
     <div
       v-for="(orderItem, index) in orderItems"
       :key="index"
@@ -108,6 +96,23 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+    <div v-show="orderItems.length <= 0" class="text-3xl font-bold text-center mt-8">
+      No order now
+    </div>
+
+    <XModal
+      :title="`You want to ${currStatus} this order?`"
+      :show="isModalOpen"
+      @close="isModalOpen = false"
+      class="flex justify-center items-center"
+    >
+      <button
+        @click="changeStatus"
+        class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-lg items-center flex justify-center h-12 w-full transition duration-300"
+      >
+        Yes, {{ currStatus }} this order now
+      </button>
+    </XModal>
   </div>
 </template>
 

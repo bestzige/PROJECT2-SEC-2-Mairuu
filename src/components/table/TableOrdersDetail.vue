@@ -78,6 +78,9 @@ watch(
   <div class="h-full max-h-96">
     <TableCard :order="order" :orderItems="orderItems" />
   </div>
+  <div v-show="orderItems.length <= 0" class="text-3xl font-bold text-center mt-8">
+    No order now
+  </div>
 
   <div class="flex justify-around my-10 h-20 items-center">
     <router-link
