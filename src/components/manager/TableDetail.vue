@@ -6,6 +6,9 @@ const props = defineProps({
   table: {
     type: Object,
     required: true
+  },
+  name: {
+    type: Object
   }
 })
 
@@ -14,14 +17,10 @@ const editedTable = ref({})
 const isDetailsOpen = ref(false)
 const showDeleteModal = ref(false)
 
-const toggleEditing = () => {
-  isEditing.value = !isEditing.value
-}
-
 const emit = defineEmits(['edit', 'save', 'delete'])
 
 const editItem = () => {
-  editedTable.value = { ...props.table }
+  editedTable.value = { ...props.table, name: { ...props.name } }
   toggleEditing()
 }
 
@@ -50,6 +49,12 @@ const cancelDelete = () => {
 
 const toggleDetails = () => {
   isDetailsOpen.value = !isDetailsOpen.value
+}
+const toggleEditing = () => {
+  if (isEditing.value) {
+    editedTable.value = { ...props.table }
+  }
+  isEditing.value = !isEditing.value
 }
 </script>
 
@@ -92,13 +97,13 @@ const toggleDetails = () => {
             </div>
             <div v-if="!isEditing">
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
-                Name TH : {{ table.name.th }}
+                Name TH : {{ name.th }}
               </div>
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
-                Name ENG : {{ table.name.en }}
+                Name ENG : {{ name.en }}
               </div>
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
-                Size : {{ table.defaultSize }}
+                Size : {{ table.size }}
               </div>
               <!-- <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Status : {{ table.status }}
@@ -126,7 +131,7 @@ const toggleDetails = () => {
               <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="size">Size :</label>
                 <input
-                  v-model="editedTable.defaultSize"
+                  v-model="editedTable.size"
                   id="size"
                   type="number"
                   class="border border-gray-300 px-2 py-1 w-full text-xl"
@@ -158,10 +163,18 @@ const toggleDetails = () => {
                 Save
               </button>
               <button
+                v-if="!isEditing"
                 @click="confirmDelete"
                 class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-32"
               >
                 Delete
+              </button>
+              <button
+                v-if="isEditing"
+                @click="toggleEditing"
+                class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mr-2 w-32"
+              >
+                Cancel
               </button>
             </div>
           </div>

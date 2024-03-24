@@ -102,6 +102,7 @@ loadTables()
     <div v-for="(table, index) in tables" :key="index">
       <TableDetail
         :table="table"
+        :name="table.name"
         @edit="editTableHandler"
         @save="saveTableHandler"
         @delete="deleteItemHandler"
