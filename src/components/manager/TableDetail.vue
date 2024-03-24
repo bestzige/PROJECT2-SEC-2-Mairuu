@@ -103,7 +103,7 @@ const toggleEditing = () => {
                 Name ENG : {{ name.en }}
               </div>
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
-                Size : {{ table.size }}
+                Size : {{ table.defaultSize }}
               </div>
               <!-- <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 Status : {{ table.status }}
@@ -131,7 +131,7 @@ const toggleEditing = () => {
               <div class="text-gray-700 block mb-2 text-2xl font-bold capitalize">
                 <label for="size">Size :</label>
                 <input
-                  v-model="editedTable.size"
+                  v-model="editedTable.defaultSize"
                   id="size"
                   type="number"
                   class="border border-gray-300 px-2 py-1 w-full text-xl"
