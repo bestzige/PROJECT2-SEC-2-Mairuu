@@ -4,6 +4,7 @@ import ProductCard from '../product/ProductCard.vue'
 import { getItems, postItem, putItem } from '../../utils/fetch'
 
 const items = ref([])
+const categories = ref([])
 const showEditModal = ref(false)
 const tempEditedItem = ref({ categoryId: null })
 const categoryIds = ref([])
@@ -111,6 +112,21 @@ const loadCategoryIds = async () => {
 }
 loadCategoryIds()
 
+const loadCategories = async () => {
+  try {
+    const response = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/categories`)
+    categories.value = response
+  } catch (error) {
+    console.error('Error fetching categories:', error)
+  }
+}
+loadCategories()
+
+const getCategoryName = (categoryId) => {
+  const category = categories.value.find((cat) => cat.id === categoryId)
+  return category ? category.name.en : 'Unknown'
+}
+
 const loadItems = async () => {
   try {
     const response = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/items`)
@@ -135,13 +151,13 @@ loadItems()
         <div
           v-for="(categoryItems, categoryId) in categorizedItems"
           :key="categoryId"
-          class="bg-gray-200"
+          class="bg-gray-200 mt-5"
         >
           <div class="text-3xl font-semibold tracking-wide flex justify-between items-center">
-            <span>Category ID: {{ categoryId }}</span>
+            <span> {{ getCategoryName(categoryId) }}</span>
             <button
               @click="openAddModal"
-              class="text-white text-2xl bg-green-500 hover:bg-green-600 rounded-full px-4 py-2"
+              class="text-white text-2xl bg-green-500 hover:bg-green-600 rounded px-4 py-2"
             >
               Add Product
             </button>

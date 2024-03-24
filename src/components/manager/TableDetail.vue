@@ -68,7 +68,7 @@ const toggleEditing = () => {
         <div
           class="py-4 px-4 bg-theme-500 text-center text-4xl font-semibold flex items-center justify-between text-white"
         >
-          <div class="flex items-center justify-start">Table {{ table.id }}</div>
+          <div class="flex items-center justify-start">{{ name.en }}</div>
           <div class="flex items-center justify-end">
             <svg
               class="w-6 h-6 inline-block"
@@ -92,8 +92,8 @@ const toggleEditing = () => {
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
           <div class="py-2 px-4 m-2">
-            <div class="text-gray-700 block mb-3 text-3xl font-semibold capitalize border-b-2">
-              DETAILS OF TABLE {{ table.id }}
+            <div class="text-gray-700 block mb-3 text-3xl font-semibold border-b-2">
+              Details of {{ name.en }}
             </div>
             <div v-if="!isEditing">
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
