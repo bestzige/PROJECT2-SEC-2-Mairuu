@@ -8,14 +8,14 @@ const isAddModalOpen = ref(false)
 
 const tempNewTable = ref({
   name: { th: '', en: '' },
-  size: 0
+  defaultSize: 0
 })
 
 const isAddFormValid = computed(() => {
   return (
     tempNewTable.value.name.th.trim() !== '' &&
     tempNewTable.value.name.en.trim() !== '' &&
-    tempNewTable.value.size > 0
+    tempNewTable.value.defaultSize > 0
   )
 })
 onMounted(async () => {
@@ -199,14 +199,14 @@ loadTables()
                   />
                 </div>
                 <div class="mt-4">
-                  <label for="table_size" class="block text-sm font-medium text-gray-700"
+                  <label for="table_defaultSize" class="block text-sm font-medium text-gray-700"
                     >Table Size</label
                   >
                   <input
                     type="number"
-                    name="table_size"
-                    id="table_size"
-                    v-model="tempNewTable.size"
+                    name="table_defaultSize"
+                    id="table_defaultSize"
+                    v-model="tempNewTable.defaultSize"
                     class="mt-1 p-2 border border-gray-300 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
