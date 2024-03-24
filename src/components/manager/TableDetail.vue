@@ -92,9 +92,10 @@ const toggleEditing = () => {
           class="py-2 px-4 bg-theme-300 border border-gray-200 shadow-lg max-h-screen overflow-y-auto w-full"
         >
           <div class="py-2 px-4 m-2">
-            <div class="text-gray-700 block mb-3 text-3xl font-semibold border-b-2">
+            <div class="text-gray-700 block mb-3 text-3xl font-semibold border-b-2 pb-3">
               Details of {{ name.en }}
             </div>
+
             <div v-if="!isEditing">
               <div class="text-gray-700 block mb-2 text-3xl font-semibold capitalize">
                 Name TH : {{ name.th }}
