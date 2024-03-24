@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import ConfirmModal from '../ui/ConfirmModal.vue'
 import { useRouter } from 'vue-router'
 import { useOrderStore } from '@/stores/order'
@@ -25,10 +25,11 @@ const closeModal = () => {
   selectedTable.value = null
 }
 const openTable = () => {
+  availableTables.value.push(selectedTable.value)
   closeModal()
 }
 
-defineProps({
+const props = defineProps({
   tables: {
     type: Array,
     required: true
@@ -37,6 +38,24 @@ defineProps({
     type: Boolean,
     default: false
   }
+})
+const availableTables = ref([])
+const getAvailableTables = async () => {
+  availableTables.value = await tableStore.getAvailableTables()
+  availableTables.value = availableTables.value.map((table) => table.id)
+}
+const setThemeByStatus = (tableId) => {
+  const table = availableTables.value.find((id) => id === tableId)
+  if (table) {
+    return 'bg-theme-500 border-black'
+  }
+  return 'bg-theme-300 border-theme-500'
+}
+watch(availableTables, () => {
+  getAvailableTables()
+})
+onMounted(() => {
+  getAvailableTables()
 })
 </script>
 
@@ -60,7 +79,8 @@ defineProps({
         <button
           v-for="(table, index) in tables"
           :key="index"
-          class="mx-auto text-2xl w-44 h-36 flex justify-center bg-theme-300 border-2 border-theme-500 rounded-lg hover:bg-theme-400 transition duration-300"
+          class="mx-auto text-2xl w-44 h-36 flex justify-center border-2 rounded-lg hover:bg-theme-400 transition duration-300"
+          :class="setThemeByStatus(table.id)"
           @click="tableSelect(table.id)"
         >
           {{ table.name.en }}

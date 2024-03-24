@@ -75,7 +75,7 @@ watch(
 </script>
 
 <template>
-  <div class="h-full max-h-96 overflow-auto">
+  <div class="h-full max-h-96">
     <TableCard :order="order" :orderItems="orderItems" />
   </div>
 

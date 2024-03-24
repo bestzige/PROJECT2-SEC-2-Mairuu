@@ -17,7 +17,7 @@ const props = defineProps({
     required: true
   }
 })
-const selectedTable = ref(props.order.tableId) //ถ้ากำหนดค่าไปเลยจะทำให้สามารถมองเห็นค่าทโต๊ะปัจจุบบันตอนเลือกโต๊ะใหม่
+const selectedTable = ref(props.order.tableId) //ถ้ากำหนดค่าstaticไปเลยจะทำให้สามารถมองเห็นค่าทโต๊ะปัจจุบบันตอนเลือกโต๊ะใหม่
 const availableTables = ref([])
 const tableSelectModal = ref(false)
 
@@ -74,11 +74,11 @@ onMounted(async () => {
         Change table for customer
       </button>
     </div>
-    <div class="flex flex-col gap-4 p-4">
+    <div class="flex flex-col gap-4 p-4 max-h-96">
       <div class="bg-theme-100 text-theme-500 font-bold text-xl py-2 px-4 rounded-lg">
         Order Details
       </div>
-      <div class="overflow-x-auto">
+      <div class="overflow-auto">
         <table class="w-full table-auto">
           <thead>
             <tr>

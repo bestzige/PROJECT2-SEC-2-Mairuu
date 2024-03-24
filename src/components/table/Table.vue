@@ -6,7 +6,7 @@ import TableList from '../table/TableList.vue'
 const tables = ref([])
 
 onMounted(async () => {
-  const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables`)
+  const result = await getItems(`${import.meta.env.VITE_API_ENDPOINT}/tables?_embed=orders`)
   tables.value = result
 })
 </script>
