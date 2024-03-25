@@ -16,7 +16,6 @@
         >
           PRODUCT MANAGER
         </router-link>
-        
       </div>
     </div>
   </div>
