@@ -6,6 +6,10 @@ export const useCategoryStore = defineStore('category', () => {
     return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/categories`)
   }
 
+  const getgetCategoriesWithItems = async () => {
+    return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/categories?_embed=items`)
+  }
+
   const getPublishedCategories = async () => {
     return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/categories?published=true`)
   }
@@ -16,6 +20,7 @@ export const useCategoryStore = defineStore('category', () => {
 
   return {
     getCategories,
+    getgetCategoriesWithItems,
     getPublishedCategories,
     getCategory
   }

@@ -105,6 +105,48 @@ export const useOrderStore = defineStore('order', () => {
     )
   }
 
+  const openOrder = async (tableId) => {
+    const currentDate = new Date()
+    const data = await fetch.postItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, {
+      tableId: `${tableId}`,
+      status: 'open',
+      orderDate: `${currentDate.toISOString()}`
+    })
+    if (!data) {
+      uiStore.addToast({
+        message: 'Failed to open table',
+        type: 'error'
+      })
+    }
+
+    uiStore.addToast({
+      message: `Table ${tableId} opened`,
+      type: 'success'
+    })
+    
+    return data
+  }
+
+  const submitOrder = async (orderId) => {
+    const data = await fetch.patchItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, orderId, {
+      status: 'closed'
+    })
+
+    if (!data) {
+      uiStore.addToast({
+        message: 'Failed to submit order',
+        type: 'error'
+      })
+    }
+
+    uiStore.addToast({
+      message: `Table ${data.tableId} submitted`,
+      type: 'success'
+    })
+
+    return data
+  }
+
   return {
     currentOrder,
     cartItems,
@@ -118,6 +160,8 @@ export const useOrderStore = defineStore('order', () => {
     itemOrdered,
     getOrderItems,
     getOpenOrderByTableId,
-    getOpenOrders
+    getOpenOrders,
+    openOrder,
+    submitOrder
   }
 })

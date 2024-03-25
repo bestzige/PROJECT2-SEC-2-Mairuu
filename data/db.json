@@ -54,7 +54,7 @@
         "th": "โต๊ะ 7",
         "en": "Table 7"
       },
-      "defaultSize": 2
+      "defaultSize": 3
     },
     {
       "id": "8",
@@ -77,38 +77,6 @@
       "name": {
         "th": "โต๊ะ 10",
         "en": "Table 10"
-      },
-      "defaultSize": 8
-    },
-    {
-      "id": "11",
-      "name": {
-        "th": "โต๊ะ 11",
-        "en": "Table 11"
-      },
-      "defaultSize": 6
-    },
-    {
-      "id": "12",
-      "name": {
-        "th": "โต๊ะ 12",
-        "en": "Table 12"
-      },
-      "defaultSize": 4
-    },
-    {
-      "id": "13",
-      "name": {
-        "th": "โต๊ะ 13",
-        "en": "Table 13"
-      },
-      "defaultSize": 2
-    },
-    {
-      "id": "14",
-      "name": {
-        "th": "โต๊ะ 14",
-        "en": "Table 14"
       },
       "defaultSize": 8
     }
@@ -135,55 +103,223 @@
   ],
   "items": [
     {
-      "id": "1",
+      "id": "b131",
       "name": {
-        "th": "Item 1",
-        "en": "Item 1"
+        "th": "test",
+        "en": "test"
       },
-      "price": 10,
-      "stock": 10,
-      "published": "true",
+      "price": 100,
       "categoryId": "1",
-      "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
-    },
-    {
-      "id": "2",
-      "name": {
-        "th": "Item 2",
-        "en": "Item 2"
-      },
-      "price": 20,
-      "stock": 20,
-      "published": "true",
-      "categoryId": "1",
-      "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
-    },
-    {
-      "id": "3",
-      "name": {
-        "th": "Item 3",
-        "en": "Item 3"
-      },
-      "price": 30,
-      "stock": 30,
-      "published": "true",
-      "categoryId": "2",
-      "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
-    },
-    {
-      "id": "4",
-      "name": {
-        "th": "Item 4",
-        "en": "Item 4"
-      },
-      "price": 40,
-      "stock": 40,
-      "published": "true",
-      "categoryId": "1",
-      "image": "https://static.wixstatic.com/media/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg/v1/fill/w_580,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1f66d010ca2e45a99bfd2ed178a504be~mv2.jpg"
+      "image": "https://th.bing.com/th/id/OIP.eYAF77sj62wZeMuCfbdAzwHaER?rs=1&pid=ImgDetMain",
+      "published": "true"
     }
   ],
-  "orders": [],
-  "order-items": [],
-  "service-calls": []
+  "orders": [
+    {
+      "id": "7343",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T08:36:00Z"
+    },
+    {
+      "id": "2625",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T08:36:31Z"
+    },
+    {
+      "id": "c333",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T08:40:12Z"
+    },
+    {
+      "id": "a5f7",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T11:24:39Z"
+    },
+    {
+      "id": "a5f7x",
+      "tableId": "2",
+      "status": "closed",
+      "orderDate": "2024-03-25T11:24:39Z"
+    },
+    {
+      "id": "c4d5",
+      "tableId": "3",
+      "status": "closed",
+      "orderDate": "2024-03-25T12:53:22.412Z"
+    },
+    {
+      "id": "0856",
+      "tableId": "4",
+      "status": "closed",
+      "orderDate": "2024-03-25T12:53:26.065Z"
+    },
+    {
+      "id": "8479",
+      "tableId": "2",
+      "status": "open",
+      "orderDate": "2024-03-25T12:53:39.139Z"
+    },
+    {
+      "id": "afda",
+      "tableId": "3",
+      "status": "closed",
+      "orderDate": "2024-03-25T12:54:04.789Z"
+    },
+    {
+      "id": "a7b6",
+      "tableId": "3",
+      "status": "open",
+      "orderDate": "2024-03-25T13:15:57.715Z"
+    },
+    {
+      "id": "cc34",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T13:21:49.562Z"
+    },
+    {
+      "id": "8d4c",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T13:22:12.500Z"
+    },
+    {
+      "id": "67b4",
+      "tableId": "1",
+      "status": "closed",
+      "orderDate": "2024-03-25T13:24:22.972Z"
+    }
+  ],
+  "order-items": [
+    {
+      "id": "4382",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 5,
+      "orderDate": "2024-03-25T11:45:01.133Z",
+      "status": "completed"
+    },
+    {
+      "id": "ca0e",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 5,
+      "orderDate": "2024-03-25T11:51:33.505Z",
+      "status": "completed"
+    },
+    {
+      "id": "bdb7",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 5,
+      "orderDate": "2024-03-25T12:03:01.301Z",
+      "status": "cancelled"
+    },
+    {
+      "id": "f237",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 4,
+      "orderDate": "2024-03-25T12:03:15.628Z",
+      "status": "completed"
+    },
+    {
+      "id": "363e",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 5,
+      "orderDate": "2024-03-25T12:08:05.065Z",
+      "status": "completed"
+    },
+    {
+      "id": "aafb",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 4,
+      "orderDate": "2024-03-25T12:09:54.558Z",
+      "status": "cancelled"
+    },
+    {
+      "id": "dfde",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 3,
+      "orderDate": "2024-03-25T12:10:52.052Z",
+      "status": "completed"
+    },
+    {
+      "id": "9609",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 3,
+      "orderDate": "2024-03-25T12:11:05.024Z",
+      "status": "cancelled"
+    },
+    {
+      "id": "2808",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 2,
+      "orderDate": "2024-03-25T12:11:26.246Z",
+      "status": "completed"
+    },
+    {
+      "id": "4b0c",
+      "orderId": "a5f7",
+      "itemId": "b131",
+      "quantity": 4,
+      "orderDate": "2024-03-25T13:12:28.908Z",
+      "status": "completed"
+    },
+    {
+      "id": "e5cc",
+      "orderId": "8d4c",
+      "itemId": "b131",
+      "quantity": 3,
+      "orderDate": "2024-03-25T13:24:03.931Z",
+      "status": "completed"
+    },
+    {
+      "id": "4b58",
+      "orderId": "8479",
+      "itemId": "b131",
+      "quantity": 3,
+      "orderDate": "2024-03-25T13:25:51.543Z",
+      "status": "completed"
+    },
+    {
+      "id": "3526",
+      "orderId": "a7b6",
+      "itemId": "b131",
+      "quantity": 2,
+      "orderDate": "2024-03-25T13:33:58.966Z",
+      "status": "completed"
+    },
+    {
+      "id": "2263",
+      "orderId": "a7b6",
+      "itemId": "b131",
+      "quantity": 5,
+      "orderDate": "2024-03-25T13:34:04.438Z",
+      "status": "completed"
+    }
+  ],
+  "service-calls": [
+    {
+      "id": "76a4",
+      "orderId": "2625",
+      "status": "pending",
+      "callDate": "2024-03-25T08:36:57.918Z"
+    },
+    {
+      "id": "4ad9",
+      "orderId": "a7b6",
+      "status": "pending",
+      "callDate": "2024-03-25T13:37:27.406Z"
+    }
+  ]
 }

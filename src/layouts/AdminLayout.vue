@@ -1,14 +1,15 @@
 <script setup>
+import NavBar from '@/components/ui/NavBar.vue'
 import DefaultLayout from './DefaultLayout.vue'
 </script>
 
 <template>
   <DefaultLayout>
-    <div
-      class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-white shadow-md"
-    >
-      <h1 class="text-md md:text-lg font-bold"><router-link to="/admin">Admin1010</router-link></h1>
-    </div>
+    <NavBar :includeLangToggle="false">
+      <h1 class="text-md md:text-lg font-bold">
+        <router-link to="/admin">Admin</router-link>
+      </h1>
+    </NavBar>
     <div class="flex flex-col h-full">
       <router-view />
     </div>

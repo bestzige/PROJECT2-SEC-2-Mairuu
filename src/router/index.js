@@ -1,21 +1,21 @@
-import TableOrdersDetail from '@/components/table/TableOrdersDetail.vue'
-import Table from '@/components/table/Table.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
-import OrderCart from '@/views/OrderCart.vue'
-import OrderHistory from '@/views/OrderHistory.vue'
+import OrderCartView from '@/views/OrderCartView.vue'
+import OrderHistoryView from '@/views/OrderHistoryView.vue'
 import OrderView from '@/views/OrderView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import OrderMenuView from '../views/OrderMenuView.vue'
+import HomeView from '@/views/HomeView.vue'
+import OrderMenuView from '@/views/OrderMenuView.vue'
 import AdminLayout from '@/layouts/AdminLayout.vue'
-import ProductManager from '@/components/manager/ProductManager.vue'
-import OrderManager from '@/components/manager/OrderManager.vue'
-import TableManager from '@/components/manager/TableManager.vue'
-import EmployeeTask from '@/components/employee/EmployeeTask.vue'
-import AdminTask from '@/components/admin/AdminTask.vue'
+import AdminTableManagerView from '@/views/manager/admin/AdminTableManagerView.vue'
+import AdminProductManagerView from '@/views/manager/admin/AdminProductManagerView.vue'
+import EmplyeeOrderManagerView from '@/views/manager/employee/EmplyeeOrderManagerView.vue'
+import EmplyeeTableListView from '@/views/manager/employee/EmplyeeTableListView.vue'
+import EmployeeTableDetailsView from '@/views/manager/employee/EmployeeTableDetailsView.vue'
+import EmployeeTaskView from '@/views/manager/employee/EmployeeTaskView.vue'
+import AdminTaskView from '@/views/manager/admin/AdminTaskView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,12 +45,12 @@ const router = createRouter({
         {
           path: 'history',
           name: 'order-history',
-          component: OrderHistory
+          component: OrderHistoryView
         },
         {
           path: 'cart',
           name: 'order-cart',
-          component: OrderCart
+          component: OrderCartView
         },
         {
           path: 'menu',
@@ -72,22 +72,22 @@ const router = createRouter({
         {
           path: '',
           name: 'employee-home',
-          component: EmployeeTask
+          component: EmployeeTaskView
         },
         {
           path: 'tables',
-          name: 'tables',
-          component: Table
+          name: 'employee-tables',
+          component: EmplyeeTableListView
         },
         {
           path: 'table-detail/:tableId',
-          name: 'table-detail',
-          component: TableOrdersDetail
+          name: 'employee-table-detail',
+          component: EmployeeTableDetailsView
         },
         {
           path: 'order-manager',
-          name: 'order-manager',
-          component: OrderManager
+          name: 'employee-order-manager',
+          component: EmplyeeOrderManagerView
         }
       ]
     },
@@ -99,17 +99,17 @@ const router = createRouter({
         {
           path: '',
           name: 'admin-home',
-          component: AdminTask
+          component: AdminTaskView
         },
         {
           path: 'table-manager',
-          name: 'table-manager',
-          component: TableManager
+          name: 'admin-table-manager',
+          component: AdminTableManagerView
         },
         {
           path: 'product-manager',
-          name: 'product-manager',
-          component: ProductManager
+          name: 'admin-product-manager',
+          component: AdminProductManagerView
         }
       ]
     },

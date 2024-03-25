@@ -47,9 +47,9 @@ export const putItem = async (url, id, item) => {
   }
 }
 
-export const patchItem = async (url, id, item) => {
+export const patchItem = async (url, id, item, options = "") => {
   try {
-    return await fetch(`${url}/${id}`, {
+    return await fetch(`${url}/${id}${options}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
