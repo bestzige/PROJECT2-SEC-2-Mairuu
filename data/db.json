@@ -147,7 +147,6 @@
       "image": "https://static.wixstatic.com/media/e669da_e5a22f119e4a458298b42d28faffef96~mv2.jpg/v1/fill/w_290,h_290,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_e5a22f119e4a458298b42d28faffef96~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "6",
       "name": {
@@ -203,7 +202,6 @@
       "image": "https://static.wixstatic.com/media/e669da_78ad7821aeb1436991d497e1f98583ee~mv2.jpg/v1/fill/w_293,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_78ad7821aeb1436991d497e1f98583ee~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "11",
       "name": {
@@ -259,7 +257,6 @@
       "image": "https://static.wixstatic.com/media/e669da_431aa33d48f541789a4d7cb4a3fd834d~mv2.jpg/v1/fill/w_258,h_257,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_431aa33d48f541789a4d7cb4a3fd834d~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "16",
       "name": {
@@ -304,7 +301,6 @@
       "image": "https://static.wixstatic.com/media/e669da_e983a7431c144fb7857efb5196f70fd4~mv2.jpg/v1/fill/w_293,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_e983a7431c144fb7857efb5196f70fd4~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "20",
       "name": {
@@ -360,7 +356,6 @@
       "image": "https://static.wixstatic.com/media/e669da_1a546846281d4858be5c2446bc95b222~mv2.jpg/v1/fill/w_293,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_1a546846281d4858be5c2446bc95b222~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "25",
       "name": {
@@ -416,7 +411,6 @@
       "image": "https://static.wixstatic.com/media/e669da_a72aacc9d4ad48a0a18f11656450307b~mv2.jpg/v1/fill/w_293,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_a72aacc9d4ad48a0a18f11656450307b~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "30",
       "name": {
@@ -472,7 +466,6 @@
       "image": "https://static.wixstatic.com/media/e669da_966b83eb51bd40ae8eac5ecd86754be8~mv2.jpg/v1/fill/w_290,h_290,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e669da_966b83eb51bd40ae8eac5ecd86754be8~mv2.jpg",
       "published": "true"
     },
-
     {
       "id": "35",
       "name": {
@@ -529,14 +522,7 @@
       "published": "true"
     }
   ],
-  "orders": [
-    {
-      "id": "0956",
-      "tableId": "1",
-      "status": "open",
-      "orderDate": "2024-03-25T13:57:44.504Z"
-    }
-  ],
+  "orders": [],
   "order-items": [],
   "service-calls": []
 }

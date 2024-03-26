@@ -11,7 +11,12 @@ export const useServiceCallStore = defineStore('service-call', () => {
   const orderStore = useOrderStore()
 
   const getServiceCalls = async () => {
-    return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/service-calls?_embed=table`)
+    return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/service-calls?_embed=order`)
+  }
+  const getPendingServiceCalls = async () => {
+    return await fetch.getItems(
+      `${import.meta.env.VITE_API_ENDPOINT}/service-calls?_embed=order&status=pending`
+    )
   }
 
   const callService = async (orderId) => {
@@ -38,10 +43,30 @@ export const useServiceCallStore = defineStore('service-call', () => {
       isCalled.value = false
     }, 5000) // 5 seconds
   }
+  const changeServiceStatus = async (id, status) => {
+    const data = await fetch.patchItem(`${import.meta.env.VITE_API_ENDPOINT}/service-calls`, id, {
+      status: `${status}`
+    })
 
+    if (!data) {
+      uiStore.addToast({
+        message: 'Failed to update order status',
+        type: 'error'
+      })
+    }
+
+    uiStore.addToast({
+      message: `Order status updated to ${status}`,
+      type: 'success'
+    })
+
+    return data
+  }
   return {
     isCalled,
     getServiceCalls,
-    callService
+    getPendingServiceCalls,
+    callService,
+    changeServiceStatus
   }
 })

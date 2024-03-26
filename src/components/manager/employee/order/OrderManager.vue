@@ -1,11 +1,13 @@
 <script setup>
 import { useOrderItemStore } from '@/stores/orderItem'
+import { useServiceCallStore } from '@/stores/service-call'
 import { onMounted, ref, onUnmounted } from 'vue'
 import XModal from '@/components/ui/XModal.vue'
 import ManagerHeader from '@/components/manager/ManagerHeader.vue'
 import OrderItem from './OrderItem.vue'
 
 const orderItemStore = useOrderItemStore()
+const serviceStore = useServiceCallStore()
 
 const orderItems = ref([])
 const invtervalId = ref(null)
@@ -18,16 +20,38 @@ const openModal = (orderItem, status) => {
   isModalOpen.value = true
   currStatus.value = status
   currOrderItem.value = orderItem
+  console.log(currOrderItem.value.type)
 }
 
 const loadOrderItems = async () => {
-  orderItems.value = await orderItemStore.getPendingOrders()
+  const orders = await orderItemStore.getPendingOrders()
+  orders.map((order) => {
+    order.date = new Date(order.orderDate)
+    order.type = 'order'
+    return order
+  })
+  const service = await serviceStore.getPendingServiceCalls()
+  service.map((service) => {
+    service.date = new Date(service.callDate)
+    service.type = 'service'
+    return service
+  })
+  //add orders and service to orderItems
+  orderItems.value = [...orders, ...service]
+  orderItems.value.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date)
+  })
 }
 
 const changeStatus = async () => {
-  const changed = await orderItemStore.changeOrderStatus(currOrderItem.value.id, currStatus.value)
+  const changed = ref({})
+  if (currOrderItem.value.type === 'service') {
+    changed.value = await serviceStore.changeServiceStatus(currOrderItem.value.id, currStatus.value)
+  } else {
+    changed.value = await orderItemStore.changeOrderStatus(currOrderItem.value.id, currStatus.value)
+  }
   closeModal()
-  if (!changed) return
+  if (!changed.value) return
   orderItems.value = orderItems.value.filter((orderItem) => orderItem.id !== currOrderItem.value.id)
 }
 
