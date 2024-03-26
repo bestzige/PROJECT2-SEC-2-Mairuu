@@ -27,10 +27,10 @@ defineProps({
       <div class="flex flex-col justify-between">
         <p class="text-right">{{ cart.item.price * cart.quantity }}฿</p>
         <div class="flex gap-2">
-          <XButton :disabled="cart.quantity === 1" @click="$emit('subQuantity', cart.item)">
+          <XButton :disabled="cart.quantity === 1" @click="$emit('subQuantity', cart.item)" variant="gray">
             -
           </XButton>
-          <XButton @click="$emit('addQuantity', cart.item)">+</XButton>
+          <XButton @click="$emit('addQuantity', cart.item)" variant="green">+</XButton>
           <XButton @click="$emit('removeFromCart', cart.item)" variant="danger"> x </XButton>
         </div>
       </div>

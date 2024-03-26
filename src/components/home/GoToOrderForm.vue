@@ -25,7 +25,7 @@ const orderId = ref(null)
       {{ langStore.getStaticTextLang('home.order-form.cant-submit', "Can't submit") }}
     </XButton>
 
-    <XButton v-if="orderId" :to="`/order/${orderId}`" :disabled="!orderId">
+    <XButton v-if="orderId" :to="`/order/${orderId}`" :disabled="!orderId" variant="green">
       {{ langStore.getStaticTextLang('home.order-form.submit', 'Order') }}
     </XButton>
   </form>

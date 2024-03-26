@@ -42,7 +42,11 @@ const variantClasses = {
   primary: 'bg-primary-500 hover:bg-primary-600',
   secondary: 'bg-secondary-500 hover:bg-secondary-600',
   danger: 'bg-red-500 hover:bg-red-600',
-  warning: 'bg-yellow-500 hover:bg-yellow-600'
+  warning: 'bg-yellow-500 hover:bg-yellow-600',
+  theme: 'bg-theme-500 hover:bg-theme-400',
+  gray: 'bg-gray-500 hover:bg-gray-400',
+  orange: 'bg-theme-400 hover:bg-orange-600',
+  green: 'bg-green-500 hover:bg-green-400'
 }
 
 const sizeClasses = {

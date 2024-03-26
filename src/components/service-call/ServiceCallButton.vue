@@ -15,7 +15,7 @@ const serviceCall = async () => {
 </script>
 
 <template>
-  <XButton @click="serviceCall" variant="secondary" fullWidth>
+  <XButton @click="serviceCall" variant="theme" fullWidth>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
