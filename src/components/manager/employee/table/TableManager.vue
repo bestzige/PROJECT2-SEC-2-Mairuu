@@ -59,7 +59,7 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col w-full px-5 md:px-10 lg:px-20">
-    <ManagerHeader>Table Manager</ManagerHeader>
+    <ManagerHeader>Bill Management</ManagerHeader>
 
     <div
       class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 py-4 mx-auto items-center text-white"

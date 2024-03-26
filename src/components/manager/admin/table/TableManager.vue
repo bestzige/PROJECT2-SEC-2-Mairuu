@@ -69,7 +69,7 @@ const loadTables = async () => {
 
 <template>
   <div class="flex flex-col w-full px-5 md:px-10 lg:px-20">
-    <ManagerHeader>Table Manager</ManagerHeader>
+    <ManagerHeader>Table Management</ManagerHeader>
     <div v-for="(table, index) in tables" :key="index">
       <TableDetail
         :table="table"
