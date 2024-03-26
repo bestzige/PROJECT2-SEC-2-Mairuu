@@ -74,7 +74,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex flex-col w-full px-5 md:px-10 lg:px-20">
-    <ManagerHeader>Order Manager</ManagerHeader>
+    <ManagerHeader>Order Management</ManagerHeader>
 
     <div class="flex flex-col gap-4 mt-4">
       <OrderItem

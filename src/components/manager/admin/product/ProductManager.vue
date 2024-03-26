@@ -106,7 +106,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col w-full px-5 md:px-10 lg:px-20">
-    <ManagerHeader>Product Manager</ManagerHeader>
+    <ManagerHeader>Product Management</ManagerHeader>
     <div class="flex flex-col gap-4">
       <CategoryCard
         v-for="category in categories"

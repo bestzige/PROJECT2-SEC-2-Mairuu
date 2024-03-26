@@ -6,17 +6,16 @@
       <div class="flex gap-4 mx-auto py-20 justify-between items-center">
         <router-link
           :to="`/employee/tables`"
-          class="mx-auto text-6xl w-80 h-80 flex text-center justify-center items-center rounded-3xl bg-theme-200 border-2 border-black"
+          class="mx-auto text-5xl w-2/6 h-80 flex text-center justify-center items-center  bg-theme-200 border-2 border-black"
         >
-          TABLE MANAGER
+          BILL MANAGEMENT
         </router-link>
         <router-link
           :to="`/employee/order-manager`"
-          class="mx-auto text-6xl w-80 h-80 flex text-center justify-center items-center rounded-3xl bg-theme-200 border-2 border-black"
+          class="mx-auto text-5xl w-2/6 h-80 flex text-center justify-center items-center  bg-theme-200 border-2 border-black"
         >
-          ORDER MANAGER
+          ORDER MANAGEMENT
         </router-link>
-        
       </div>
     </div>
   </div>

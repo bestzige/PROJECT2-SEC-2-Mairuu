@@ -6,7 +6,7 @@ const { variant, size, disabled, to, type, center, fullWidth } = defineProps({
   variant: {
     type: String,
     default: 'primary',
-    validator: (value) => ['primary', 'secondary', 'danger', 'warning'].includes(value)
+    validator: (value) => ['primary', 'secondary', 'danger', 'warning' , 'theme' , 'gray' , 'orange' , 'green'].includes(value)
   },
   size: {
     type: String,
