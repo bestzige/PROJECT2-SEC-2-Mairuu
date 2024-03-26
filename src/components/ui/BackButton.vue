@@ -8,7 +8,7 @@ const langStore = useLangStore()
 </script>
 
 <template>
-  <XButton :to="to" variant="danger" fullWidth>
+  <XButton :to="to" variant="gray" fullWidth>
     {{ langStore.getStaticTextLang('back.button', 'Back') }}
   </XButton>
 </template>

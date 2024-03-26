@@ -19,6 +19,7 @@ const orderFood = async () => {
     @click="orderFood"
     fullWidth
     :to="`/order/${route.params.orderId}/history`"
+    variant="orange"
   >
     {{ langStore.getStaticTextLang('order.order-food.button', 'Order Food') }}
   </XButton>

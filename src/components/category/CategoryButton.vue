@@ -29,7 +29,7 @@ const { category, withImage } = defineProps({
         {{ langStore.getTextLang(category, 'name', 'Category #X') }}
       </h1>
     </div>
-    <XButton v-else fullWidth size="sm">
+    <XButton v-else fullWidth size="sm" variant="theme">
       {{ langStore.getTextLang(category, 'name', 'Category #X') }}
     </XButton>
   </RouterLink>

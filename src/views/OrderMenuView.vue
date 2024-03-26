@@ -58,7 +58,7 @@ const next = () => {
       <ItemList />
     </div>
     <div class="flex justify-between">
-      <XButton v-if="categories?.length > 0" @click="back">
+      <XButton v-if="categories?.length > 0" @click="back" variant="gray">
         {{ langStore.getStaticTextLang('back.button', 'Back') }}
       </XButton>
       <XButton
@@ -66,6 +66,7 @@ const next = () => {
           categories?.length > 0 && route.params.categoryId !== categories[categories.length - 1].id
         "
         @click="next"
+        variant="theme"
       >
         {{ langStore.getStaticTextLang('next.button', 'Next') }}
       </XButton>
@@ -74,11 +75,11 @@ const next = () => {
     <AppBar>
       <div class="flex justify-between items-center gap-4">
         <ServiceCallButton />
-        <XButton :to="`/order/${$route.params.orderId}/cart`" fullWidth>
+        <XButton :to="`/order/${$route.params.orderId}/cart`" fullWidth variant="orange">
           <span>
             {{ langStore.getStaticTextLang('order.order-food.button', 'Order Food') }}
           </span>
-          <span class="ml-2 text-red-500"> ({{ orderStore.totalQuantityInCart }}) </span>
+          <span class="ml-2"> ({{ orderStore.totalQuantityInCart }}) </span>
         </XButton>
       </div>
       <div class="mt-2">
