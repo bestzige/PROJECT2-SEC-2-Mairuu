@@ -542,39 +542,7 @@
       "published": "true"
     }
   ],
-  "orders": [
-    {
-      "id": "2c83",
-      "tableId": "1",
-      "status": "open",
-      "orderDate": "2024-03-27T02:19:56.273Z"
-    }
-  ],
-  "order-items": [
-    {
-      "id": "4369",
-      "orderId": "2c83",
-      "itemId": "27",
-      "quantity": 7,
-      "orderDate": "2024-03-27T02:36:52.663Z",
-      "status": "pending"
-    },
-    {
-      "id": "6700",
-      "orderId": "2c83",
-      "itemId": "28",
-      "quantity": 2,
-      "orderDate": "2024-03-27T02:36:52.665Z",
-      "status": "pending"
-    },
-    {
-      "id": "653d",
-      "orderId": "2c83",
-      "itemId": "29",
-      "quantity": 1,
-      "orderDate": "2024-03-27T02:36:52.666Z",
-      "status": "pending"
-    }
-  ],
+  "orders": [],
+  "order-items": [],
   "service-calls": []
 }
