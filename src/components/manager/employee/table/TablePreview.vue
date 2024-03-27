@@ -1,7 +1,11 @@
 <script setup>
 defineProps({
   table: Object,
-  available: Boolean
+  available: Boolean,
+  currentColor: {
+    type: String,
+    default: 'black'
+  }
 })
 
 defineEmits(['select'])
@@ -9,10 +13,24 @@ defineEmits(['select'])
 
 <template>
   <div
-    class="flex justify-center items-center h-24 m-1 border-2 cursor-pointer w-36"
-    :class="{ 'bg-theme-500 border-black': available, 'bg-theme-300 border-theme-500': !available }"
+    class="relative flex justify-center items-center h-24 m-1 border-2 cursor-pointer w-36 bg-theme-600 border-black"
     @click="$emit('select', table)"
   >
-    {{ table.name.en }}
+    <svg
+      class="absolute top-0 right-0"
+      v-show="!available"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M21.02 16.35c-.61-1.105-1.358-2-2.108-2.624a5.233 5.233 0 0 1-3.103 1.03a5.236 5.236 0 0 1-3.106-1.03c-.75.625-1.498 1.52-2.11 2.623c-1.423 2.562-1.58 5.19-.35 5.873c.55.307 1.126.078 1.722-.496a10.585 10.585 0 0 0-.166 1.873c0 2.932 1.14 5.307 2.543 5.307c.846 0 1.265-.865 1.466-2.19c.2 1.325.62 2.19 1.462 2.19c1.406 0 2.545-2.375 2.545-5.307c0-.66-.06-1.29-.168-1.873c.597.574 1.173.803 1.724.496c1.228-.682 1.07-3.31-.353-5.874zm-5.212-2.593a4.28 4.28 0 1 0-.003-8.56a4.28 4.28 0 0 0 .003 8.561z"
+      />
+    </svg>
+    <div class="absolute inset-0 flex justify-center items-center">
+      {{ table.name.en }}
+    </div>
   </div>
 </template>
