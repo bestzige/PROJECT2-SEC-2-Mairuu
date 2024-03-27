@@ -1,9 +1,9 @@
 <script setup>
+import ManagerHeader from '@/components/manager/ManagerHeader.vue'
+import XModal from '@/components/ui/XModal.vue'
 import { useOrderItemStore } from '@/stores/orderItem'
 import { useServiceCallStore } from '@/stores/service-call'
-import { onMounted, ref, onUnmounted } from 'vue'
-import XModal from '@/components/ui/XModal.vue'
-import ManagerHeader from '@/components/manager/ManagerHeader.vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import OrderItem from './OrderItem.vue'
 
 const orderItemStore = useOrderItemStore()
@@ -45,11 +45,10 @@ const loadOrderItems = async () => {
 
 const changeStatus = async () => {
   const changed = ref({})
-  if (currOrderItem.value.type === 'service') {
-    changed.value = await serviceStore.changeServiceStatus(currOrderItem.value.id, currStatus.value)
-  } else {
-    changed.value = await orderItemStore.changeOrderStatus(currOrderItem.value.id, currStatus.value)
-  }
+  changed.value =
+    currOrderItem.value.type === 'service'
+      ? await serviceStore.changeServiceStatus(currOrderItem.value.id, currStatus.value)
+      : await orderItemStore.changeOrderStatus(currOrderItem.value.id, currStatus.value)
   closeModal()
   if (!changed.value) return
   orderItems.value = orderItems.value.filter((orderItem) => orderItem.id !== currOrderItem.value.id)
