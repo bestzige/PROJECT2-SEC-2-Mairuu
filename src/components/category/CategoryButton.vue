@@ -20,7 +20,7 @@ const { category, withImage } = defineProps({
   <RouterLink :to="`/order/${$route.params.orderId}/menu/${category.id}`">
     <div
       v-if="withImage"
-      class="relative flex flex-col items-center justify-center rounded-lg shadow-lg overflow-hidden select-none cursor-pointer"
+      class="relative flex flex-col items-center justify-center rounded-lg shadow-lg overflow-hidden select-none cursor-pointer h-80"
     >
       <img :src="category.image" alt="category" class="w-full h-full object-cover" />
       <h1
