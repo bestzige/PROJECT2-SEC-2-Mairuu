@@ -23,6 +23,7 @@ const refetchCategories = async () => {
 
 onMounted(async () => {
   await refetchCategories()
+
   if (!route.params.categoryId) {
     if (categories.value.length > 0) {
       router.replace(`/order/${route.params.orderId}/menu/${categories.value[0].id}`)

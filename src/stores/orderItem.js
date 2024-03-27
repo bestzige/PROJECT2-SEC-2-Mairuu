@@ -9,6 +9,7 @@ export const useOrderItemStore = defineStore('order-item', () => {
   const getOrderItems = async () => {
     return await fetch.getItems(`${import.meta.env.VITE_API_ENDPOINT}/order-items`)
   }
+
   const getPendingOrders = async () => {
     return await fetch.getItems(
       `${import.meta.env.VITE_API_ENDPOINT}/order-items?_embed=item&status=pending&_embed=order`
