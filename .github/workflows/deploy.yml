@@ -39,9 +39,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Start Json Server
-        run: npm run backend
-        background: true
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
