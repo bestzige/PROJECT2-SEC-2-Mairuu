@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const useUiStore = defineStore('ui', () => {
   const toasts = ref([])
 
-  const addToast = ({ message, type = 'info', timeout = 5000 }) => {
+  const addToast = ({ message, type = 'info', timeout = 3000 }) => {
     const id = Date.now()
     const timeoutInterval = timeout > 0 ? setTimeout(() => removeToastById(id), timeout) : null
     const toast = { id, message, type, timeout, timeoutInterval }

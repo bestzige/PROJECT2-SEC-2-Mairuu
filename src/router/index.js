@@ -1,33 +1,33 @@
+import AdminLayout from '@/layouts/AdminLayout.vue'
 import EmployeeLayout from '@/layouts/EmployeeLayout.vue'
 import OrderLayout from '@/layouts/OrderLayout.vue'
 import StoreLayout from '@/layouts/StoreLayout.vue'
+import HomeView from '@/views/HomeView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import OrderCartView from '@/views/OrderCartView.vue'
 import OrderHistoryView from '@/views/OrderHistoryView.vue'
-import OrderView from '@/views/OrderView.vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 import OrderMenuView from '@/views/OrderMenuView.vue'
-import AdminLayout from '@/layouts/AdminLayout.vue'
-import AdminTableManagerView from '@/views/manager/admin/AdminTableManagerView.vue'
+import OrderView from '@/views/OrderView.vue'
 import AdminProductManagerView from '@/views/manager/admin/AdminProductManagerView.vue'
-import EmplyeeOrderManagerView from '@/views/manager/employee/EmplyeeOrderManagerView.vue'
-import EmplyeeTableListView from '@/views/manager/employee/EmplyeeTableListView.vue'
+import AdminTableManagerView from '@/views/manager/admin/AdminTableManagerView.vue'
+import AdminTaskView from '@/views/manager/admin/AdminTaskView.vue'
 import EmployeeTableDetailsView from '@/views/manager/employee/EmployeeTableDetailsView.vue'
 import EmployeeTaskView from '@/views/manager/employee/EmployeeTaskView.vue'
-import AdminTaskView from '@/views/manager/admin/AdminTaskView.vue'
+import EmplyeeOrderManagerView from '@/views/manager/employee/EmplyeeOrderManagerView.vue'
+import EmplyeeTableListView from '@/views/manager/employee/EmplyeeTableListView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'main',
       component: StoreLayout,
       children: [
         {
           path: '',
-          name: 'home-view',
+          name: 'home',
           component: HomeView
         }
       ]
