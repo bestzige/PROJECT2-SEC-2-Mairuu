@@ -1,14 +1,14 @@
 <script setup>
 import CategoryList from '@/components/category/CategoryList.vue'
 import ItemList from '@/components/item/ItemList.vue'
-import AppBar from '@/components/ui/AppBar.vue'
 import ServiceCallButton from '@/components/service-call/ServiceCallButton.vue'
+import AppBar from '@/components/ui/AppBar.vue'
+import XButton from '@/components/ui/XButton.vue'
 import { useCategoryStore } from '@/stores/category'
 import { useLangStore } from '@/stores/lang'
+import { useOrderStore } from '@/stores/order'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import XButton from '@/components/ui/XButton.vue'
-import { useOrderStore } from '@/stores/order'
 
 const router = useRouter()
 const route = useRoute()
@@ -79,7 +79,9 @@ const next = () => {
           <span>
             {{ langStore.getStaticTextLang('order.order-food.button', 'Order Food') }}
           </span>
-          <span class="ml-2"> ({{ orderStore.totalQuantityInCart }}) </span>
+          <span class="ml-2 text-theme-500" :class="{ 'animate-ping': orderStore.adding }">
+            ({{ orderStore.totalQuantityInCart }})
+          </span>
         </XButton>
       </div>
       <div class="mt-2">

@@ -6,6 +6,7 @@ import { useUiStore } from './ui'
 export const useOrderStore = defineStore('order', () => {
   const currentOrder = ref(null)
   const cartItems = ref([])
+  const adding = ref(false)
 
   const uiStore = useUiStore()
 
@@ -34,6 +35,7 @@ export const useOrderStore = defineStore('order', () => {
   }
 
   const addToCart = (item) => {
+    adding.value = true
     if (!item.id) return
     const isItemExist = cartItems.value.find((cartItem) => cartItem.item.id === item.id)
     if (isItemExist) {
@@ -41,6 +43,9 @@ export const useOrderStore = defineStore('order', () => {
     } else {
       cartItems.value.push({ id: `cart-${Date.now()}`, item, quantity: 1 })
     }
+    setTimeout(() => {
+      adding.value = false
+    }, 500)
   }
 
   const removeFromCart = (id) => {
@@ -123,7 +128,7 @@ export const useOrderStore = defineStore('order', () => {
       message: `Table ${tableId} opened`,
       type: 'success'
     })
-    
+
     return data
   }
 
@@ -162,6 +167,7 @@ export const useOrderStore = defineStore('order', () => {
     getOpenOrderByTableId,
     getOpenOrders,
     openOrder,
-    submitOrder
+    submitOrder,
+    adding
   }
 })

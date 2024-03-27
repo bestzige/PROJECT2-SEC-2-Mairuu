@@ -1,5 +1,6 @@
 <script setup>
 import LangToggle from '@/components/lang/LangToggle.vue'
+import XButton from './XButton.vue'
 import XToasts from './XToasts.vue'
 
 defineProps({
@@ -8,6 +9,10 @@ defineProps({
     default: true
   }
 })
+
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
 </script>
 
 <template>
@@ -16,6 +21,12 @@ defineProps({
       <slot />
 
       <LangToggle v-if="includeLangToggle" />
+      <XButton
+        v-if="!includeLangToggle && authStore.isAuthenticated"
+        @click="authStore.logout"
+        class="mx-4"
+        >Logout</XButton
+      >
     </div>
     <XToasts />
   </div>
