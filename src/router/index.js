@@ -14,7 +14,7 @@ import AdminTaskView from '@/views/manager/admin/AdminTaskView.vue'
 import EmployeeTableDetailsView from '@/views/manager/employee/EmployeeTableDetailsView.vue'
 import EmployeeTaskView from '@/views/manager/employee/EmployeeTaskView.vue'
 import EmplyeeOrderManagerView from '@/views/manager/employee/EmployeeOrderManagerView.vue'
-import EmplyeeTableListView from '@/views/manager/employee/EmplyeeTableListView.vue'
+import EmplyeeTableListView from '@/views/manager/employee/EmployeeTableListView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
