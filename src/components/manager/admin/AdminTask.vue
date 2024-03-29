@@ -21,7 +21,7 @@ const authStore = useAuthStore()
         >
           <h1 class="text-xl md:text-2xl lg:text-5xl font-bold">TABLE MANAGEMENT</h1>
           <div class="text-center mt-4">
-            <p class="text-sm text-gray-70000">This section allows admin users to manage tables.</p>
+            <p class="text-sm text-gray-800">This section allows admin users to manage tables.</p>
           </div>
         </router-link>
         <router-link
@@ -31,7 +31,7 @@ const authStore = useAuthStore()
           
           <h1 class="text-xl md:text-2xl lg:text-5xl font-bold">PRODUCT MANAGEMENT</h1>
           <div class="text-center mt-4">
-            <p class="text-sm text-gray-70000">This section allows admin users to manage products.</p>
+            <p class="text-sm text-gray-800">This section allows admin users to manage products.</p>
           </div>
         </router-link>
       </div>

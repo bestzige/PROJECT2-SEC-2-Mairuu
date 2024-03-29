@@ -20,15 +20,25 @@ const authStore = useAuthStore()
       >
         <router-link
           :to="`/employee/tables`"
-          class="mx-2 text-xl w-full md:text-2xl lg:text-5xl p-4 flex text-center justify-center items-center bg-theme-200 border-2 border-black h-80 rounded-lg"
+          class="mx-2 w-full p-4 flex flex-col text-center justify-center items-center bg-theme-200 border-2 border-black h-80 rounded-lg"
         >
-          BILL MANAGEMENT
+          <h1 class="text-xl md:text-2xl lg:text-5xl font-bold">TABLE OPERATION</h1>
+          <div class="text-center mt-4">
+            <p class="text-sm text-gray-800">
+              This section allows employee users to operation tables.
+            </p>
+          </div>
         </router-link>
         <router-link
           :to="`/employee/order-manager`"
-          class="mx-2 text-xl w-full md:text-2xl lg:text-5xl p-4 flex text-center justify-center items-center bg-theme-200 border-2 border-black h-80 rounded-lg"
+          class="mx-2 w-full p-4 flex flex-col text-center justify-center items-center bg-theme-200 border-2 border-black h-80 rounded-lg"
         >
-          ORDER MANAGEMENT
+          <h1 class="text-xl md:text-2xl lg:text-5xl font-bold">ORDER MANAGEMENT</h1>
+          <div class="text-center mt-4">
+            <p class="text-sm text-gray-800">
+              This section allows employee users to manage orders.
+            </p>
+          </div>
         </router-link>
       </div>
     </div>
