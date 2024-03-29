@@ -6,7 +6,7 @@ import { ref } from 'vue'
 
 const orderItemStore = useOrderItemStore()
 
-defineProps({
+const { order, orderItems } = defineProps({
   order: Object,
   orderItems: Array
 })
@@ -20,7 +20,7 @@ const changeStatus = async (status) => {
 </script>
 
 <template>
-  <div class="flex flex-col w-full px-5 md:px-10 lg:px-20">
+  <div v-if="order" class="flex flex-col w-full px-5 md:px-10 lg:px-20">
     <ManagerHeader>Order # {{ order.id }} (Table {{ order.tableId }})</ManagerHeader>
 
     <div class="flex flex-col gap-4 p-4 max-h-96">

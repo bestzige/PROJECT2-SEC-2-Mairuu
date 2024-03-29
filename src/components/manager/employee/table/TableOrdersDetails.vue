@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import TableDetails from '@/components/manager/employee/table/TableDetails.vue'
+import TableDetails from '@/components/manager/employee/table/OrderDetails.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useTableStore } from '@/stores/table'
 import { useOrderStore } from '@/stores/order'
