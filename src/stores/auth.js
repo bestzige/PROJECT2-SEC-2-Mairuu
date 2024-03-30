@@ -11,10 +11,10 @@ export const useAuthStore = defineStore('auth', () => {
 
   const login = async (username, password) => {
     const data = await fetch.getItems(
-      `${import.meta.env.VITE_API_ENDPOINT}/users?username=${username}&password=${password}`
+      `${import.meta.env.VITE_API_ENDPOINT}/users?username=${username}`
     )
 
-    if (data.length <= 0) {
+    if (data.length <= 0 || data[0].password !== password) {
       uiStore.addToast({
         message: 'Invalid username or password',
         type: 'error'
