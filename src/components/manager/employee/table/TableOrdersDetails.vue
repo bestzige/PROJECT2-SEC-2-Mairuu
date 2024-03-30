@@ -1,11 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
 import TableDetails from '@/components/manager/employee/table/OrderDetails.vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useTableStore } from '@/stores/table'
-import { useOrderStore } from '@/stores/order'
-import { useUiStore } from '@/stores/ui'
 import XModal from '@/components/ui/XModal.vue'
+import { useOrderStore } from '@/stores/order'
+import { useTableStore } from '@/stores/table'
+import { useUiStore } from '@/stores/ui'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
@@ -21,18 +21,18 @@ const billModal = ref(false)
 const intervalId = ref(null)
 const qrImage = computed(
   () =>
-    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${import.meta.env.VITE_BASE_URL}/order/${order.value.id || ''}`
+    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${import.meta.env.VITE_BASE_URL}/order/`
 )
 
 const submitOrder = async () => {
   const unCompletedOrder = orderItems.value.some((item) => item.status === 'pending')
-  if (!unCompletedOrder) {
-    await orderStore.submitOrder(order.value.id)
-  } else {
+  if (unCompletedOrder) {
     uiStore.addToast({
       message: `Table ${order.value.tableId} can't close because there are some pending order`,
       type: 'error'
     })
+  } else {
+    await orderStore.submitOrder(order.value.id)
   }
 
   confirmModal.value = false
@@ -45,13 +45,13 @@ const loadOrder = async () => {
       clearInterval(intervalId.value)
     }
     await router.push('/employee/tables')
-  } else {
-    tableStore.setCurrentTable(order.value.table)
-    orderItems.value = await orderStore.getOrderItems(order.value.id)
-    totalPrice.value = orderItems.value
-      .filter((item) => item.status === 'completed')
-      .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
+    return
   }
+  tableStore.setCurrentTable(order.value.table)
+  orderItems.value = await orderStore.getOrderItems(order.value.id)
+  totalPrice.value = orderItems.value
+    .filter((item) => item.status === 'completed')
+    .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
 }
 
 onMounted(() => {
@@ -66,7 +66,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
+  <div v-if="order">
     <TableDetails :order="order" :orderItems="orderItems" />
 
     <div class="flex justify-center mt-4">
@@ -102,7 +102,7 @@ onUnmounted(() => {
     </XModal>
 
     <XModal :show="billModal" title="Bill" @close="billModal = false">
-      <img :src="qrImage" :alt="`QR Code for order`" class="w-full" />
+      <img :src="`${qrImage}/order/${order.id}`" :alt="`QR Code for order`" class="w-full" />
       <p class="text-center text-theme-500 mt-4">Scan QR code to order food</p>
       <p class="text-center text-theme-500">Table: {{ order.tableId }}</p>
       <p class="text-center text-theme-500">Order: {{ order.id }}</p>
