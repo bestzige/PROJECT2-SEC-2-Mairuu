@@ -21,7 +21,7 @@ const billModal = ref(false)
 const intervalId = ref(null)
 const qrImage = computed(
   () =>
-    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${import.meta.env.VITE_BASE_URL}/order/`
+    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${import.meta.env.VITE_BASE_URL}`
 )
 
 const submitOrder = async () => {
