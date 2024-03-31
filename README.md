@@ -22,8 +22,8 @@
 ## Features List:
 
 1. **Customer**
-   - Select target color : เลือกสีลูกบอลที่เป็นเป้าหมาย
-   - Select player cursor : เลือกรูปแบบของ cursor ภายในเกม
+   - 
+   - 
   
 2. **Admin**
    - 
@@ -35,10 +35,16 @@
 
 ## Instruction Manual:
 
-### How to order
-1.
+### For customer
+1.Scan QRCode
+2.Select Category to get menu list
+3.Select item to order
+4.Use Service-call to 
    
-### Clear history
+### For Admin
+1.
+
+### For Employee
 1. 
 
 ## Video demo features:
