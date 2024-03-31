@@ -13,7 +13,7 @@
       "role": "employee"
     },
     {
-      "id": "2",
+      "id": "3",
       "username": "user",
       "password": "user",
       "role": "user"
@@ -608,12 +608,21 @@
   ],
   "orders": [
     {
-      "id": "f4f1",
+      "id": "8ee8",
       "tableId": "1",
       "status": "open",
-      "orderDate": "2024-03-27T03:52:01.574Z"
+      "orderDate": "2024-03-31T09:37:39.301Z"
     }
   ],
-  "order-items": [],
+  "order-items": [
+    {
+      "id": "c8fd",
+      "orderId": "8ee8",
+      "itemId": "21",
+      "quantity": 1,
+      "orderDate": "2024-03-31T09:38:02.817Z",
+      "status": "pending"
+    }
+  ],
   "service-calls": []
 }

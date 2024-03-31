@@ -20,7 +20,6 @@ const openModal = (orderItem, status) => {
   isModalOpen.value = true
   currStatus.value = status
   currOrderItem.value = orderItem
-  console.log(currOrderItem.value.type)
 }
 
 const loadOrderItems = async () => {
