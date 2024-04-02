@@ -10,16 +10,16 @@
 
 ## รายละเอียดงานแต่ละส่วน
 1. **Watchara Santawee**
-   - Page: Home, Customer(Order), Login
-   - Presentation video
+   - Page: Home, Customer(Order), Login.
+   - Presentation video.
 
 2. **Natthaphol Nirattsaikul**
-   - Page: Employee(TableOperation, OrderManagement)
+   - Page: Employee(TableOperation, OrderManagement).
    - README.md
 
 3. **Pasit Winyan**
-   - Page: Admin(TableManament, ProductManagement)
-   - Diagram
+   - Page: Admin(TableManament, ProductManagement).
+   - Diagram.
 
 ## Features List:
 
@@ -66,21 +66,60 @@
    - Choose the desired menu item
    - Place the order
    - Wait for the food to be served
+- Service-call
+   - Enter the category or menu selection page. 
    - Press service-call to call the staff if assistance is needed
- 
-- Order history
+- View food order history
    - Press the Order-history button in the lower right corner of the screen to view your order history.
    
 ### For Admin
-- Table Management
-   - Press the plus button at the bottom to add tables.
-   - To view details of each table, toggle down the table details.
-   - Modify table details or delete specific tables as needed.
- - Product Management
-   -
+- Choose task to be done
+   - Table Management
+      - Add new Table.
+         - Press the plus button at the bottom of table list to add tables.
+      - Update table detail.
+         - To view details of each table, toggle down the table details.
+         - Modify table details or delete specific tables as needed.
+    - Product Management
+      - Add new Product.
+         - Press the Add Product button at the right side of a category.
+         - Insert details of product.
+         - Press the Add button to add a new product in that category.
+         - Press the Cancel button to cancel.
+      - Update product detail.
+         - Choose product to edit products within each category.
+         - If press the Edit button Product details modal will be show.
+         - Edit details of product.
+         - Press the Save button to save a product.
+         - Press the Cancel button to cancel.
+       - Delete product.
+         - Choose product to delete products within each category.
 
 ### For Employee
-1. *************
+- Choose task to be done
+  - Table Operation
+    - Open table for customer.
+       - Press on an available table to open it for customers.
+       - Press the Get Bill button to generate QR code.
+       - Give the QR code to the customer.
+    - View table details.
+       - Press on the opened table(there's a person icon in the top right).
+    - Change table for customer.
+       - Press on the table of their order to view table details.
+       - Press the
+    - Customers pay their bills.
+       - Press on the table of their order to view table details.
+       - Verify the accuracy of the menu list. If it's uncorrect you can change it.
+       - Receive money from customers (cash or scan payment)
+       - Press the Submit Order button.
+    - Change status of order items.
+       - Press on the table of their order to view table details.
+       - Press the Edit icon at right side of each order items.
+       - Change status.
+  - Order Management
+    - Confirm order items
+       - Press the green icon at right side of each order items to confirm order and change it's status to completed.
+       - Press the red icon at right side of each order items to cancel order and change it's status to cancelled.
 
 ## Video demo features:
 
@@ -88,8 +127,8 @@
 
 ## References:
 
-- POS (https://pos-restaurantprogram.blogspot.com/2013/06/ipad-take-order.html) : Customer page(การสั่งออเดอร์)
-- Chokdeedimsum (https://www.chokdeedimsum.com/menu) : Main idea
-
+- POS (https://pos-restaurantprogram.blogspot.com/2013/06/ipad-take-order.html) : Customer page(การสั่งออเดอร์).
+- Chokdeedimsum (https://www.chokdeedimsum.com/menu) : Main idea, Menu images.
+- QR code (https://goqr.me/api/doc/create-qr-code/) : Get bill(fuction that generated QR code of order).
 
   
