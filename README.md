@@ -72,8 +72,12 @@
    - Press the Order-history button in the lower right corner of the screen to view your order history.
    
 ### For Admin
-- Table management
-   - *************
+- Table Management
+   - Press the plus button at the bottom to add tables.
+   - To view details of each table, toggle down the table details.
+   - Modify table details or delete specific tables as needed.
+ - Product Management
+   -
 
 ### For Employee
 1. *************
