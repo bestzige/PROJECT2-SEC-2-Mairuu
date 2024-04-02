@@ -16,30 +16,34 @@ defineEmits(['edit', 'delete'])
   <div class="p-4 bg-theme-300 rounded-lg shadow-lg">
     <div>
       <img :src="item.image" alt="item" class="w-full object-cover rounded-lg h-64" />
+      <div>
+        <p class="text-2xl font-semibold mt-2">{{ item.name.en }}</p>
+        <p class="text-lg font-semibold text-gray-600">{{ item.name.th }}</p>
+        <p class="text-lg font-semibold mt-2 text-red-500">{{ item.price }}฿</p>
+      </div>
 
-      <p class="text-2xl font-semibold mt-2">{{ item.name.en }}</p>
-      <p class="text-lg font-semibold text-gray-600">{{ item.name.th }}</p>
-      <p class="text-lg font-semibold mt-2 text-red-500">{{ item.price }}฿</p>
-      <p
-        class="text-lg font-semibold mt-2"
-        :class="item.published === 'true' ? 'text-green-500' : 'text-red-500'"
-      >
-        {{ item.published === 'true' ? 'Published' : 'Unpublished' }}
-      </p>
+      <div>
+        <p
+          class="text-lg font-semibold mt-2"
+          :class="item.published === 'true' ? 'text-green-500' : 'text-red-500'"
+        >
+          {{ item.published === 'true' ? 'Published' : 'Unpublished' }}
+        </p>
 
-      <div class="flex justify-end ml-1 mr-1 mt-3">
-        <button
-          @click="$emit('edit', item)"
-          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 w-36"
-        >
-          Edit
-        </button>
-        <button
-          @click="isDelete = true"
-          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-36"
-        >
-          Delete
-        </button>
+        <div class="flex justify-end ml-1 mr-1 mt-3">
+          <button
+            @click="$emit('edit', item)"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 w-36"
+          >
+            Edit
+          </button>
+          <button
+            @click="isDelete = true"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-36"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
 

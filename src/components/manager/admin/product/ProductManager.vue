@@ -128,61 +128,64 @@ onMounted(async () => {
         <div v-if="tempItem.image" class="w-full">
           <img :src="tempItem.image" alt="item" class="w-full object-cover rounded-lg h-64" />
         </div>
-        <div>
-          <label for="name-th" class="text-sm font-semibold">Name (TH)</label>
-          <input
-            v-model="tempItem.name.th"
-            type="text"
-            placeholder="Name (TH)"
-            class="border border-gray-300 p-2 w-full rounded-lg"
-          />
-        </div>
-        <div>
-          <label for="name-en" class="text-sm font-semibold">Name (EN)</label>
-          <input
-            v-model="tempItem.name.en"
-            type="text"
-            placeholder="Name (EN)"
-            class="border border-gray-300 p-2 w-full rounded-lg"
-          />
-        </div>
-        <div>
-          <label for="price" class="text-sm font-semibold">Price ฿</label>
-          <input
-            v-model.number="tempItem.price"
-            type="number"
-            placeholder="Price"
-            class="border border-gray-300 p-2 w-full rounded-lg"
-          />
-        </div>
-        <div v-if="tempItem.id">
-          <label for="category" class="text-sm font-semibold">Category</label>
-          <select
-            v-model="tempItem.categoryId"
-            class="border border-gray-300 p-2 w-full rounded-lg"
-          >
-            <option disabled value="0">Select Category</option>
-            <option v-for="category in categories" :key="category.id" :value="category.id">
-              {{ category.name.en }}
-            </option>
-          </select>
-        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full">
+            <label for="name-th" class="text-sm font-semibold">Name (TH)</label>
+            <input
+              v-model="tempItem.name.th"
+              type="text"
+              placeholder="Name (TH)"
+              class="border border-gray-300 p-2 w-full rounded-lg"
+            />
+          </div>
+          <div class="w-full">
+            <label for="name-en" class="text-sm font-semibold">Name (EN)</label>
+            <input
+              v-model="tempItem.name.en"
+              type="text"
+              placeholder="Name (EN)"
+              class="border border-gray-300 p-2 w-full rounded-lg"
+            />
+          </div>
+          <div class="w-4/12">
+            <label for="price" class="text-sm font-semibold">Price ฿</label>
+            <input
+              v-model.number="tempItem.price"
+              type="number"
+              placeholder="Price"
+              class="border border-gray-300 p-2 w-full rounded-lg"
+            />
+          </div>
+          <div class="w-2/12"></div>
+          <div class="w-6/12" v-if="tempItem.id">
+            <label for="category" class="text-sm font-semibold">Category</label>
+            <select
+              v-model="tempItem.categoryId"
+              class="border border-gray-300 p-2 w-full rounded-lg"
+            >
+              <option disabled value="0">Select Category</option>
+              <option v-for="category in categories" :key="category.id" :value="category.id">
+                {{ category.name.en }}
+              </option>
+            </select>
+          </div>
 
-        <div>
-          <label for="image" class="text-sm font-semibold">Image URL</label>
-          <input
-            v-model="tempItem.image"
-            type="text"
-            placeholder="Image URL"
-            class="border border-gray-300 p-2 w-full rounded-lg"
-          />
-        </div>
+          <div class="w-full">
+            <label for="image" class="text-sm font-semibold">Image URL</label>
+            <input
+              v-model="tempItem.image"
+              type="text"
+              placeholder="Image URL"
+              class="border border-gray-300 p-2 w-full rounded-lg"
+            />
+          </div>
 
-        <div class="flex items-center">
-          <input v-model="tempItem.published" type="checkbox" class="mr-2" />
-          <label>Published</label>
+          <div class="flex items-center w-full">
+            <input v-model="tempItem.published" type="checkbox" class="mr-2" />
+            <label>Published</label>
+          </div>
         </div>
-        <div class="flex justify-end">
+        <div class="flex justify-end w-full">
           <button
             @click="isManagerModalOpen = false"
             class="bg-gray-300 text-gray-800 px-4 py-2 rounded mr-2 hover:bg-gray-400"
