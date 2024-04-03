@@ -30,7 +30,7 @@ defineEmits(['select'])
       />
     </svg>
     <div class="absolute inset-0 flex justify-center items-center">
-      {{ table.name.en }}
+      {{ table.name.en }} ({{ table.defaultSize }})
     </div>
   </div>
 </template>
