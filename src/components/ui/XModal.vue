@@ -28,7 +28,10 @@ const sizeClasses = {
     class="fixed inset-0 z-50 flex justify-center bg-black bg-opacity-50 p-2 md:p-4 lg:p-6 xl:p-8"
     @click.self="closeWhenClickOutside && $emit('close')"
   >
-    <div class="bg-white rounded-lg p-4 h-fit" :class="sizeClasses[size]">
+    <div
+      class="bg-white rounded-lg p-4 h-fit overflow-y-auto shadow-lg max-h-[calc(100%-1rem)]"
+      :class="sizeClasses[size]"
+    >
       <div class="flex justify-between border-b border-gray-200 pb-2 mb-4">
         <h2 class="text-xl font-bold">{{ title }}</h2>
         <button @click="$emit('close')">

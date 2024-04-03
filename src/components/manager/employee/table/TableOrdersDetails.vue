@@ -17,8 +17,10 @@ const order = ref({})
 const orderItems = ref([])
 const totalPrice = ref(0)
 const confirmModal = ref(false)
+const changeTableModal = ref(false)
 const billModal = ref(false)
 const intervalId = ref(null)
+const allTables = ref([])
 const qrImage = computed(
   () =>
     `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${import.meta.env.VITE_BASE_URL}`
@@ -49,9 +51,15 @@ const loadOrder = async () => {
   }
   tableStore.setCurrentTable(order.value.table)
   orderItems.value = await orderStore.getOrderItems(order.value.id)
+  allTables.value = await tableStore.getAllTables()
   totalPrice.value = orderItems.value
     .filter((item) => item.status === 'completed')
     .reduce((acc, orderItem) => acc + orderItem.item.price * orderItem.quantity, 0)
+}
+
+const changeTable = async (tableId) => {
+  await orderStore.changeTable(order.value.id, tableId)
+  changeTableModal.value = false
 }
 
 onMounted(() => {
@@ -72,10 +80,16 @@ onUnmounted(() => {
     <div class="flex justify-center mt-4">
       <router-link
         to="/employee/tables"
-        class="bg-red-500 text-white px-4 py-2 rounded-md text-base font-semibold"
+        class="bg-red-500 text-white px-4 py-2 rounded-md text-base font-semibold ml-4"
       >
         Back to tables
       </router-link>
+      <button
+        class="bg-yellow-500 text-white px-4 py-2 rounded-md text-base font-semibold ml-4"
+        @click="changeTableModal = true"
+      >
+        Change Table
+      </button>
       <p class="text-2xl font-bold ml-4 text-theme-500">Total Price: {{ totalPrice }}฿</p>
       <button
         class="bg-green-500 text-white px-4 py-2 rounded-md text-base font-semibold ml-4"
@@ -112,6 +126,24 @@ onUnmounted(() => {
       >
         Close
       </button>
+    </XModal>
+
+    <XModal :show="changeTableModal" title="Change Table" @close="changeTableModal = false">
+      <div class="flex flex-col gap-4">
+        <p class="text-sm text-center text-theme-500">Select new table</p>
+        <div class="grid grid-cols-2 gap-4">
+          <button
+            v-for="table in allTables"
+            :key="table.id"
+            class="bg-blue-500 text-white px-4 py-2 rounded-md text-base font-semibold disabled:cursor-not-allowed"
+            :class="{ 'bg-gray-500': table.id === order.tableId }"
+            @click="changeTable(table.id)"
+            :disabled="table.id === order.tableId"
+          >
+            {{ table.name.en }}
+          </button>
+        </div>
+      </div>
     </XModal>
   </div>
 </template>

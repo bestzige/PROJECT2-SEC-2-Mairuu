@@ -621,7 +621,7 @@
       "itemId": "21",
       "quantity": 1,
       "orderDate": "2024-03-31T09:38:02.817Z",
-      "status": "pending"
+      "status": "completed"
     }
   ],
   "service-calls": []

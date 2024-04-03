@@ -152,6 +152,26 @@ export const useOrderStore = defineStore('order', () => {
     return data
   }
 
+  const changeTable = async (orderId, tableId) => {
+    const data = await fetch.patchItem(`${import.meta.env.VITE_API_ENDPOINT}/orders`, orderId, {
+      tableId: `${tableId}`
+    })
+
+    if (!data) {
+      uiStore.addToast({
+        message: 'Failed to change table',
+        type: 'error'
+      })
+    }
+
+    uiStore.addToast({
+      message: `Table changed to ${data.tableId}`,
+      type: 'success'
+    })
+
+    return data
+  }
+
   return {
     currentOrder,
     cartItems,
@@ -168,6 +188,7 @@ export const useOrderStore = defineStore('order', () => {
     getOpenOrders,
     openOrder,
     submitOrder,
-    adding
+    adding,
+    changeTable
   }
 })
