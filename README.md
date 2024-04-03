@@ -116,6 +116,10 @@
        - Press on the table of their order to view table details.
        - Press the Edit icon at right side of each order items.
        - Change status.
+    - Change table for customer.
+       - Press on the table of their order to view table details.
+       - Press on the change table at bottom to view available table.
+       - Choose the desired table for customer.
   - Order Management
     - Confirm order items
        - Press the green icon at right side of each order items to confirm order and change it's status to completed.
