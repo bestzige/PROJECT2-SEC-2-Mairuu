@@ -1,4 +1,4 @@
-# PROJECT1-SEC-2-Mairuu
+# PROJECT2-SEC-2-Mairuu
 
 ## Member List:
 
